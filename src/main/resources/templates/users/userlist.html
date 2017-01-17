@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head" />
+<head>
+<script src="../public/js/table/datatables.js"
+	th:src="@{/js/table/datatables.js}"></script>
+<link rel="stylesheet" href="../public/css/table/datatables.css"
+	th:href="@{/css/table/datatables.css}" />
+<script>
+	$(document).ready(function() {
+		setMenuActive("users-list");
+		var table=$("#userslist").DataTable({
+			responsive : true,
+			lengthChange : false,
+			buttons : [ 'csv', 'excel', 'pdf' ]
+		});
+		table.buttons().container().appendTo('#userslist_wrapper .col-sm-6:eq(0)');
+        $('option[value=afar]').attr('selected', 'selected');
+	});
+</script>
+
+
+</head>
+<BODY>
+	<!-- Body -->
+	<div class="wrapper">
+
+		<header th:replace="layout :: site-header" />
+		<aside th:replace="layout :: site-aside" />
+
+
+
+
+		<!-- START MAIN CONTAINER -->
+		<section>
+			<div class="content-wrapper">
+				<div class="content-heading">
+					MecBox <small>users List</small>
+				</div>
+
+				<!-- START PANEL-->
+				<div class="panel panel-default">
+				 <div class="panel-heading">Users</div>
+					<div class="panel-body">
+					 
+				
+							<table id="userslist"   class="table table-striped" cellspacing="0" width="100%">
+								<thead>
+									<tr>
+										<th>ID</th>
+
+										<th>Fullname</th>
+										<th>Email</th>
+										<th>Roles</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="p : ${users}"
+										th:unless="${(users == null) or (users.size() == 0) }">
+										<td th:text="${p.userid}">id</td>
+
+										<td th:text="${p.fullname}">fullname</td>
+										<td th:text="${p.email}">email</td>
+										<td><th:block th:each="role : ${p.roles}">
+												<span th:text="${role.role}">Item description here...</span>
+											</th:block></td>
+									</tr>
+								</tbody>
+							</table>
+
+ 
+					</div>
+				</div>
+				<!-- END PANEL-->
+
+			</div>
+		</section>
+		<!-- END MAIN CONTAINER -->
+
+
+
+		<footer th:replace="layout :: site-footer" />
+	</div>
+	<!-- wrapper -->
+</BODY>
+</html>
+

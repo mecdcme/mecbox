@@ -1,0 +1,268 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2-gen-2017, 17.08.03
+    Author     : mbruno
+*/
+html, body{
+    height: 100%;
+    background-color: #f1f3f7;
+}
+footer {
+    background-color: white;
+}
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+a{
+    color: #34788c;
+}
+
+a:hover{
+    text-decoration: none;
+}
+/* START HEADER */
+.navbar {
+    position: relative;
+    min-height: 55px;
+    margin-bottom: 21px;
+    border: 1px solid transparent;
+}
+.navbar, .navbar .dropdown-menu, .topnavbar{
+    filter: none!important;
+    color: white!important;
+    font-size: 18pt;
+    padding: 8px 15px;
+}
+
+.topnavbar {
+    border: 0;
+    background-color: #34788c;
+    background-repeat: repeat-x;
+    border-radius: 0px;
+    z-index: 1050;
+    margin-bottom: 0;
+    padding-top: 12px;
+}
+
+.topnavbar a {
+    color: white!important;
+    font-size: 14px;
+    padding: 5px;
+    display: block;
+}
+
+.topnavbar a:hover {
+    color: #34788c!important;
+    text-shadow: none;
+    background-color: #e1e7ef;
+    border-radius: 3px;
+}
+.nav .fa {
+    margin-right: 5px;
+}
+/* END HEADER */
+
+/* START LEFT SIDEBAR */
+.wrapper>.aside {
+    position: absolute;
+    width: 220px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 116;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #fff;
+}
+.wrapper>.aside .aside-inner {
+    overflow: hidden;
+    padding-top: 55px;
+    height: 100%;
+    width: 220px;
+}
+.sidebar {
+    height: 100%;
+    padding-bottom: 20px;
+    background-color: #fff;
+    overflow-y: auto;
+    border-right: 1px rgba(0,0,0,.15) solid;
+}
+
+.sidebar .nav-heading {
+    padding: 12px 15px;
+    color: #333;
+    font-size: 18px;
+    letter-spacing: .035em;
+    pointer-events: none;
+    cursor: default;
+}
+
+.sidebar>.nav {
+    position: relative;
+}
+.sidebar>.nav>.nav-heading:first-child {
+    padding-top: 22px;
+    font-size: 20px;
+}
+.sidebar>.nav>.nav-heading, .sidebar li>.nav-item, .sidebar li>a {
+    white-space: nowrap;
+}
+.sidebar-subnav>li>a {
+    padding-left: 42px;
+    background-color: transparent!important;
+}
+.active {
+    background-color: #e1e7ef;
+}
+
+.toggle-menu {
+    font-size: 20px;
+    left: 188px;
+    top: 77px;
+    position: absolute;
+    z-index: 200;
+    cursor: pointer;
+    color: #34788c;
+}
+.aside.toggle-off {
+    margin-left: -170px;
+}
+section.toggle-off, footer.toggle-off {
+    margin-left: 50px!important;
+}
+aside.toggle-off .active {
+    background-color: inherit;
+}
+/* END LEFT SIDEBAR */
+
+/* START CONTAINER */
+.wrapper>section{
+    position: relative;
+    height: 100%;
+    margin-left: 0;
+    z-index: 111;
+    margin-bottom: 60px!important;
+}
+.content-wrapper {
+    padding: 20px;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,.15);
+    margin-top: -1px;
+}
+.content-wrapper > .content-heading, .content-wrapper>h3 {
+    margin: -20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 24px;
+    line-height: 1.1;
+    color: #333;
+    font-weight: 400;
+    background-color: #fafbfc;
+    border-bottom: 1px solid #cfdbe2
+}
+.content-wrapper>.content-heading>small, .content-wrapper>h3>small {
+    display: block;
+    font-size: 12px;
+    color: #909fa7;
+}
+.panel .panel-heading {
+    border-bottom: 0;
+    font-size: 14px;
+    background-color: #fff;
+}
+/* END CONTAINER */
+
+/* START FOOTER */
+.wrapper>footer, .wrapper>section {
+    margin-left: 220px;
+}
+.wrapper>footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    border-top: 1px solid #e4eaec;
+    padding: 20px;
+    z-index: 109;
+}
+/* END FOOTER */
+
+/* START WIDGET */
+.widget {
+    margin-bottom: 20px;
+    border: 0;
+}
+.widget.panel, .widget .panel {
+    overflow: hidden;
+}
+.row-table {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+.row-table>[class*=col-] {
+    display: table-cell;
+    float: none;
+    table-layout: fixed;
+    vertical-align: middle;
+}
+.widget-content {
+    padding-bottom: 15px!important;
+}
+.bg-blue {
+    background-color: #5d9cec;
+    color: #fff!important;
+}
+.bg-blue-dark {
+    background-color: #2f80e7;
+    color: #fff!important;
+}
+.bg-purple {
+    background-color: #7266ba;
+    color: #fff!important;
+}
+.bg-purple-dark {
+    background-color: #564aa3;
+    color: #fff!important;
+}
+/* END WIDGET */
+
+@media screen and (max-width: 560px) {
+    .small-screen-hide {
+        display: none;
+    }
+    .small-screen .fa {
+        font-size: 20px;
+    }
+    .content-body {
+        overflow-x: auto;
+    }
+}
+section, footer {
+    min-width: 400px;
+}
+
+/* START DATA TABLE */
+table.dataTable.no-footer, th {
+    border-bottom: 1px solid #111 !important;
+}
+td {
+    border-top: 0;
+}
+.even {
+    background-color: #f1f3f7;
+}
+
+/* END DATA TABLE */

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>MecBox </title>
+</head>
+
+<body>
+<header th:replace="layout :: site-header" />
+  <DIV id="container" style="min-height: 820px;">	
+
+
+<main id="posts">
+    <article>
+        <h2 class="title">Users</h2>
+       <table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+  
+       <th>Fullname</th>
+        <th>Email</th>
+         <th>Roles</th>
+    </tr>
+  </thead>
+   <tbody>
+  <tr th:each="p : ${users}"  th:unless="${(users == null) or (users.size() == 0) }">
+    <td  th:text="${p.userid}">id</td>
+ 
+      <td  th:text="${p.fullname}">fullname</td>
+       <td  th:text="${p.email}">email</td>
+         <td>
+         <th:block  th:each="role : ${p.roles}">
+     <span th:text="${role.role}">Item description here...</span>
+    </th:block>
+         
+         </td>
+     </tr>
+    </tbody>
+    </table>
+    
+     
+    </article>
+</main>
+</DIV>
+<footer th:replace="layout :: site-footer" />
+</body>
+
+</html>

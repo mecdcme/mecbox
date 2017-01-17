@@ -1,0 +1,6 @@
+1) creat o progetto su https://start.spring.io/
+
+
+x) Reverse Eng. ==> Roo plugin su eclipse
+
+jpa setup --database MYSQL --provider HIBERNATE  --databaseName mecbox --hostname localhost  --

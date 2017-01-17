@@ -1,0 +1,261 @@
+body {
+	background-color: rgb(248, 248, 248);
+}
+#wrapper {
+	width: 100%;
+}
+#container {
+	padding: 0px 15px; min-height: 568px; background-color: rgb(255, 255, 255);
+}
+@media all and (min-width:768px)
+{
+#container {
+	margin: 0px 0px 0px 250px; padding: 15px 20px; border-left-color: rgb(231, 231, 231); border-left-width: 1px; border-left-style: solid; position: inherit;
+}
+}
+.navbar-brand {
+	padding: 7px 15px; height: 70px; float: left;
+}
+.navbar-top-links {
+	margin-right: 0px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;
+}
+.navbar-top-links li {
+	display: inline-block;
+}
+.navbar-top-links li:last-child {
+	margin-right: 15px;
+}
+.navbar-top-links li a {
+	
+}
+.navbar-top-links .dropdown-menu li {
+	display: block;
+}
+.navbar-top-links .dropdown-menu li:last-child {
+	margin-right: 0px;
+}
+.navbar-top-links .dropdown-menu li a {
+	padding: 3px 20px; min-height: 0px;
+}
+.navbar-top-links .dropdown-menu li a div {
+	white-space: normal;
+}
+.navbar-top-links .dropdown-messages {
+	width: 310px; min-width: 0px;
+}
+.navbar-top-links .dropdown-tasks {
+	width: 310px; min-width: 0px;
+}
+.navbar-top-links .dropdown-alerts {
+	width: 310px; min-width: 0px;
+}
+.navbar-top-links .dropdown-messages {
+	margin-left: 5px;
+}
+.navbar-top-links .dropdown-tasks {
+	margin-left: -59px;
+}
+.navbar-top-links .dropdown-alerts {
+	margin-left: -123px;
+}
+.navbar-top-links .dropdown-user {
+	left: auto; right: 0px;
+}
+.sidebar .navbar-collapse.sidebar-nav {
+	padding-right: 0px; padding-left: 0px;
+}
+.sidebar .sidebar-search {
+	padding: 15px;
+}
+.sidebar ul li {
+	border-bottom-color: rgb(231, 231, 231); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.sidebar .arrow {
+	float: right;
+}
+.sidebar .arrow.fa::before {
+	content: "\f104";
+}
+.sidebar .active > a > .arrow.fa::before {
+	content: "\f107";
+}
+.sidebar .nav-second-level li {
+	border-bottom-color: currentColor !important; border-bottom-width: 0px !important; border-bottom-style: none !important;
+}
+.sidebar .nav-third-level li {
+	border-bottom-color: currentColor !important; border-bottom-width: 0px !important; border-bottom-style: none !important;
+}
+.sidebar .nav-second-level li a {
+	padding-left: 37px;
+}
+.sidebar .nav-third-level li a {
+	padding-left: 52px;
+}
+@media all and (min-width:768px)
+{
+.sidebar {
+	width: 250px; margin-top: 71px; position: absolute; z-index: 1;
+}
+.navbar-top-links li a {
+	padding: 24px 15px 6px; min-height: 70px;
+}
+.navbar-top-links {
+	border-top-color: currentColor; border-top-width: medium; border-top-style: none;
+}
+.navbar-top-links .dropdown-messages {
+	margin-left: auto;
+}
+.navbar-top-links .dropdown-tasks {
+	margin-left: auto;
+}
+.navbar-top-links .dropdown-alerts {
+	margin-left: auto;
+}
+}
+.btn-outline {
+	transition:0.5s; color: inherit; background-color: transparent;
+}
+.btn-outline.btn-primary {
+	color: rgb(66, 139, 202);
+}
+.btn-outline.btn-success {
+	color: rgb(92, 184, 92);
+}
+.btn-outline.btn-info {
+	color: rgb(91, 192, 222);
+}
+.btn-outline.btn-warning {
+	color: rgb(240, 173, 78);
+}
+.btn-outline.btn-danger {
+	color: rgb(217, 83, 79);
+}
+.btn-outline.btn-primary:hover {
+	color: rgb(255, 255, 255);
+}
+.btn-outline.btn-success:hover {
+	color: rgb(255, 255, 255);
+}
+.btn-outline.btn-info:hover {
+	color: rgb(255, 255, 255);
+}
+.btn-outline.btn-warning:hover {
+	color: rgb(255, 255, 255);
+}
+.btn-outline.btn-danger:hover {
+	color: rgb(255, 255, 255);
+}
+.chat {
+	list-style: none; margin: 0px; padding: 0px;
+}
+.chat li {
+	padding-bottom: 5px; margin-bottom: 10px; border-bottom-color: rgb(153, 153, 153); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+.chat li.left .chat-body {
+	margin-left: 60px;
+}
+.chat li.right .chat-body {
+	margin-right: 60px;
+}
+.chat li .chat-body p {
+	margin: 0px;
+}
+.panel .slidedown .glyphicon {
+	margin-right: 5px;
+}
+.chat .glyphicon {
+	margin-right: 5px;
+}
+.chat-panel .panel-body {
+	height: 350px; -ms-overflow-y: scroll;
+}
+.login-panel {
+	margin-top: 25%;
+}
+.flot-chart {
+	height: 400px; display: block;
+}
+.flot-chart-content {
+	width: 100%; height: 100%;
+}
+.dataTables_wrapper {
+	clear: both; position: relative;
+}
+table.dataTable thead .sorting {
+	
+}
+table.dataTable thead .sorting_asc {
+	
+}
+table.dataTable thead .sorting_desc {
+	
+}
+table.dataTable thead .sorting_asc_disabled {
+	
+}
+table.dataTable thead .sorting_desc_disabled {
+	
+}
+table.dataTable thead .sorting_asc::after {
+	font-family: fontawesome; float: right; content: "\f0de";
+}
+table.dataTable thead .sorting_desc::after {
+	font-family: fontawesome; float: right; content: "\f0dd";
+}
+table.dataTable thead .sorting::after {
+	color: rgba(50, 50, 50, 0.5); font-family: fontawesome; float: right; content: "\f0dc";
+}
+.btn-circle {
+	padding: 6px 0px; border-radius: 15px; width: 30px; height: 30px; text-align: center; line-height: 1.4285; font-size: 12px;
+}
+.btn-lg.btn-circle {
+	padding: 10px 16px; border-radius: 25px; width: 50px; height: 50px; line-height: 1.33; font-size: 18px;
+}
+.btn-xl.btn-circle {
+	padding: 10px 16px; border-radius: 35px; width: 70px; height: 70px; line-height: 1.33; font-size: 24px;
+}
+.show-grid [class^=col-] {
+	border: 1px solid rgb(221, 221, 221); padding-top: 10px; padding-bottom: 10px; background-color: rgb(238, 238, 238) !important;
+}
+.show-grid {
+	margin: 15px 0px;
+}
+.huge {
+	font-size: 40px;
+}
+.panel-green {
+	border-color: rgb(92, 184, 92);
+}
+.panel-green .panel-heading {
+	border-color: rgb(92, 184, 92); color: rgb(255, 255, 255); background-color: rgb(92, 184, 92);
+}
+.panel-green a {
+	color: rgb(92, 184, 92);
+}
+.panel-green a:hover {
+	color: rgb(61, 139, 61);
+}
+.panel-red {
+	border-color: rgb(217, 83, 79);
+}
+.panel-red .panel-heading {
+	border-color: rgb(217, 83, 79); color: rgb(255, 255, 255); background-color: rgb(217, 83, 79);
+}
+.panel-red a {
+	color: rgb(217, 83, 79);
+}
+.panel-red a:hover {
+	color: rgb(181, 43, 39);
+}
+.panel-yellow {
+	border-color: rgb(240, 173, 78);
+}
+.panel-yellow .panel-heading {
+	border-color: rgb(240, 173, 78); color: rgb(255, 255, 255); background-color: rgb(240, 173, 78);
+}
+.panel-yellow a {
+	color: rgb(240, 173, 78);
+}
+.panel-yellow a:hover {
+	color: rgb(223, 138, 19);
+}

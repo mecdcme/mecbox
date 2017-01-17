@@ -1,0 +1,45 @@
+#side-menu a {
+	color: rgb(75, 91, 88);
+}
+.release {
+	padding: 5px 0px; text-align: center; color: rgb(145, 139, 137); font-size: 16px;
+}
+.release a:hover {
+	text-decoration: none; cursor: default; background-color: rgb(248, 248, 248) !important;
+}
+.home {
+	background-color: rgb(254, 232, 155);
+}
+#service-definition .active {
+	background-color: rgb(212, 226, 244);
+}
+#service-implementation .active {
+	background-color: rgb(212, 226, 244);
+}
+#process-compose .active {
+	background-color: rgb(254, 232, 155);
+}
+#process-configure .active {
+	background-color: rgb(211, 234, 207);
+}
+#process-prepare .active {
+	background-color: rgb(212, 226, 244);
+}
+#process-execute .active {
+	background-color: rgb(255, 209, 162);
+}
+#process-test .active {
+	background-color: rgb(254, 232, 155);
+}
+#menu-tool .active {
+	background-color: rgb(254, 232, 155);
+}
+#menu-users .active {
+	background-color: rgb(211, 234, 207);
+}
+#menu-groups .active {
+	background-color: rgb(211, 234, 207);
+}
+#menu-gsbpm .active {
+	background-color: rgb(255, 209, 162);
+}

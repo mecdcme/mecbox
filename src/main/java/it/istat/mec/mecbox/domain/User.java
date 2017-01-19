@@ -41,7 +41,7 @@ public class User implements Serializable {
 
  @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
  @JsonBackReference
-private List <UserRole> roles; 
+private UserRole role; 
  
 
 
@@ -60,7 +60,7 @@ public void setFullname(String fullname) {
 
  
  public User(){
-	 roles=new ArrayList<>();
+	 
   
  }
  
@@ -126,20 +126,15 @@ public void setFullname(String fullname) {
              '}';
  }
 
-public List <UserRole> getRoles() {
-	return roles;
+public UserRole getRole() {
+	return role;
 }
 
-public void setRoles(List <UserRole> roles) {
-	this.roles = roles;
+public void setRole(UserRole role) {
+	this.role = role;
 }
 
-public void addRole(UserRole role) {
-    this.roles.add(role);
-    if (role.getUser() != this) {
-    	role.setUser(this);
-    }
-}
+ 
 
 
 }

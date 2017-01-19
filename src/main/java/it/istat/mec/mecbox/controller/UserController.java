@@ -77,6 +77,17 @@ public class UserController {
 		model.addAttribute("allRoles", allRoles);
 		return "users/newuser";
 	}
+	
+	@RequestMapping(value = "/users/edituser", method = RequestMethod.GET)
+	public String getEditUser(Model model,@ModelAttribute("userCreateForm") UserCreateForm form) {
+		// contents as before
+		 
+		Role[] allRoles = Role.values();
+		model.addAttribute("allRoles", allRoles);
+		 
+		return "users/edituser";
+	}
+	
 
 	@RequestMapping(value = "/users/newuser", method = RequestMethod.POST)
 	public String handleUserCreateForm(Model model,@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
@@ -110,6 +121,8 @@ public class UserController {
 
 		List<User> users = userService.findAll();
 		model.addAttribute("users", users);
+		Role[] allRoles = Role.values();
+		model.addAttribute("allRoles", allRoles);
 
 		return "users/userlist";
 	}

@@ -49,7 +49,7 @@ public class UserService {
 		UserRole ur=new UserRole();
 	 
 		ur.setRole(uf.getRole());
-		user.addRole(ur);
+		user.setRole(ur);
 		userDao.save(user);
 		ur.setUser(user);
 		userRolesDao.save(ur);

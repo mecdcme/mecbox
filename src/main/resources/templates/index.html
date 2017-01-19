@@ -25,11 +25,11 @@
                     <div class="panel-body">
                         Choose a report!  
                          <div sec:authorize="hasAuthority('ADMIN')">
-        This will only be displayed if authenticated user has role ROLE_ADMIN.
+        This will only be displayed if authenticated user has role ADMIN 1.
     </div>
     sss
     <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
-        This will only be displayed if authenticated user has role ROLE_ADMIN.
+        This will only be displayed if authenticated user has role  ADMIN 2.
     </div>
                     </div>
                 </div>

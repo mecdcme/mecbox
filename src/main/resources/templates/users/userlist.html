@@ -190,10 +190,8 @@
 
 										<td th:text="${p.fullname}">fullname</td>
 										<td th:text="${p.email}">email</td>
-										<td><th:block th:each="role : ${p.roles}">
-												<span th:text="${role.role}">Item description here...</span>
-											</th:block></td>
-											
+										<td th:text="${p.role.role}">role</td>
+									 	
 										  <td >
 										 <a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" th:onclick="'javascript:edit_person(\''+${p.userid}+'\');'"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                          <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" th:onclick="'javascript:delete_person(\''+${p.userid}+'\');'"><i class="glyphicon glyphicon-trash"></i> Delete</a>

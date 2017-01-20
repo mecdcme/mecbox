@@ -1,9 +1,8 @@
 package it.istat.mec.mecbox.domain;
 
 import javax.persistence.*;
-
- 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import it.istat.mec.mecbox.domain.User;;
 
 @Entity
 @Table(name="user_roles")
@@ -23,7 +22,9 @@ public void setUser(User user) {
 	this.user = user;
 }
 
-@ManyToOne(fetch = FetchType.LAZY)
+// 
+
+@OneToOne
  @JoinColumn(name="userid")
 @JsonManagedReference
  private User user;

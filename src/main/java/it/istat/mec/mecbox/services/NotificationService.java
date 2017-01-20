@@ -35,6 +35,18 @@ public class NotificationService   {
         notifyMessages.add(new NotificationMessage(type, msg));
         httpSession.setAttribute(NOTIFY_MSG_SESSION_KEY, notifyMessages);
     }
+    
+    public  List<NotificationMessage> getNotificationMessages() {
+        List<NotificationMessage> notifyMessages = (List<NotificationMessage>)
+                httpSession.getAttribute(NOTIFY_MSG_SESSION_KEY);
+        if (notifyMessages == null) {
+            notifyMessages = new ArrayList<NotificationMessage>();
+        }
+        return   notifyMessages;
+       
+        
+         
+    }
 
     public enum NotificationMessageType {
         INFO,

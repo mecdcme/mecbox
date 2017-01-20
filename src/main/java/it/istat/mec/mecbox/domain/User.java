@@ -1,5 +1,6 @@
 package it.istat.mec.mecbox.domain;
 
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -38,9 +39,10 @@ public class User implements Serializable {
  @Column(name = "fullname", length = 100)
  private String fullname;
 
+ 
 
- @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
- @JsonBackReference
+@OneToOne(mappedBy = "user",fetch=FetchType.EAGER)
+@JsonBackReference
 private UserRole role; 
  
 

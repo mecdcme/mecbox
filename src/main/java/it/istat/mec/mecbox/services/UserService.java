@@ -59,7 +59,35 @@ public class UserService {
 		
 		
 	}
+	
+	@Transactional
+	public User update(UserCreateForm uf) throws Exception {
+		// TODO Auto-generated method stub a
+		User user =userDao.findOne(uf.getUserid());
+		if(user==null ) throw new Exception("User not found");
+		user.setEmail(uf.getEmail()); 
+     //BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	//user.setPassword(passwordEncoder.encode(uf.getPassword()));
+	//		user.setPassword(uf.getPassword());
+ 		user.setFullname(uf.getFullname());
+	
+ 		UserRole ur=user.getRole();
+ 		ur.setRole(uf.getRole());
+	    user.setRole(ur);
+		userDao.save(user);
+		ur.setUser(user);
+		userRolesDao.save(ur);
+	 	return user;
+	
+	}
 
+	
+	@Transactional
+	public void delete(Long id)  {
+		// TODO Auto-generated method stub a
+		userDao.delete(id);
+	
+	}
 	
 	
 	

@@ -12,6 +12,10 @@ import org.hibernate.validator.constraints.Email;
 
 public class UserCreateForm {
 
+	
+	private Long userid;
+	
+	
 	 @NotNull
 	@Email
     private String email = "";
@@ -65,6 +69,14 @@ public class UserCreateForm {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public Long getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Long userid) {
+		this.userid = userid;
 	}
 
 	 

@@ -1,8 +1,11 @@
 package it.istat.mec.mecbox.domain;
 
 import javax.persistence.*;
+<<<<<<< Upstream, based on branch 'develop' of https://github.com/mecdcme/mecbox.git
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+=======
+>>>>>>> 95d47ae s
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import it.istat.mec.mecbox.domain.User;;
 

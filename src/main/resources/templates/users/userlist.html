@@ -9,36 +9,63 @@
 <script>
 	$(document).ready(function() {
 		setMenuActive("users-list");
-		var table=$("#userslist").DataTable({
+	 	var table=   	$("#userslist").DataTable({
 			responsive : true,
 			lengthChange : false,
 			buttons : [ 'csv', 'excel', 'pdf' ]
 		});
 		
-		table.buttons().container().appendTo('#userslist_wrapper .col-sm-6:eq(0)');
-        $('option[value=afar]').attr('selected', 'selected');
-        
-      table.on('click', 'a.editor_edit', function (e) {
-            e.preventDefault();
-         
-            editor.edit( $(this).closest('tr'), {
-                title: 'Edit record',
-                buttons: 'Update'
-            } );
-        } );
+ 		table.buttons().container().appendTo('#userslist_wrapper .col-sm-6:eq(0)');
         
       
-      $('#userslist1').DataTable( {
-    	  responsive : true,
-			lengthChange : false,
-            "ajax": "/users/restlist",
+  	var table1=      $('#userslist1').DataTable( {
+  		 serverSide: true,
+      responsive : true,
+		 lengthChange : false,
+		     buttons: [	            'copy', 'csv', 'excel', 'pdf', 'print'       ],
+	            "ajax": {
+	                "dataType": 'json',
+	                "contentType": "application/json; charset=utf-8",
+	                "type": "POST",
+	                "url":"/users/restlist",
+	                "dataSrc": function (json) {
+	                	 
+	                   return  json;
+	                }
+	            },
+	         
+      
             "columns": [
-                { "data": "userid" },
-                { "data": "fullname" },
-                { "data": "email" }
+                { 'data': 'userid' },
+                { 'data': 'fullname' },
+                { 'data':'email' },
+                { 'data':'role.role' },
+                { "render": function ( data, type, row ) {
+                         return  '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="javascript:edit_user('+row.userid+');"><i class="glyphicon glyphicon-pencil"></i> Edit</a> <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="javascript:delete_user('+row.userid+');"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+
+                         
+                     },
+                  }
+                             
+                	
+                	 
+               
             ]
       } );
-      
+  	
+ 
+    $('option[value=afar]').attr('selected', 'selected');
+    
+    table.on('click', 'a.editor_edit', function (e) {
+        e.preventDefault();
+     
+        editor.edit( $(this).closest('tr'), {
+            title: 'Edit record',
+            buttons: 'Update'
+        } );
+    } );
+    
+  
 	});
 	
 	
@@ -71,7 +98,7 @@
 	            $('[name="fullname"]').val(data.fullname);
 	            $('[name="email"]').val(data.email);
 	            $('[name="email"]').prop("readonly", true);
-	            $('[name="role"] option[value='+data.role+']').prop('selected', true);
+	            $('[name="role"] option[value='+data.role.role+']').prop('selected', true);
 	      //      $('[name="gender"]').val(data.gender);
 	       //     $('[name="address"]').val(data.address);
 	        //    $('[name="dob"]').datepicker('update',data.dob);
@@ -89,9 +116,18 @@
 	function reload_table()
 	{
 		// /users/restlist
-	    table.ajax.reload(null,false); //reload datatable ajax 
+	   // table.ajax.reload(null,false); //reload datatable ajax
+	   
+		 ricarica_pagina();
 	}
 	 
+	function  ricarica_pagina()
+	{
+		// /users/restlist
+		  location.reload();
+	}
+	 
+	
 	function save()
 	{
 	    $('#btnSave').text('saving...'); //change button text
@@ -99,9 +135,9 @@
 	    var url;
 	 
 	    if(save_method == 'add') {
-	        url = "<?php echo site_url('user/ajax_add')?>";
+	        url =  "/users/restNewUser";
 	    } else {
-	        url = "<?php echo site_url('user/ajax_update')?>";
+	        url = "/users/restUpdateUser";
 	    }
 	 
 	    // ajax adding data to database
@@ -112,7 +148,7 @@
 	        dataType: "JSON",
 	        success: function(data)
 	        {
-	 
+	 alert(data);
 	            if(data.status) //if success close modal and reload ajax table
 	            {
 	                $('#modal_form').modal('hide');
@@ -148,6 +184,7 @@
 	                //if success reload ajax table
 	                $('#modal_form').modal('hide');
 	                reload_table();
+	               
 	            },
 	            error: function (jqXHR, textStatus, errorThrown)
 	            {
@@ -181,30 +218,13 @@
 				<!-- START PANEL-->
 				<div class="panel panel-default">
 				 <div class="panel-heading">Users</div>
-					<div class="panel-body">
-					  <button class="btn btn-success" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i> Add User</button>
-        <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
-        	<table id="userslist1"   class="table table-striped" cellspacing="0" width="100%">
-								<thead>
-									<tr>
-										<th>ID</th>
-
-										<th>Fullname</th>
-										<th>Email</th>
-									 
-									</tr>
-								</thead>
-										<tfoot>
-									<tr>
-										<th>ID</th>
-
-										<th>Fullname</th>
-										<th>Email</th>
-									 
-									</tr>
-								</tfoot>
-								 
-							</table>
+	 				<div class="panel-body">
+		   							  <button class="btn btn-success" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i> Add User</button>
+      <!--  
+      <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+      -->
+	
+       
 				
 							<table id="userslist"   class="table table-striped" cellspacing="0" width="100%">
 								<thead>
@@ -262,17 +282,25 @@
                 <form action="#" id="form" class="form-horizontal">
                     <input type="hidden" value="" name="userid"/> 
                     <div class="form-body">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">FullNme</label>
+                    
+                     <div class="form-group">
+                            <label class="control-label col-md-3">Email</label>
                             <div class="col-md-9">
-                                <input name="fullname" placeholder="First Name" class="form-control" type="text"/>
+                                <input name="email" placeholder="Email" class="form-control" type="text"/>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Email</label>
+                            <label class="control-label col-md-3">Password</label>
                             <div class="col-md-9">
-                                <input name="email" placeholder="Email" class="form-control" type="text"/>
+                                <input name="password" placeholder="Password" class="form-control" type="text" value="mec"/>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">FullNme</label>
+                            <div class="col-md-9">
+                                <input name="fullname" placeholder="First Name" class="form-control" type="text"/>
                                 <span class="help-block"></span>
                             </div>
                         </div>

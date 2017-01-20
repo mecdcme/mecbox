@@ -1,6 +1,8 @@
 package it.istat.mec.mecbox.domain;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import it.istat.mec.mecbox.domain.User;;
 
@@ -26,7 +28,7 @@ public void setUser(User user) {
 
 @OneToOne
  @JoinColumn(name="userid")
-@JsonManagedReference
+ @JsonBackReference
  private User user;
  
  @Column(name="role")

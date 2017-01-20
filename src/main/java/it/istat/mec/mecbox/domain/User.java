@@ -10,6 +10,8 @@ import java.util.Set;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
  
 
  
@@ -41,8 +43,8 @@ public class User implements Serializable {
 
  
 
-@OneToOne(mappedBy = "user",fetch=FetchType.EAGER)
-@JsonBackReference
+@OneToOne(mappedBy = "user",orphanRemoval = true)
+@JsonManagedReference
 private UserRole role; 
  
 

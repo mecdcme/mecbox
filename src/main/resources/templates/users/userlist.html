@@ -2,11 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout :: site-head" />
 <head>
+<meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
 <script src="../public/js/table/datatables.js"
 	th:src="@{/js/table/datatables.js}"></script>
 <link rel="stylesheet" href="../public/css/table/datatables.css"
 	th:href="@{/css/table/datatables.css}" />
 <script>
+var _ctx = $("meta[name='ctx']").attr("content");
+ 
 	$(document).ready(function() {
 		setMenuActive("users-list");
 	 	var table=   	$("#userslist").DataTable({
@@ -27,7 +30,7 @@
 	                "dataType": 'json',
 	                "contentType": "application/json; charset=utf-8",
 	                "type": "POST",
-	                "url":"${home}/users/restlist",
+	                "url": _ctx+ "/users/restlist",
 	                "dataSrc": function (json) {
 	                	 
 	                   return  json;
@@ -82,7 +85,7 @@
 	 
 	    //Ajax Load data from ajax
 	    $.ajax({
-	        url : "users/restgetUser?id=" + id,
+	        url :_ctx+ "/users/restgetUser?id=" + id,
 	        type: "GET",
 	        dataType: "JSON",
 	        success: function(data)
@@ -129,9 +132,9 @@
 	    var url;
 	 
 	    if(save_method == 'add') {
-	        url =  "${home}/users/restNewUser";
+	        url =  _ctx+ "/users/restNewUser";
 	    } else {
-	        url = "${home}/users/restUpdateUser";
+	        url =  _ctx+ "/users/restUpdateUser";
 	    }
 	 
 	    // ajax adding data to database
@@ -172,7 +175,7 @@
 	    {
 	        // ajax delete data to database
 	        $.ajax({
-	        	 url : "${home}/users/restDeleteUser?id=" + id,
+	        	 url :  _ctx+ "/users/restDeleteUser?id=" + id,
 	            type: "POST",
 	            dataType: "JSON",
 	            success: function(data)

@@ -20,14 +20,4 @@ public class HomeController {
         return "index";
     }
 
-   
- 
-    @RequestMapping("/layout")
-    public String layoutblog() {
-     
-        return "layout";
-    }
-
-   
-
 }

@@ -25,6 +25,9 @@ public class NotificationService   {
     public void addErrorMessage(String msg) {
         addNotificationMessage(NotificationMessageType.ERROR, msg);
     }
+    public void removeAllMessages() {
+    	 httpSession.removeAttribute(NOTIFY_MSG_SESSION_KEY);
+    }
 
     private void addNotificationMessage(NotificationMessageType type, String msg) {
         List<NotificationMessage> notifyMessages = (List<NotificationMessage>)

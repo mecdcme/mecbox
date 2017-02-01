@@ -56,7 +56,7 @@ public class UserRestController {
 		public List newUser(@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
 				BindingResult bindingResult) {
 			// contents as before
- 
+                      notificationService.removeAllMessages();
 			if (!bindingResult.hasErrors()) {
 				
 
@@ -87,7 +87,8 @@ public class UserRestController {
 		public List updateUSsr(@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
 				BindingResult bindingResult) {
 			// contents as before
- 
+ 	notificationService.removeAllMessages();
+			
 			if (!bindingResult.hasErrors()) {
 				
 
@@ -118,7 +119,7 @@ public class UserRestController {
 		@RequestMapping(value = "/users/restDeleteUser", method = RequestMethod.POST)
 		public List deleteUSer(@RequestParam("id")Long id) {
 			// contents as before
- 
+ notificationService.removeAllMessages();
 			 
 			try {
 				userService.delete(id) ;

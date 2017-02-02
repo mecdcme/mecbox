@@ -36,29 +36,12 @@ public class UserController {
 	@Autowired
 	private CustomUserDetailsService customUserDetailsService;
 
+	 
+
 	@RequestMapping("/users/login")
-	public String showLoginForm( LoginForm loginForm) {
+	public String showLoginForm(LoginForm loginForm) {
 		return "users/login";
 	}
-	/*
-	 * @RequestMapping(value = "/users/login", method = RequestMethod.POST)
-	 * public String showLoginForm(
-	 * 
-	 * @Valid LoginForm loginForm, BindingResult bindingResult) {
-	 * 
-	 * if (bindingResult.hasErrors()) { notificationService.addErrorMessage(
-	 * "Si è verificato un errore!"); return "users/login"; }
-	 * 
-	 * if (! loginService.authentice(loginForm.getUsername(),
-	 * loginForm.getPassword())) {
-	 * notificationService.addErrorMessage("Invalid login"); return
-	 * "users/login"; }
-	 * 
-	 * httpSession.setAttribute("user",loginForm.getUsername());
-	 * 
-	 * // Login successful notificationService.addInfoMessage("Benvenuto!");
-	 * return "redirect:/"; }
-	 */
 
 	@RequestMapping(value = "/users/logout")
 	public String logout() {
@@ -68,44 +51,43 @@ public class UserController {
 		return "redirect:/";
 	}
 
-	 
 	@RequestMapping(value = "/users/newuser", method = RequestMethod.GET)
-	public String getUserCreatePage(Model model,@ModelAttribute("userCreateForm") UserCreateForm form) {
+	public String getUserCreatePage(Model model, @ModelAttribute("userCreateForm") UserCreateForm form) {
 		// contents as before
-		 
+		notificationService.removeAllMessages();
 		Role[] allRoles = Role.values();
 		model.addAttribute("allRoles", allRoles);
 		return "users/newuser";
 	}
-	
+
 	@RequestMapping(value = "/users/edituser", method = RequestMethod.GET)
-	public String getEditUser(Model model,@ModelAttribute("userCreateForm") UserCreateForm form) {
+	public String getEditUser(Model model, @ModelAttribute("userCreateForm") UserCreateForm form) {
 		// contents as before
-		 
+
 		Role[] allRoles = Role.values();
 		model.addAttribute("allRoles", allRoles);
-		 
+
 		return "users/edituser";
 	}
-	
 
 	@RequestMapping(value = "/users/newuser", method = RequestMethod.POST)
-	public String handleUserCreateForm(Model model,@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
+	public String handleUserCreateForm(Model model, @Valid @ModelAttribute("userCreateForm") UserCreateForm form,
 			BindingResult bindingResult) {
 		// contents as before
-
+       notificationService.removeAllMessages();
 		Role[] allRoles = Role.values();
 		model.addAttribute("allRoles", allRoles);
-		
+
 		if (bindingResult.hasErrors()) {
 			return "users/newuser";
 		}
 
 		try {
 			userService.create(form);
-	//		customUserDetailsService.authenticate(form.getEmail(), form.getPassword());
+			// customUserDetailsService.authenticate(form.getEmail(),
+			// form.getPassword());
 			notificationService.addInfoMessage("Utente creato");
-			
+
 		} catch (Exception e) {
 			notificationService.addErrorMessage("Errore: " + e.getMessage());
 			return "users/newuser";
@@ -113,7 +95,6 @@ public class UserController {
 
 		return "users/newuser";
 	}
-
 
 	@RequestMapping(value = "/users/userlist")
 	public String userslist(Model model) {

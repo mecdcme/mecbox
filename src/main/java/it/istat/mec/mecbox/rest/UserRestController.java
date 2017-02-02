@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +27,10 @@ import it.istat.mec.mecbox.services.UserService;
 public class UserRestController {
 
  
+   
     
-    @Autowired
+
+	@Autowired
     private UserService userService;
     @Autowired
 	private NotificationService notificationService;
@@ -37,7 +40,7 @@ public class UserRestController {
     @RequestMapping(value = "/users/restlist")
 	   public   List<User> userslist( Model model) {
 		       // contents as before
-		   
+    	 
 			   List<User> users = userService.findAll();
 			
 		   	 return users;
@@ -51,12 +54,43 @@ public class UserRestController {
 	   	 return user;
 	   }
 	
-	 
-		@RequestMapping(value = "/users/restUpdateUser", method = RequestMethod.POST)
-		public List updateUSsr(@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
+
+		@RequestMapping(value = "/users/restNewUser", method = RequestMethod.POST)
+		public List newUser(@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
 				BindingResult bindingResult) {
 			// contents as before
- 
+			notificationService.removeAllMessages();
+			if (!bindingResult.hasErrors()) {
+				
+
+			try {
+				userService.create(form);
+		//		customUserDetailsService.authenticate(form.getEmail(), form.getPassword());
+				notificationService.addInfoMessage("Utente creato");
+				
+			} catch (Exception e) {
+				notificationService.addErrorMessage("Errore: " + e.getMessage());
+				 
+			}
+			}
+			else
+			{
+			 
+				 List<FieldError> errors = bindingResult.getFieldErrors();
+				    for (FieldError error : errors ) {
+				    	  notificationService.addErrorMessage (error.getField() + " - " + error.getDefaultMessage());
+				    }
+			}
+
+			return notificationService.getNotificationMessages();
+		}
+		
+
+		@RequestMapping(value = "/users/restUpdateUser", method = RequestMethod.POST)
+		public List updateUser(@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
+				BindingResult bindingResult) {
+			// contents as before
+			notificationService.removeAllMessages();
 			if (!bindingResult.hasErrors()) {
 				
 
@@ -72,11 +106,11 @@ public class UserRestController {
 			}
 			else
 			{
-			 
-				  for(ObjectError error: bindingResult.getAllErrors()) {
-					  notificationService.addErrorMessage("Errore: " +error.getDefaultMessage());
-			           
-			        }
+				 List<FieldError> errors = bindingResult.getFieldErrors();
+				    for (FieldError error : errors ) {
+				    	  notificationService.addErrorMessage (error.getField() + " - " + error.getDefaultMessage());
+				    }
+				   
 			}
 
 			return notificationService.getNotificationMessages();
@@ -85,7 +119,7 @@ public class UserRestController {
 		@RequestMapping(value = "/users/restDeleteUser", method = RequestMethod.POST)
 		public List deleteUSer(@RequestParam("id")Long id) {
 			// contents as before
- 
+			notificationService.removeAllMessages();
 			 
 			try {
 				userService.delete(id) ;

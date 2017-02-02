@@ -70,7 +70,7 @@ public class UserService {
 	//user.setPassword(passwordEncoder.encode(uf.getPassword()));
 	//		user.setPassword(uf.getPassword());
  		user.setNome(uf.getNome());
- 		user.setNome(uf.getNome());
+ 		user.setCognome(uf.getCognome());
  		UserRole ur=user.getRole();
  		ur.setRole(uf.getRole());
 	    user.setRole(ur);

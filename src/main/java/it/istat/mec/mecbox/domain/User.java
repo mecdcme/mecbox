@@ -48,10 +48,10 @@ public class User implements Serializable {
 
 
 
-@OneToOne(mappedBy = "user",fetch=FetchType.EAGER)
-@JsonBackReference
-
-private UserRole role; 
+ @OneToOne(mappedBy = "user",orphanRemoval = true)
+ @JsonManagedReference
+ private UserRole role; 
+  
  
 
 

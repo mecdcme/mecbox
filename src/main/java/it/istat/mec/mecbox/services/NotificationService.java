@@ -11,7 +11,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class NotificationService   {
 
-    public static final String NOTIFY_MSG_SESSION_KEY = "siteNotificationMessages";
+   
+	public static final String NOTIFY_MSG_SESSION_KEY = "siteNotificationMessages";
 
     @Autowired
     private HttpSession httpSession;
@@ -26,7 +27,7 @@ public class NotificationService   {
         addNotificationMessage(NotificationMessageType.ERROR, msg);
     }
     public void removeAllMessages() {
-    	 httpSession.removeAttribute(NOTIFY_MSG_SESSION_KEY);
+    	if(httpSession!=null)     	 httpSession.removeAttribute(NOTIFY_MSG_SESSION_KEY);
     }
 
     private void addNotificationMessage(NotificationMessageType type, String msg) {

@@ -38,8 +38,11 @@ public class User implements Serializable {
      private String email;
     
  
- @Column(name = "fullname", length = 100)
- private String fullname;
+ @Column(name = "nome", length = 100)
+ private String nome;
+
+ @Column(name = "cognome", length = 100)
+ private String cognome;
 
  
 
@@ -56,15 +59,22 @@ private UserRole role;
 
 
 
-public String getFullname() {
-	return fullname;
+public String getNome() {
+	return nome;
 }
 
-public void setFullname(String fullname) {
-	this.fullname = fullname;
+public void setNome(String nome ) {
+	this.nome = nome;
 }
 
 
+public String getCognome() {
+	return cognome;
+}
+
+public void setCognome(String cognome) {
+	this.cognome = cognome;
+}
 
 
  

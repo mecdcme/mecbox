@@ -564,7 +564,8 @@ $('#modal_form').on('hidden.bs.modal', function () {
 									<tr>
 										<th>ID</th>
 
-										<th>Fullname</th>
+										<th>Nome</th>
+										<th>Cognome</th>
 										<th>Email</th>
 									 
 									</tr>
@@ -573,7 +574,8 @@ $('#modal_form').on('hidden.bs.modal', function () {
 									<tr>
 										<th>ID</th>
 
-										<th>Fullname</th>
+										<th>Nome</th>
+										<th>Cognome</th>
 										<th>Email</th>
 									 
 									</tr>
@@ -586,7 +588,8 @@ $('#modal_form').on('hidden.bs.modal', function () {
 									<tr>
 										<th>ID</th>
 
-										<th>Fullname</th>
+										<th>Nome</th>
+										<th>Cognome</th>
 										<th>Email</th>
 										<th>Role</th>
 										  <th >&nbsp;</th>
@@ -597,7 +600,8 @@ $('#modal_form').on('hidden.bs.modal', function () {
 										th:unless="${(users == null) or (users.size() == 0) }">
 										<td th:text="${p.userid}">id</td>
 
-										<td th:text="${p.fullname}">fullname</td>
+										<td th:text="${p.nome}">cognome</td>
+										<td th:text="${p.cognome}">nome</td>
 										<td th:text="${p.email}">email</td>
 										<td th:text="${p.role.role}">role</td>
 									 	

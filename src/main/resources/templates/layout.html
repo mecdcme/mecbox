@@ -88,9 +88,28 @@
                                     <span>by Territory</span>
                                 </a>
                             </li>
+                            
                         </ul>
                     </li>
-                      <li class="nav-body" sec:authorize="hasAuthority('ADMIN')">
+                    
+                    <li class="nav-body" >
+                        <a href="#process-2" title="Report List" data-toggle="collapse" class="collapsed" aria-expanded="false">
+                            <i class="fa fa-cogs"></i>
+                            <span>Report List</span>
+                        </a>
+                        <ul id="process-2" class="nav sidebar-subnav collapse" aria-expanded="false">
+                            
+                            <li id="religion-list">
+                                <a title="Religion List"  href="religion/religionlist.html" th:href="@{/religion/religionlist}">
+                                    <span>Religion List</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    
+                    
+                    <li class="nav-body" sec:authorize="hasAuthority('ADMIN')">
                         <a href="#admin" title="Administration" data-toggle="collapse" class="collapsed" aria-expanded="false">
                             <i class="fa fa-briefcase"></i>
                             <span>Administration</span>
@@ -108,10 +127,6 @@
                             </li>
                         </ul>
                     </li>
-                 
-                
-                     
-                 
             </ul>
         </nav>
     </div>

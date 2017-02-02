@@ -47,6 +47,7 @@ public class User implements Serializable {
  
 
 
+
 @OneToOne(mappedBy = "user",fetch=FetchType.EAGER)
 @JsonBackReference
 

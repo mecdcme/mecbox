@@ -27,14 +27,15 @@ public class UserCreateForm {
    
 	 @NotNull
 	 @Size(min=2, max=30)
-    private String fullname;
+    private String Nome;
+	private String Cognome;
   
 
  
     private String role ;;
     
     public String toString() {
-        return "Person(Email: " + this.email + ", fullName: " + this.fullname + ")";
+        return "Person(Email: " + this.email + ", Nome: " + this.Nome + ", Cognome: " + this.Cognome + ")";
     }
 
 	public String getEmail() {
@@ -55,14 +56,25 @@ public class UserCreateForm {
 
 	 
 
-	public String getFullname() {
-		return fullname;
+	public String getNome() {
+		return Nome;
 	}
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setNome(String Nome) {
+		this.Nome = Nome;
 	}
 
+	
+	public String getCognome() {
+		return Cognome;
+	}
+
+	public void setCognome(String Cognome) {
+		this.Cognome = Cognome;
+	}
+	
+	
+	
 	public String getRole() {
 		return role;
 	}

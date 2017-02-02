@@ -27,7 +27,7 @@ public void setUser(User user) {
 
 @OneToOne
  @JoinColumn(name="userid")
- @JsonBackReference
+
  private User user;
  
  @Column(name="role")

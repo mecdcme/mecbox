@@ -46,13 +46,10 @@ public class User implements Serializable {
 
  
 
-<<<<<<< Upstream, based on branch 'develop' of https://github.com/mecdcme/mecbox.git
-@OneToOne(mappedBy = "user",orphanRemoval = true)
-@JsonManagedReference
-=======
+
 @OneToOne(mappedBy = "user",fetch=FetchType.EAGER)
 @JsonBackReference
->>>>>>> 95d47ae s
+
 private UserRole role; 
  
 

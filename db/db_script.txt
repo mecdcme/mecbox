@@ -1,7 +1,8 @@
 CREATE TABLE `users` (
    `userid` bigint(20) NOT NULL AUTO_INCREMENT,
-   `email` varchar(255) DEFAULT NULL,
-   `fullname` varchar(100) DEFAULT NULL,
+   `email` varchar(255) NOT NULL ,
+   `nome` varchar(100) DEFAULT NULL,
+    `cognome` varchar(100) DEFAULT NULL,
    `password` varchar(255) DEFAULT NULL,
    PRIMARY KEY (`userid`),
    UNIQUE KEY `UK_6dotkott2kjsp8vw4d0m25fb7` (`email`)
@@ -16,7 +17,8 @@ CREATE TABLE `user_roles` (
    CONSTRAINT `FK6qgn9xtttlujey5sa2j7qow4d` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8
   
- 
-INSERT INTO `mecbox_eth`.`users` (`userid`, `email`, `fullname`, `password`) VALUES ('1', 'fra@fra.it', 'fraaaaaaaaaaa', '$2a$10$QZWKAPfnG2F0MIpANjKVvOzfu8VTvEgoPKEoASh93nO/ysRmnJaVC');
+# mec     $2a$10$QZWKAPfnG2F0MIpANjKVvOzfu8VTvEgoPKEoASh93nO/ysRmnJaVC
+# mecbox  $2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW
+INSERT INTO `mecbox_eth`.`users` (`userid`, `email`, `nome`, `cognome`, `password`) VALUES ('1', 'fra@fra.it', 'franco','amalo', '$2a$10$QZWKAPfnG2F0MIpANjKVvOzfu8VTvEgoPKEoASh93nO/ysRmnJaVC');
 INSERT INTO `mecbox_eth`.`user_roles` (`user_role_id`, `role`, `userid`) VALUES ('1', 'ADMIN', '1');
 

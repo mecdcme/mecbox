@@ -5,36 +5,28 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
-
-
-
- 
-
 public class UserCreateForm {
 
-	
 	private Long userid;
-	
-	
-	 @NotNull
+
+	@NotNull
 	@Email
-    private String email = "";
+	@Size(min = 2, max = 100)
+	private String email;
 
-	 @NotNull
-	 @Size(min=2, max=30)
-    private String password = "";
-    
-   
-	 @NotNull
-	 @Size(min=2, max=30)
-    private String nome;
-	
-	 @NotNull
-	 @Size(min=2, max=30)
+	@NotNull
+	@Size(min = 2, max = 50)
+	private String password;
+
+	@NotNull
+	@Size(min = 2, max = 30)
+	private String nome;
+
+	@NotNull
+	@Size(min = 2, max = 30)
 	private String cognome;
-  
 
-	 public String getCognome() {
+	public String getCognome() {
 		return cognome;
 	}
 
@@ -43,12 +35,12 @@ public class UserCreateForm {
 	}
 
 	@NotNull
-	 @Size(min=2, max=30)
-    private String role ;;
-    
-    public String toString() {
-        return "Person(Email: " + this.email + ", Nome: " + this.nome + ", Cognome: " + this.cognome + ")";
-    }
+	@Size(min = 2, max = 30)
+	private String role;;
+
+	public String toString() {
+		return "Person(Email: " + this.email + ", Nome: " + this.nome + ", Cognome: " + this.cognome + ")";
+	}
 
 	public String getEmail() {
 		return email;
@@ -66,8 +58,6 @@ public class UserCreateForm {
 		this.password = password;
 	}
 
-	 
-
 	public String getNome() {
 		return nome;
 	}
@@ -76,10 +66,6 @@ public class UserCreateForm {
 		this.nome = Nome;
 	}
 
-	
-
-	
-	
 	public String getRole() {
 		return role;
 	}
@@ -96,5 +82,4 @@ public class UserCreateForm {
 		this.userid = userid;
 	}
 
-	 
 }

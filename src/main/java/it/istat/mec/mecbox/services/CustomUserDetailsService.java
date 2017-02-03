@@ -44,6 +44,7 @@ public class CustomUserDetailsService implements UserDetailsService{
  @Override
  public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
   User user=userDao.findByEmail(email);
+  CustomUserDetails cud;
   if(null == user){
 	  {
 		  notificationService.addErrorMessage("Nessun user presente con  user: "+email);
@@ -52,7 +53,9 @@ public class CustomUserDetailsService implements UserDetailsService{
   }else{
    List<String> userRoles=userRolesDao.findRoleByEmail(email);
  //  notificationService.addInfoMessage("Benvenuto!");
-   return new CustomUserDetails(user,userRoles);
+   cud= new CustomUserDetails(user,userRoles);
+   
+   return cud;
   }
  }
    

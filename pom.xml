@@ -9,7 +9,7 @@
 	
  	  
 	<packaging>jar</packaging>
-<!--
+        <!--
  	<packaging>war</packaging>
        -->
 	<name>mecbox</name>
@@ -67,11 +67,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
-        </dependency>
+        </dependency-->
   
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

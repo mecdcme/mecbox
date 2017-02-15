@@ -5,21 +5,28 @@
         <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
         <script src="../public/js/table/datatables.js" 
         th:src="@{/js/table/datatables.js}"></script>
+        <link rel="stylesheet" href="../public/css/mecbox.datatables.css"
+              th:href="@{/css/mecbox.datatables.css}" />
         <link rel="stylesheet" href="../public/css/table/datatables.css"
               th:href="@{/css/table/datatables.css}" />
-        <script>
-            var _ctx = $("meta[name='ctx']").attr("content");
-            $(document).ready(function () {
-                setMenuActive("religion-list");
-                var table = $("#religionlist").DataTable({
-                    responsive: true,
-                    lengthChange: false,
-                    buttons: ['csv', 'excel', 'pdf']
-                });
-                table.buttons().container().appendTo('#religionlist_wrapper .col-sm-6:eq(0)');
-                $('option[value=afar]').attr('selected', 'selected');
-            });
-        </script>
+        <script src="../public/js/chart/chart.bundle.min.js" 
+        th:src="@{/js/chart/chart.bundle.min.js}"></script>
+        <script src="../public/js/chart/mecboxChart.js" 
+        th:src="@{/js/chart/mecboxChart.js}"></script>
+        <script src="../public/js/religionList.js" 
+        th:src="@{/js/religionList.js}"></script>
+        
+        
+        <style>
+            .page-header-data{ margin-top:  10px!important;}
+            .page-header-doughnut{ 
+                margin-top:  10px!important;
+                margin-bottom:  120px!important;
+            }
+            
+            
+        </style>
+
     </head>
     <BODY>
         <!-- Body -->    
@@ -35,54 +42,26 @@
                     </div>
                     <div class="container-fluid">
                         <div class="row mb-lg">
-                            <div class="col-lg-6">
-                                <table id="religionlist"   class="table table-striped" cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-
-                                            <th>region</th>
-                                            <th>zone</th>
-                                            <th>woreda</th>
-                                            <th>city</th>
-                                            <th>subcity</th>
-                                            <th>psa</th>
-                                            <th>sa</th>
-                                            <th>kebele</th>
-                                            <th>ea</th>
-                                            <th>household</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="rl : ${religionList}"
-                                            th:unless="${(religionList == null) or (religionList.size() == 0) }">
-
-                                            <td th:text="${rl.region}"></td>
-                                            <td th:text="${rl.zone}"></td>
-                                            <td th:text="${rl.woreda}"></td>
-                                            <td th:text="${rl.city}"></td>
-                                            <td th:text="${rl.subcity}"></td>
-                                            <td th:text="${rl.psa}"></td>
-                                            <td th:text="${rl.sa}"></td>
-                                            <td th:text="${rl.kebele}"></td>
-                                            <td th:text="${rl.ea}"></td>
-                                            <td th:text="${rl.household}"></td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-body">                                
+                                    <div class="col-lg-6">
+                                        <h3 class="page-header page-header-data">Data</h3>                                        
+                                        <table id="religionlist"   class="table table-striped " cellspacing="0" width="100%"></table>
+                                    </div>
+                                    <div class="col-lg-6" >
+                                        <h3 class="page-header page-header-doughnut">Doughnut chart</h3>
+                                        <canvas id="doughnut-chart-area" />  
+                                    </div>
+                                </div>
+                            </div>    
                         </div>
-
                     </div>
                 </div>
             </section>
             <!-- END MAIN CONTAINER -->
-
-
-
             <footer th:replace="layout :: site-footer" />
         </div>   <!-- wrapper -->
     </BODY>
 </html>
+
 

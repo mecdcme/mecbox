@@ -38,7 +38,7 @@
 
     <nav role="navigation" class="navbar topnavbar">
         <div class="nav pull-left">
-            <i class="fa fa-dashboard"></i> Mec <span class="small-screen-hide">Box</span>
+            <i class="fa fa-dropbox fa-2x"></i> Mec <span class="small-screen-hide">Box</span>
         </div>
         <div class="nav pull-right small-screen">
         
@@ -99,8 +99,13 @@
                         </a>
                         <ul id="process-2" class="nav sidebar-subnav collapse" aria-expanded="false">
                             
+                            <li id="household-list">
+                                <a title="Household List"  href="household/householdList.html" th:href="@{/household/householdlist}">
+                                    <span>Household List</span>
+                                </a>
+                            </li>
                             <li id="religion-list">
-                                <a title="Religion List"  href="religion/religionlist.html" th:href="@{/religion/religionlist}">
+                                <a title="Religion List"  href="religion/religionList.html" th:href="@{/religion/religionlist}">
                                     <span>Religion List</span>
                                 </a>
                             </li>
@@ -161,7 +166,7 @@
          <!-- /Body -->         
            <!-- START FOOTER -->
 <footer th:fragment="site-footer">
-    <span>2016 - Istat MecBox</span>
+    <span>2017 - Istat MecBox</span>
 </footer>
 <!-- END FOOTER -->
    </div>    

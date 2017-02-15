@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package it.istat.mec.mecbox.controller;
-import it.istat.mec.mecbox.domain.Religion;
+import it.istat.mec.mecbox.domain.Household;
 import it.istat.mec.mecbox.services.NotificationService;
-import it.istat.mec.mecbox.services.ReligionService;
+import it.istat.mec.mecbox.services.HouseholdService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,27 +17,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author papizzo
  */
-
 @Controller
-public class ReligionController {
-    
+public class HouseholdController {
+    	
         @Autowired
 	private NotificationService notificationService;
 
 	@Autowired
-	private ReligionService religionService;
+	private HouseholdService householdService;
 
-	@RequestMapping(value = "/religion/religionlist")
-	public String religionList(Model model) {
+	@RequestMapping(value = "/household/householdlist")
+	public String householdList(Model model) {
 		// contents as before
 
-		List<Religion> religionList = religionService.findAll();
-		model.addAttribute("religionList", religionList);
+		List<Household> householdList = householdService.findAll();
+		model.addAttribute("householdList", householdList);
 		
-		return "religion/religionlist";
+		return "household/householdlist";
 	}
-    
-    
-    
-    
+
+
 }

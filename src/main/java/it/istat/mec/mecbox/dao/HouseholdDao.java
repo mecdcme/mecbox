@@ -5,7 +5,7 @@
  */
 package it.istat.mec.mecbox.dao;
 
-import it.istat.mec.mecbox.domain.Religion;
+import it.istat.mec.mecbox.domain.Household;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface ReligionDao extends CrudRepository<Religion,Long>{
-    
+public interface HouseholdDao extends CrudRepository<Household,Long> {
+
 }

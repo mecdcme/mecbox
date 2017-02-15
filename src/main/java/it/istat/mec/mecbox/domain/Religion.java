@@ -1,3 +1,7 @@
+/**
+ *
+ * @author papizzo
+ */
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,132 +15,45 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- *
- * @author papizzo
- */
+
 
 @Entity
-@Table(name = "r_household_by_ea")
+@Table(name = "r_religion")
 
 public class Religion implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;    
+
+   
     
-    @Column(name = "region")
-    private String region;           
-
-
-    @Column(name = "zone")
-    private Integer zone;
-
-    @Column(name = "woreda")
-    private Integer woreda;
-
-    @Column(name = "city")
-    private Integer city;
-
-    @Column(name = "subcity")
-    private Integer subcity;        
-
-    @Column(name = "psa")
-    private Integer psa;
-
-    @Column(name = "sa")
-    private Integer sa;
-
-    @Column(name = "kebele")
-    private Integer kebele;
-
-    @Column(name = "ea")
-    private Integer ea;
-
     @Id
-    @Column(name = "household")
-    private Long household;
-        
-    public Religion() {
-        
+    @Column(name = "religion")    
+    private String religion;  
+    
+    @Column(name = "individuals")
+    private String individuals;    
+    
+    public Religion (){
+    
     }
-        
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public Integer getZone() {
-        return zone;
+    
+    
+    public String getReligion() {
+        return religion;
     }
 
-    public void setZone(Integer zone) {
-        this.zone = zone;
+    public void setReligion(String religion) {
+        this.religion = religion;
     }
 
-    public Integer getWoreda() {
-        return woreda;
+    public String getIndividuals() {
+        return individuals;
     }
 
-    public void setWoreda(Integer woreda) {
-        this.woreda = woreda;
+    public void setIndividuals(String individuals) {
+        this.individuals = individuals;
     }
-
-    public Integer getCity() {
-        return city;
-    }
-
-    public void setCity(Integer city) {
-        this.city = city;
-    }
-
-    public Integer getSubcity() {
-        return subcity;
-    }
-
-    public void setSubcity(Integer subcity) {
-        this.subcity = subcity;
-    }
-
-    public Integer getPsa() {
-        return psa;
-    }
-
-    public void setPsa(Integer psa) {
-        this.psa = psa;
-    }
-
-    public Integer getSa() {
-        return sa;
-    }
-
-    public void setSa(Integer sa) {
-        this.sa = sa;
-    }
-
-    public Integer getKebele() {
-        return kebele;
-    }
-
-    public void setKebele(Integer kebele) {
-        this.kebele = kebele;
-    }
-
-    public Integer getEa() {
-        return ea;
-    }
-
-    public void setEa(Integer ea) {
-        this.ea = ea;
-    }
-
-    public Long getHousehold() {
-        return household;
-    }
-
-    public void setHousehold(Long household) {
-        this.household = household;
-    }
-        
+    
+    
+    
 }

@@ -15,29 +15,24 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "r_religion")
 
 public class Religion implements Serializable {
 
-    private static final long serialVersionUID = 1L;    
+    private static final long serialVersionUID = 1L;
 
-   
-    
     @Id
-    @Column(name = "religion")    
-    private String religion;  
-    
+    @Column(name = "religion")
+    private String religion;
+
     @Column(name = "individuals")
-    private String individuals;    
-    
-    public Religion (){
-    
+    private String individuals;
+
+    public Religion() {
+
     }
-    
-    
+
     public String getReligion() {
         return religion;
     }
@@ -53,7 +48,5 @@ public class Religion implements Serializable {
     public void setIndividuals(String individuals) {
         this.individuals = individuals;
     }
-    
-    
-    
+
 }

@@ -24,7 +24,7 @@
                             <div sec:authorize="hasAuthority('ADMIN')">
                                 [Spring security - debug] This will only be displayed if authenticated user hasAuthority ADMIN
                             </div>
-                            
+
                             <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
                                 [Spring security - debug] This will only be displayed if authenticated user hasRole  ADMIN
                             </div>

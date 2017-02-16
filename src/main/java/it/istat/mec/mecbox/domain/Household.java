@@ -15,17 +15,15 @@ import javax.persistence.Table;
  *
  * @author papizzo
  */
-
 @Entity
 @Table(name = "r_household_by_ea")
 
 public class Household implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
-    @Column(name = "region")
-    private String region;           
 
+    @Column(name = "region")
+    private String region;
 
     @Column(name = "zone")
     private Integer zone;
@@ -37,7 +35,7 @@ public class Household implements Serializable {
     private Integer city;
 
     @Column(name = "subcity")
-    private Integer subcity;        
+    private Integer subcity;
 
     @Column(name = "psa")
     private Integer psa;
@@ -54,11 +52,11 @@ public class Household implements Serializable {
     @Id
     @Column(name = "household")
     private Long household;
-        
+
     public Household() {
-        
+
     }
-        
+
     public String getRegion() {
         return region;
     }
@@ -138,5 +136,5 @@ public class Household implements Serializable {
     public void setHousehold(Long household) {
         this.household = household;
     }
-        
+
 }

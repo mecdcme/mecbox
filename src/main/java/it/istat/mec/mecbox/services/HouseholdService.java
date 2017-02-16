@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package it.istat.mec.mecbox.services;
+
 import it.istat.mec.mecbox.domain.Household;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +15,15 @@ import it.istat.mec.mecbox.dao.HouseholdDao;
  *
  * @author papizzo
  */
-
-
 @Service
 public class HouseholdService {
-    
-    	@Autowired
-	private  HouseholdDao householdDao;
-	 
-	public List<Household> findAll() {
-		// TODO Auto-generated method stub
-		return (List<Household>) this.householdDao.findAll();
-	}
-    
-    
+
+    @Autowired
+    private HouseholdDao householdDao;
+
+    public List<Household> findAll() {
+        // TODO Auto-generated method stub
+        return (List<Household>) this.householdDao.findAll();
+    }
+
 }

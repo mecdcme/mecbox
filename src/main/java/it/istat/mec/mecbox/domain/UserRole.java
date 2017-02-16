@@ -3,10 +3,11 @@ package it.istat.mec.mecbox.domain;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "c_user_roles")
-public class UserRole {
+public class UserRole implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

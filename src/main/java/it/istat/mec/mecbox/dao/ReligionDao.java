@@ -13,8 +13,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author papizzo
  */
-
 @Repository
-public interface ReligionDao extends CrudRepository<Religion,Long>{
-    
+public interface ReligionDao extends CrudRepository<Religion, Long> {
+
 }

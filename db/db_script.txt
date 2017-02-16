@@ -1,3 +1,4 @@
+DROP TABLE `c_users`;
 CREATE TABLE `c_users` (
    `userid` bigint(20) NOT NULL AUTO_INCREMENT,
    `email` varchar(255) NOT NULL ,
@@ -8,7 +9,7 @@ CREATE TABLE `c_users` (
    UNIQUE KEY `	EMAIL_UNIQUE` (`email`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
- 
+DROP TABLE `c_user_roles`;
 CREATE TABLE `c_user_roles` (
    `user_role_id` bigint(20) NOT NULL AUTO_INCREMENT,
    `role` varchar(255) DEFAULT NULL,

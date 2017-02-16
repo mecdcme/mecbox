@@ -38,7 +38,7 @@ public class UserService {
         // TODO Auto-generated method stub a
         User user = new User();
         user.setEmail(uf.getEmail());
-       
+
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(uf.getPassword()));
 

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package it.istat.mec.mecbox.controller;
+
 import it.istat.mec.mecbox.domain.Household;
 import it.istat.mec.mecbox.services.NotificationService;
 import it.istat.mec.mecbox.services.HouseholdService;
@@ -19,22 +20,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class HouseholdController {
-    	
-        @Autowired
-	private NotificationService notificationService;
 
-	@Autowired
-	private HouseholdService householdService;
+    @Autowired
+    private NotificationService notificationService;
 
-	@RequestMapping(value = "/household/householdlist")
-	public String householdList(Model model) {
-		// contents as before
+    @Autowired
+    private HouseholdService householdService;
 
-		List<Household> householdList = householdService.findAll();
-		model.addAttribute("householdList", householdList);
-		
-		return "household/householdlist";
-	}
+    @RequestMapping(value = "/household/householdlist")
+    public String householdList(Model model) {
+        // contents as before
 
+        List<Household> householdList = householdService.findAll();
+        model.addAttribute("householdList", householdList);
+
+        return "household/householdlist";
+    }
 
 }

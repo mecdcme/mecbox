@@ -13,8 +13,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author papizzo
  */
-
 @Repository
-public interface HouseholdDao extends CrudRepository<Household,Long> {
+public interface HouseholdDao extends CrudRepository<Household, Long> {
 
 }

@@ -17,15 +17,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ReligionService {
-    
+
     @Autowired
-    private  ReligionDao religionDao;
-    
+    private ReligionDao religionDao;
+
     public List<Religion> findAll() {
-		// TODO Auto-generated method stub
-		return (List<Religion>) this.religionDao.findAll();
-	}
-    
-    
-    
+        // TODO Auto-generated method stub
+        return (List<Religion>) this.religionDao.findAll();
+    }
+
 }

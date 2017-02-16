@@ -9,47 +9,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NotificationService   {
+public class NotificationService {
 
-   
-	public static final String NOTIFY_MSG_SESSION_KEY = "siteNotificationMessages";
+    public static final String NOTIFY_MSG_SESSION_KEY = "siteNotificationMessages";
 
     @Autowired
     private HttpSession httpSession;
 
-    
     public void addInfoMessage(String msg) {
         addNotificationMessage(NotificationMessageType.INFO, msg);
     }
 
-    
     public void addErrorMessage(String msg) {
         addNotificationMessage(NotificationMessageType.ERROR, msg);
     }
+
     public void removeAllMessages() {
-    	if(httpSession!=null)     	 httpSession.removeAttribute(NOTIFY_MSG_SESSION_KEY);
+        if (httpSession != null) {
+            httpSession.removeAttribute(NOTIFY_MSG_SESSION_KEY);
+        }
     }
 
     private void addNotificationMessage(NotificationMessageType type, String msg) {
-        List<NotificationMessage> notifyMessages = (List<NotificationMessage>)
-                httpSession.getAttribute(NOTIFY_MSG_SESSION_KEY);
+        List<NotificationMessage> notifyMessages = (List<NotificationMessage>) httpSession.getAttribute(NOTIFY_MSG_SESSION_KEY);
         if (notifyMessages == null) {
             notifyMessages = new ArrayList<NotificationMessage>();
         }
         notifyMessages.add(new NotificationMessage(type, msg));
         httpSession.setAttribute(NOTIFY_MSG_SESSION_KEY, notifyMessages);
     }
-    
-    public  List<NotificationMessage> getNotificationMessages() {
-        List<NotificationMessage> notifyMessages = (List<NotificationMessage>)
-                httpSession.getAttribute(NOTIFY_MSG_SESSION_KEY);
+
+    public List<NotificationMessage> getNotificationMessages() {
+        List<NotificationMessage> notifyMessages = (List<NotificationMessage>) httpSession.getAttribute(NOTIFY_MSG_SESSION_KEY);
         if (notifyMessages == null) {
             notifyMessages = new ArrayList<NotificationMessage>();
         }
-        return   notifyMessages;
-       
-        
-         
+        return notifyMessages;
+
     }
 
     public enum NotificationMessageType {
@@ -58,6 +54,7 @@ public class NotificationService   {
     }
 
     public class NotificationMessage {
+
         NotificationMessageType type;
         String text;
 

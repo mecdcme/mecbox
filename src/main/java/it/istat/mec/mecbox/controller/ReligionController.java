@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package it.istat.mec.mecbox.controller;
+
 import it.istat.mec.mecbox.domain.Religion;
 import it.istat.mec.mecbox.services.NotificationService;
 import it.istat.mec.mecbox.services.ReligionService;
@@ -17,27 +18,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author papizzo
  */
-
 @Controller
 public class ReligionController {
-    
-        @Autowired
-	private NotificationService notificationService;
 
-	@Autowired
-	private ReligionService religionService;
+    @Autowired
+    private NotificationService notificationService;
 
-	@RequestMapping(value = "/religion/religionlist")
-	public String religionList(Model model) {
-		// contents as before
+    @Autowired
+    private ReligionService religionService;
 
-		List<Religion> religionList = religionService.findAll();
-		model.addAttribute("religionList", religionList);
-		
-		return "religion/religionlist";
-	}
-    
-    
-    
-    
+    @RequestMapping(value = "/religion/religionlist")
+    public String religionList(Model model) {
+        // contents as before
+
+        List<Religion> religionList = religionService.findAll();
+        model.addAttribute("religionList", religionList);
+
+        return "religion/religionlist";
+    }
+
 }

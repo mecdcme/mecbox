@@ -5,34 +5,34 @@ $(function () {
     $('#side-menu').metisMenu({
         toggle: false
     });
-    
+
     toggleMenu();
 
 });
 
 //Set menu active
-function setMenuActive(id){
-    
+function setMenuActive(id) {
+
     //Clean up
-    $('ul.nav a').each(function(){
+    $('ul.nav a').each(function () {
         var element = $(this).removeClass('active').parent().parent().removeClass('in').parent();
         if (element.is('li')) {
             element.removeClass('active');
         }
     });
-    
+
     $("#" + id).addClass("active");
     $("#" + id + " a").addClass('active').parent().parent().addClass('in').parent();
 }
 
 var load = true;
-function toggleMenu(){
+function toggleMenu() {
     var w = 0;
     if (load)
         w = $(window).width();
     else if ($("aside").hasClass("toggle-off"))
-        w = smallWindow+1;
-    if (w<=smallWindow) {
+        w = smallWindow + 1;
+    if (w <= smallWindow) {
         $("aside").addClass("toggle-off");
         $("section").addClass("toggle-off");
         $("footer").addClass("toggle-off");
@@ -49,9 +49,9 @@ function toggleMenu(){
 }
 
 function format(n) {
-    return (""+n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return ("" + n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function formatPercentage(a,b) {
-    return Math.round(1000.*a/b)/10+"%";
+function formatPercentage(a, b) {
+    return Math.round(1000. * a / b) / 10 + "%";
 }

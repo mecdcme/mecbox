@@ -1,183 +1,183 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout :: site-head" />
-<head>
-<meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
-<script src="../public/js/table/datatables.js"
-	th:src="@{/js/table/datatables.js}"></script>
-<link rel="stylesheet" href="../public/css/table/datatables.css"
-	th:href="@{/css/table/datatables.css}" />
-<script src="../public/js/usersList.js"
-	th:src="@{/js/usersList.js}"></script>
+    <head th:replace="layout :: site-head" />
+    <head>
+        <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
+        <script src="../public/js/table/datatables.js"
+        th:src="@{/js/table/datatables.js}"></script>
+        <link rel="stylesheet" href="../public/css/table/datatables.css"
+              th:href="@{/css/table/datatables.css}" />
+        <script src="../public/js/usersList.js"
+        th:src="@{/js/usersList.js}"></script>
 
 
-</head>
-<BODY>
-	<!-- Body -->
-	<div class="wrapper">
+    </head>
+    <BODY>
+        <!-- Body -->
+        <div class="wrapper">
 
-		<header th:replace="layout :: site-header" />
-		<aside th:replace="layout :: site-aside" />
-
-
-
-
-		<!-- START MAIN CONTAINER -->
-		<section>
-			<div class="content-wrapper">
-				<div class="content-heading">
-					MecBox <small>users List</small>
-				</div>
-
-				<!-- START PANEL-->
-				<div class="panel panel-default">
-					<div class="panel-heading">Users</div>
-					<div class="panel-body">
-						<button class="btn btn-success" id="btnAddUser"
-							onclick="add_user()" style="margin-bottom: 10px">
-							<i class="glyphicon glyphicon-plus"></i> Add User
-						</button>
-				
-						<table id="userslist" class="table table-striped" cellspacing="0"
-							width="100%">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Nome</th>
-									<th>Cognome</th>
-									<th>Email</th>
-									<th>Role</th>
-									<th>&nbsp;</th>
-									<th>&nbsp;</th>
-								</tr>
-							</thead>
-							 
-						</table>
-					
-					       
-
-
-					</div>
-				</div>
-				<!-- END PANEL-->
-
-			</div>
-		</section>
-		<!-- END MAIN CONTAINER -->
+            <header th:replace="layout :: site-header" />
+            <aside th:replace="layout :: site-aside" />
 
 
 
-		<footer th:replace="layout :: site-footer" />
-	</div>
-	<!-- wrapper -->
-	<!-- Bootstrap modal -->
-	<div class="modal fade" id="modal_form" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">User Form</h3>
-				</div>
-				<div class="modal-body form">
-					<form action="#" id="form" class="form-horizontal">
-						<input type="hidden" value="" name="userid" />
-						<div class="form-body">
 
-							<div id="msgs"></div>
+            <!-- START MAIN CONTAINER -->
+            <section>
+                <div class="content-wrapper">
+                    <div class="content-heading">
+                        MecBox <small>users List</small>
+                    </div>
+
+                    <!-- START PANEL-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Users</div>
+                        <div class="panel-body">
+                            <button class="btn btn-success" id="btnAddUser"
+                                    onclick="add_user()" style="margin-bottom: 10px">
+                                <i class="glyphicon glyphicon-plus"></i> Add User
+                            </button>
+
+                            <table id="userslist" class="table table-striped" cellspacing="0"
+                                   width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                        <th>Cognome</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+
+                            </table>
 
 
-							<div class="form-group">
-								<label class="control-label col-md-3">Email</label>
-								<div class="col-md-9">
-									<input name="email" placeholder="Email" class="form-control"
-										type="text" /> <span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Password</label>
-								<div class="col-md-9">
-									<input name="password" placeholder="Password"
-										class="form-control" type="text" value="mec" /> <span
-										class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Nome</label>
-								<div class="col-md-9">
-									<input name="nome" placeholder="Nome" class="form-control"
-										type="text" /> <span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Cognome</label>
-								<div class="col-md-9">
-									<input name="cognome" placeholder="Cognome"
-										class="form-control" type="text" /> <span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Ruolo</label>
-								<div class="col-md-9">
-									<select name="role">
-										<option th:each="rolei : ${allRoles}" th:value="${rolei}"
-											th:text="${rolei}">Ruolo</option>
-									</select>
-									 <span class="help-block"></span>
-								</div>
-							</div>
 
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="btnSave" onclick="save()"
-						class="btn btn-primary">Salva</button>
-					<button type="button" id="btnClose" class="btn btn-danger"
-						data-dismiss="modal" onclick="close()">Chiudi</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
-	<!-- End Bootstrap modal -->
-	
-	<!-- Bootstrap modal -->
-	<div class="modal fade" id="modalDelete_form" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">Delete User</h3>
-				</div>
-			
-						<div id="msgsDel"></div>
-				<div class="modal-body form">
-				 <div>
-				 Delete user <strong><span id="delEmail"></span></strong>. <input type="hidden" id="delId" value=""/> Are you sure?
-				 </div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="btnDelete" onclick="delete_user()"
-						class="btn btn-primary">Delete</button>
-					<button type="button" id="btnDeleteClose" class="btn btn-danger"
-						data-dismiss="modal" onclick="close()">Close</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
-	<!-- End Bootstrap modal -->
 
-</BODY>
+                        </div>
+                    </div>
+                    <!-- END PANEL-->
+
+                </div>
+            </section>
+            <!-- END MAIN CONTAINER -->
+
+
+
+            <footer th:replace="layout :: site-footer" />
+        </div>
+        <!-- wrapper -->
+        <!-- Bootstrap modal -->
+        <div class="modal fade" id="modal_form" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h3 class="modal-title">User Form</h3>
+                    </div>
+                    <div class="modal-body form">
+                        <form action="#" id="form" class="form-horizontal">
+                            <input type="hidden" value="" name="userid" />
+                            <div class="form-body">
+
+                                <div id="msgs"></div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Email</label>
+                                    <div class="col-md-9">
+                                        <input name="email" placeholder="Email" class="form-control"
+                                               type="text" /> <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Password</label>
+                                    <div class="col-md-9">
+                                        <input name="password" placeholder="Password"
+                                               class="form-control" type="text" value="mec" /> <span
+                                               class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Nome</label>
+                                    <div class="col-md-9">
+                                        <input name="nome" placeholder="Nome" class="form-control"
+                                               type="text" /> <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Cognome</label>
+                                    <div class="col-md-9">
+                                        <input name="cognome" placeholder="Cognome"
+                                               class="form-control" type="text" /> <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Ruolo</label>
+                                    <div class="col-md-9">
+                                        <select name="role">
+                                            <option th:each="rolei : ${allRoles}" th:value="${rolei}"
+                                                    th:text="${rolei}">Ruolo</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btnSave" onclick="save()"
+                                class="btn btn-primary">Salva</button>
+                        <button type="button" id="btnClose" class="btn btn-danger"
+                                data-dismiss="modal" onclick="close()">Chiudi</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- End Bootstrap modal -->
+
+        <!-- Bootstrap modal -->
+        <div class="modal fade" id="modalDelete_form" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h3 class="modal-title">Delete User</h3>
+                    </div>
+
+                    <div id="msgsDel"></div>
+                    <div class="modal-body form">
+                        <div>
+                            Delete user <strong><span id="delEmail"></span></strong>. <input type="hidden" id="delId" value=""/> Are you sure?
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btnDelete" onclick="delete_user()"
+                                class="btn btn-primary">Delete</button>
+                        <button type="button" id="btnDeleteClose" class="btn btn-danger"
+                                data-dismiss="modal" onclick="close()">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- End Bootstrap modal -->
+
+    </BODY>
 </html>
 

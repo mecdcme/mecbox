@@ -1,48 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head th:replace="layout :: site-head"/>
-   <BODY>
-      <!-- Body -->    
-    <div class="wrapper">
-    
-  <header th:replace="layout :: site-header" />
-  <aside th:replace="layout :: site-aside" />
-         
-  
-  
-     
-                 <!-- START MAIN CONTAINER -->
-        <section>
-             <div class="content-wrapper">
-                <div class="content-heading">
-                    MecBox
-                    <small>Field work monitor</small>
-                </div>
+    <head th:replace="layout :: site-head"/>
+    <body>
+        <!-- Body -->    
+        <div class="wrapper">
 
-                <!-- START PANEL-->
-                <div class="panel panel-default">
-                    <div class="panel-heading">Welcome to the MecBox system <strong sec:authentication="name">User</strong> <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span></div>
-                    <div class="panel-body">
-                        Choose a report!  
-                         <div sec:authorize="hasAuthority('ADMIN')">
-        This will only be displayed if authenticated user has role ADMIN 1.
-    </div>
-    sss
-    <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
-        This will only be displayed if authenticated user has role  ADMIN 2.
-    </div>
+            <header th:replace="layout :: site-header" />
+            <aside th:replace="layout :: site-aside" />
+
+            <!-- START MAIN CONTAINER -->
+            <section>
+                <div class="content-wrapper">
+                    <div class="content-heading">
+                        MecBox
+                        <small>Field work monitor</small>
                     </div>
-                </div>
-                <!-- END PANEL-->
 
-            </div>
-        </section>
-        <!-- END MAIN CONTAINER -->
-         
-   
-   
-     <footer th:replace="layout :: site-footer" />
-       </div>   <!-- wrapper -->
-     	</BODY>
+                    <!-- START PANEL-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Welcome to the MecBox system <strong sec:authentication="name">User</strong> <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span></div>
+                        <div class="panel-body">
+                            Choose a report!  
+                            <div sec:authorize="hasAuthority('ADMIN')">
+                                [Spring security - debug] This will only be displayed if authenticated user hasAuthority ADMIN
+                            </div>
+                            
+                            <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                                [Spring security - debug] This will only be displayed if authenticated user hasRole  ADMIN
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PANEL-->
+
+                </div>
+            </section>
+            <!-- END MAIN CONTAINER -->
+            <footer th:replace="layout :: site-footer" />
+        </div><!-- wrapper -->
+    </body>
 </html>
 

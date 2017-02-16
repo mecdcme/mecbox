@@ -3,52 +3,46 @@ package it.istat.mec.mecbox.domain;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import it.istat.mec.mecbox.domain.User;;
 
 @Entity
-@Table(name="user_roles")
+@Table(name = "c_user_roles")
 public class UserRole {
- 
- @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)    
-    @Column(name="user_role_id")
- private Long userroleid;
- 
-  
- public User getUser() {
-	return user;
-}
 
-public void setUser(User user) {
-	this.user = user;
-}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_role_id")
+    private Long userroleid;
 
-// 
+    public User getUser() {
+        return user;
+    }
 
-@OneToOne
-@JoinColumn(name="userid")
-@JsonBackReference
-private User user;
- 
- @Column(name="role")
- private String role; 
+    public void setUser(User user) {
+        this.user = user;
+    }
 
- public String getRole() {
-  return role;
- }
+    @OneToOne
+    @JoinColumn(name = "userid")
+    @JsonBackReference
+    private User user;
 
- public void setRole(String role) {
-  this.role = role;
- }
+    @Column(name = "role")
+    private String role;
 
- 
- public Long getUserroleid() {
-  return userroleid;
- }
+    public String getRole() {
+        return role;
+    }
 
- public void setUserroleid(Long userroleid) {
-  this.userroleid = userroleid;
- } 
- 
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Long getUserroleid() {
+        return userroleid;
+    }
+
+    public void setUserroleid(Long userroleid) {
+        this.userroleid = userroleid;
+    }
+
 }

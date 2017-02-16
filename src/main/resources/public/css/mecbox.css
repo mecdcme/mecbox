@@ -69,6 +69,11 @@ a:hover{
 .nav .fa {
     margin-right: 5px;
 }
+
+.signout{
+    margin-right:0px;
+    margin-top: 20px;
+}
 /* END HEADER */
 
 /* START LEFT SIDEBAR */
@@ -85,7 +90,7 @@ a:hover{
 }
 .wrapper>.aside .aside-inner {
     overflow: hidden;
-    padding-top: 55px;
+    padding-top: 70px;
     height: 100%;
     width: 220px;
 }
@@ -127,7 +132,7 @@ a:hover{
 .toggle-menu {
     font-size: 20px;
     left: 188px;
-    top: 77px;
+    top: 92px;
     position: absolute;
     z-index: 200;
     cursor: pointer;

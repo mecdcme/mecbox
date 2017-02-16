@@ -1,0 +1,15 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:src": {
+            "context": "script"
+        },
+        "th:replace": {
+            "context": "header"
+        },
+        "th:href": {
+            "context": "link"
+        },
+        "th:fragment": {}
+    }
+}

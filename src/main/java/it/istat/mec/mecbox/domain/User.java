@@ -6,109 +6,108 @@ import org.hibernate.validator.constraints.Email;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name = "users")
+@Table(name = "c_users")
 public class User implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "userid")
-	private Long userid;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "userid")
+    private Long userid;
 
-	@Column(name = "password")
-	private String password;
+    @Column(name = "password")
+    private String password;
 
-	@Email
-	@Column(name = "email", unique = true, nullable = false)
-	private String email;
+    @Email
+    @Column(name = "email", unique = true, nullable = false)
+    private String email;
 
-	@Column(name = "nome", length = 100)
-	private String nome;
+    @Column(name = "nome", length = 100)
+    private String nome;
 
-	@Column(name = "cognome", length = 100)
-	private String cognome;
+    @Column(name = "cognome", length = 100)
+    private String cognome;
 
-	@OneToOne(mappedBy = "user", orphanRemoval = true)
-	@JsonManagedReference
-	private UserRole role;
+    @OneToOne(mappedBy = "user", orphanRemoval = true)
+    @JsonManagedReference
+    private UserRole role;
 
-	public String getNome() {
-		return nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public String getCognome() {
-		return cognome;
-	}
+    public String getCognome() {
+        return cognome;
+    }
 
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
-	}
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
 
-	public User() {
+    public User() {
 
-	}
+    }
 
-	public User(User user) {
-		this.userid = user.userid;
+    public User(User user) {
+        this.userid = user.userid;
 
-		this.email = user.email;
-		this.password = user.password;
+        this.email = user.email;
+        this.password = user.password;
 
-	}
+    }
 
-	public Long getUserid() {
-		return userid;
-	}
+    public Long getUserid() {
+        return userid;
+    }
 
-	public void setUserid(Long userid) {
-		this.userid = userid;
-	}
+    public void setUserid(Long userid) {
+        this.userid = userid;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public User(String email, String fullname) {
-		this.email = email;
+    public User(String email, String fullname) {
+        this.email = email;
 
-	}
+    }
 
-	public User(Long userid, String email, String fullname) {
-		this.userid = userid;
-		this.email = email;
+    public User(Long userid, String email, String fullname) {
+        this.userid = userid;
+        this.email = email;
 
-	}
+    }
 
-	@Override
-	public String toString() {
-		return "User{" + "id=" + userid + ", email='" + email + '\'' + ", passwordHash='" + password + '\'' +
+    @Override
+    public String toString() {
+        return "User{" + "id=" + userid + ", email='" + email + '\'' + ", passwordHash='" + password + '\''
+                + '}';
+    }
 
-				'}';
-	}
+    public UserRole getRole() {
+        return role;
+    }
 
-	public UserRole getRole() {
-		return role;
-	}
-
-	public void setRole(UserRole role) {
-		this.role = role;
-	}
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
 
 }

@@ -17,10 +17,10 @@ $(document).ready(function () {
             arrLabel.push(obj.range);
             arrDataMale.push(obj.male);
             arrDataFemale.push(obj.female);
-            
-
-   
         });
+        
+        //var colors = Chart.helpers.color;
+        
         var configBar = {
 
             type: 'bar',
@@ -30,11 +30,15 @@ $(document).ready(function () {
                 datasets: [
                 {
                     data: arrDataMale,
-                    backgroundColor: color[8][2], //coral
+                    //backgroundColor: colors(color[5][2]).alpha(0.7).rgbString(),
+                    backgroundColor: color[5][2],
+                    //color[8][2], 
                     label: 'Male'
                 },{
                     data: arrDataFemale,
-                    backgroundColor: color[32][2], //gold
+                    backgroundColor:color[69][2],
+                    //backgroundColor:colors(color[69][2]).alpha(0.7).rgbString(),
+                    // color[32][2], //gold
                     label: 'Female'
                 }],
             },

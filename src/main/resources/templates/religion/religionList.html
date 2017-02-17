@@ -3,16 +3,19 @@
     <head th:replace="layout :: site-head"/>
     <head>
         <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
+        
         <script src="../public/js/table/datatables.js" 
         th:src="@{/js/table/datatables.js}"></script>
-        <link rel="stylesheet" href="../public/css/mecbox.datatables.css"
-              th:href="@{/css/mecbox.datatables.css}" />
+        
         <link rel="stylesheet" href="../public/css/table/datatables.css"
-              th:href="@{/css/table/datatables.css}" />
+        th:href="@{/css/table/datatables.css}" />
+        
         <script src="../public/js/chart/chart.bundle.min.js" 
         th:src="@{/js/chart/chart.bundle.min.js}"></script>
+
         <script src="../public/js/chart/mecboxChart.js" 
         th:src="@{/js/chart/mecboxChart.js}"></script>
+
         <script src="../public/js/religionList.js" 
         th:src="@{/js/religionList.js}"></script>
     </head>

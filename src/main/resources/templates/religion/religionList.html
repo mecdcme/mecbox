@@ -15,18 +15,6 @@
         th:src="@{/js/chart/mecboxChart.js}"></script>
         <script src="../public/js/religionList.js" 
         th:src="@{/js/religionList.js}"></script>
-
-
-        <style>
-            .page-header-data{ margin-top:  10px!important;}
-            .page-header-doughnut{ 
-                margin-top:  10px!important;
-                margin-bottom:  120px!important;
-            }
-
-
-        </style>
-
     </head>
     <BODY>
         <!-- Body -->    
@@ -45,12 +33,15 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">                                
                                     <div class="col-lg-6">
-                                        <h3 class="page-header page-header-data">Data</h3>                                        
+                                        <h3 class="page-header page-header-data">Data</h3>
+                                        
                                         <table id="religionlist"   class="table table-striped " cellspacing="0" width="100%"></table>
                                     </div>
                                     <div class="col-lg-6" >
                                         <h3 class="page-header page-header-doughnut">Doughnut chart</h3>
-                                        <canvas id="doughnut-chart-area" />  
+                                        <div class="row spacer"></div>
+                                        <canvas id="doughnut-chart-area" />
+                                        <div class="spacer"></div>
                                     </div>
                                 </div>
                             </div>    

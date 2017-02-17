@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package it.istat.mec.mecbox.dao;
-import it.istat.mec.mecbox.domain.Religion;
+import it.istat.mec.mecbox.domain.SexDistribution;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +12,9 @@ import org.springframework.stereotype.Repository;
  *
  * @author papizzo
  */
-@Repository
-public interface ReligionDao extends CrudRepository<Religion, Long> {
 
+@Repository
+public interface SexDistributionDao extends CrudRepository<SexDistribution, Long>{
+    
+     
 }

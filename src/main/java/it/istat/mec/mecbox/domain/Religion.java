@@ -8,7 +8,6 @@
  * and open the template in the editor.
  */
 package it.istat.mec.mecbox.domain;
-
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;

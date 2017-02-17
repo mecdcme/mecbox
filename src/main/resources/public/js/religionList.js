@@ -95,41 +95,8 @@ $(document).ready(function () {
 
         var myChartDoughnut = document.getElementById("doughnut-chart-area").getContext("2d");
         var myDoughnut = new Chart(myChartDoughnut, configDoughnut);
-
-        /*
-         var configBar = {
-         type: 'bar',
-         data: {
-         label: 'Dataset 1',
-         datasets: [{
-         data: arrData,
-         backgroundColor: arrColor[5], //gradient,/
-         label: 'RELIGION/INDIVIDUALS'
-         }],
-         labels: arrLabel
-         },
-         options: {
-         responsive: true,
-         legend: {
-         position: 'top'
-         },
-         title: {
-         display: false,
-         text: "RELIGION/INDIVIDUALS"
-         },
-         
-         animation: {
-         animateScale: true,
-         animateRotate: true
-         }
-         
-         }
-         };
-         
-         var myChartBar = document.getElementById("bar-chart-area").getContext("2d");
-         var myBar = new Chart(myChartBar, configBar);
-         */
-
+        
+   
     });
 
 });

@@ -3,13 +3,13 @@
     <head th:replace="layout :: site-head"/>
     <head>
         <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
-        
+
         <script src="../public/js/table/datatables.js" 
         th:src="@{/js/table/datatables.js}"></script>
-        
+
         <link rel="stylesheet" href="../public/css/table/datatables.css"
-        th:href="@{/css/table/datatables.css}" />
-        
+              th:href="@{/css/table/datatables.css}" />
+
         <script src="../public/js/chart/chart.bundle.min.js" 
         th:src="@{/js/chart/chart.bundle.min.js}"></script>
 
@@ -18,6 +18,11 @@
 
         <script src="../public/js/religionList.js" 
         th:src="@{/js/religionList.js}"></script>
+        <style>
+
+   
+
+        </style>
     </head>
     <BODY>
         <!-- Body -->    
@@ -30,14 +35,35 @@
                     <div class="content-heading">
                         Religion List
                         <small>Religion List</small>
-                    </div>
-                    <div class="container-fluid">
+                    </div>                    
+                    <div class="container-fluid loading">                            
+                        <div class="row mb-lg">                                
+                            <div class="col-sm-4"></div> 
+                            <div class="col-sm-4">                                
+                                <!--div class="alert alert-info fade in shadow-effect">
+                                    <div class="loader">    
+                                        <i class="fa fa-spinner fa-spin fa-5x fa-fw"></i>
+                                            <strong> Loading data...</strong>
+                                    </div>
+                                </div-->
+                                <div class="panel panel-default shadow-effect">
+                                    <div class="panel-body"> 
+                                        <div class="loader">
+                                            <i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><span><strong>Loading data...</strong></span>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="col-sm-4"></div> 
+                            </div> 
+                        </div>                         
+                    </div>                   
+                    <div class="container-fluid religion-fluid">
                         <div class="row mb-lg">
-                            <div class="panel panel-default">
+                            <div class="panel panel-default ">
                                 <div class="panel-body">                                
                                     <div class="col-lg-6">
                                         <h3 class="page-header page-header-data">Data</h3>
-                                        
+
                                         <table id="religionlist"   class="table table-striped " cellspacing="0" width="100%"></table>
                                     </div>
                                     <div class="col-lg-6" >

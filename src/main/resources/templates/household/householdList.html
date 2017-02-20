@@ -2,13 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="layout :: site-head"/>
     <head>
-        <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
-        
+        <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />        
         <script src="../public/js/table/datatables.js" th:src="@{/js/table/datatables.js}"></script>
-        <script src="../public/js/household.js" th:src="@{/js/household.js}"></script>    
-        
+        <script src="../public/js/household.js" th:src="@{/js/household.js}"></script> 
         <link rel="stylesheet" href="../public/css/table/datatables.css" th:href="@{/css/table/datatables.css}" />
-        
     </head>
     <BODY>
         <!-- Body -->    
@@ -23,53 +20,48 @@
                         <small>Household List</small>
                     </div>
                     <div class="container-fluid">
-                        <div class="row mb-lg">                                
-                                <div class="panel panel-default">
-                                    <div class="panel-body"> 
-                                        <table id="householdlist"   class="table table-striped" cellspacing="0" width="100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>region</th>
-                                                    <th>zone</th>
-                                                    <th>woreda</th>
-                                                    <th>city</th>
-                                                    <th>subcity</th>
-                                                    <th>psa</th>
-                                                    <th>sa</th>
-                                                    <th>kebele</th>
-                                                    <th>ea</th>
-                                                    <th>household</th>
+                        <div class="row mb-lg"> 
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <table id="householdlist"   class="table table-striped" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>region</th>
+                                                <th>zone</th>
+                                                <th>woreda</th>
+                                                <th>city</th>
+                                                <th>subcity</th>
+                                                <th>psa</th>
+                                                <th>sa</th>
+                                                <th>kebele</th>
+                                                <th>ea</th>
+                                                <th>household</th>
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr th:each="hh : ${householdList}"
-                                                    th:unless="${(householdList == null) or (householdList.size() == 0) }">
-                                                    <td th:text="${hh.region}"></td>
-                                                    <td th:text="${hh.zone}"></td>
-                                                    <td th:text="${hh.woreda}"></td>
-                                                    <td th:text="${hh.city}"></td>
-                                                    <td th:text="${hh.subcity}"></td>
-                                                    <td th:text="${hh.psa}"></td>
-                                                    <td th:text="${hh.sa}"></td>
-                                                    <td th:text="${hh.kebele}"></td>
-                                                    <td th:text="${hh.ea}"></td>
-                                                    <td th:text="${hh.household}"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="hh : ${householdList}"
+                                                th:unless="${(householdList == null) or (householdList.size() == 0) }">
+                                                <td th:text="${hh.region}"></td>
+                                                <td th:text="${hh.zone}"></td>
+                                                <td th:text="${hh.woreda}"></td>
+                                                <td th:text="${hh.city}"></td>
+                                                <td th:text="${hh.subcity}"></td>
+                                                <td th:text="${hh.psa}"></td>
+                                                <td th:text="${hh.sa}"></td>
+                                                <td th:text="${hh.kebele}"></td>
+                                                <td th:text="${hh.ea}"></td>
+                                                <td th:text="${hh.household}"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                           
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </section>
             <!-- END MAIN CONTAINER -->
-
-
-
             <footer th:replace="layout :: site-footer" />
         </div>   <!-- wrapper -->
     </BODY>

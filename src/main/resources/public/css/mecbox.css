@@ -278,7 +278,6 @@ td {
     border-bottom: 1px solid #ddd !important;
 }
 
-
 /* colore button quando la table si restringe */
 
 table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before{

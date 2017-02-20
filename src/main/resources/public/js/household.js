@@ -10,6 +10,7 @@ $(document).ready(function () {
             {targets: [1, 2, 3, 4, 5, 6, 7, 8, 9], render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'}
         ]
     });
+
     table.buttons().container().appendTo('#householdlist_wrapper .col-sm-6:eq(0)');
     $('option[value=afar]').attr('selected', 'selected');
 });

@@ -36,7 +36,7 @@ $(document).ready(function () {
                 }
 
                 $('.loading').hide();
-
+                
                 $('.religion-fluid').animate(
                         {queue: false, duration: 500}
                 ).fadeIn('clip', '', 500, callBackShow);

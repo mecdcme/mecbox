@@ -9,8 +9,6 @@ $(document).ready(function () {
 
     setMenuActive("sexdistribution-list");
 
-
-
     var jqxhr = $.getJSON(_ctx + "/sexdistribution/restlist", function (json) {
 
         console.log("success");
@@ -75,7 +73,6 @@ $(document).ready(function () {
 
                 var myChartBar = document.getElementById("bar-chart-area").getContext("2d");
                 var myBar = new Chart(myChartBar, configBar);
-
 
             });
 

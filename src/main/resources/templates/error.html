@@ -146,23 +146,29 @@
 		<!-- END LEFT SIDE BAR -->
 
 		<!-- START MAIN CONTAINER -->
-		<section>
-			<div class="content-wrapper">
-				<div class="content-heading">
-					Mec Box - Layout <small>Field work monitor</small>
-				</div>
+		  <section>
+             <div class="content-wrapper">
+                <div class="content-heading">
+                   Mec Box - Error Page 
+                    <small>Errors</small>
+                </div>
 
-				<!-- START PANEL-->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Welcome to the MecBox <strong sec:authentication="name">User</strong>
-					</div>
-					<div class="panel-body">Choose a report!</div>
-				</div>
-				<!-- END PANEL-->
+                <!-- START PANEL-->
+                <div class="panel panel-default">
+                     <div class="panel-body">
+                       <div class="row">
+    <h1 class="indigo-text center" th:text="${error}">Not found</h1>
 
-			</div>
-		</section>
+    <p class="col s12 center" th:text="${message}">
+        This page is not available
+    </p>
+</div>
+                    </div>
+                </div>
+                <!-- END PANEL-->
+
+            </div>
+        </section>
 		<!-- END MAIN CONTAINER -->
 
 		<!-- START FOOTER -->

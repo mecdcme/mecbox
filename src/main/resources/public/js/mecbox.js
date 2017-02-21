@@ -55,3 +55,27 @@ function format(n) {
 function formatPercentage(a, b) {
     return Math.round(1000. * a / b) / 10 + "%";
 }
+
+//write REST response user
+function writeMsgs(data, iddiv_msgs) {
+
+	$.each(data, function(index, msg) {
+		var classs = 'alert alert-info';
+		if (msg.type == 'INFO')
+			classs = 'alert alert-success';
+		else if (msg.type == 'ERROR')
+			classs = 'alert alert-danger';
+		var div = $('<div class="' + classs + '"><strong>' + msg.type
+				+ '</strong>: ' + msg.text + ' </div>"');
+		$("#" + iddiv_msgs).append(div);
+
+	});
+}
+//write REST response user
+function writeMsgsError(msg, iddiv_msgs) {
+
+	var classs = 'alert alert-danger';
+	var div = $('<div class="' + classs + '">' + msg + ' </div>"');
+	$("#" + iddiv_msgs).append(div);
+
+}

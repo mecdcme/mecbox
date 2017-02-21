@@ -1,105 +1,141 @@
 package it.istat.mec.mecbox.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import it.istat.mec.mecbox.bean.Role;
 import it.istat.mec.mecbox.domain.User;
 import it.istat.mec.mecbox.forms.LoginForm;
 import it.istat.mec.mecbox.forms.UserCreateForm;
-import it.istat.mec.mecbox.services.CustomUserDetailsService;
 import it.istat.mec.mecbox.services.NotificationService;
 import it.istat.mec.mecbox.services.UserService;
-
+import java.security.Principal;
 import java.util.List;
-
 import javax.validation.Valid;
 
 @Controller
 public class UserController {
 
-    @Autowired
-    private NotificationService notificationService;
+	@Autowired
+	private NotificationService notificationService;
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+	@RequestMapping("/users/login")
+	public String showLoginForm(LoginForm loginForm) {
+		return "users/login";
+	}
 
-    @RequestMapping("/users/login")
-    public String showLoginForm(LoginForm loginForm) {
-        return "users/login";
-    }
+	@RequestMapping(value = "/users/logout")
+	public String logout() {
 
-    @RequestMapping(value = "/users/logout")
-    public String logout() {
+		// Login successful
+		notificationService.addInfoMessage("Logout Ok !");
+		return "redirect:/";
+	}
 
-        // Login successful
-        notificationService.addInfoMessage("Arrivederci!");
-        return "redirect:/";
-    }
+	@RequestMapping(value = "/users/newuser", method = RequestMethod.GET)
+	public String getUserCreatePage(Model model, @ModelAttribute("userCreateForm") UserCreateForm form) {
+		// contents as before
+		notificationService.removeAllMessages();
+		Role[] allRoles = Role.values();
+		model.addAttribute("allRoles", allRoles);
+		return "users/newuser";
+	}
 
-    @RequestMapping(value = "/users/newuser", method = RequestMethod.GET)
-    public String getUserCreatePage(Model model, @ModelAttribute("userCreateForm") UserCreateForm form) {
-        // contents as before
-        notificationService.removeAllMessages();
-        Role[] allRoles = Role.values();
-        model.addAttribute("allRoles", allRoles);
-        return "users/newuser";
-    }
+	@RequestMapping(value = "/users/edituser", method = RequestMethod.GET)
+	public String getEditUser(Model model, Principal principal) {
+		notificationService.removeAllMessages();
+		String name = principal.getName(); // get logged in username
+		User user = userService.findByEmail(name);
 
-    @RequestMapping(value = "/users/edituser", method = RequestMethod.GET)
-    public String getEditUser(Model model, @ModelAttribute("userCreateForm") UserCreateForm form) {
-        // contents as before
+		UserCreateForm userf = new UserCreateForm();
+		userf.setCognome(user.getCognome());
+		userf.setEmail(user.getEmail());
+		userf.setNome(user.getNome());
 
-        Role[] allRoles = Role.values();
-        model.addAttribute("allRoles", allRoles);
+		userf.setRole(user.getRole().getRole());
+		userf.setUserid(user.getUserid());
+		model.addAttribute("userCreateForm", userf);
+		// contents as before
 
-        return "users/edituser";
-    }
+		Role[] allRoles = Role.values();
+		model.addAttribute("allRoles", allRoles);
 
-    @RequestMapping(value = "/users/newuser", method = RequestMethod.POST)
-    public String handleUserCreateForm(Model model, @Valid @ModelAttribute("userCreateForm") UserCreateForm form,
-            BindingResult bindingResult) {
-        // contents as before
-        notificationService.removeAllMessages();
-        Role[] allRoles = Role.values();
-        model.addAttribute("allRoles", allRoles);
+		return "users/edituser";
+	}
 
-        if (bindingResult.hasErrors()) {
-            return "users/newuser";
-        }
+	@RequestMapping(value = "/users/edituser", method = RequestMethod.POST)
+	public String editUser(Model model, @Valid @ModelAttribute("userCreateForm") UserCreateForm form,
+			BindingResult bindingResult) {
 
-        try {
-            userService.create(form);
-            // customUserDetailsService.authenticate(form.getEmail(),
-            // form.getPassword());
-            notificationService.addInfoMessage("Utente creato");
+		notificationService.removeAllMessages();
+		Role[] allRoles = Role.values();
+		model.addAttribute("allRoles", allRoles);
 
-        } catch (Exception e) {
-            notificationService.addErrorMessage("Errore: " + e.getMessage());
-            return "users/newuser";
-        }
+		if (bindingResult.hasErrors()) {
 
-        return "users/newuser";
-    }
+			return "users/edituser";
+		}
 
-    @RequestMapping(value = "/users/userlist")
-    public String userslist(Model model) {
-        // contents as before
+		try {
+			userService.update(form);
+			// customUserDetailsService.authenticate(form.getEmail(),
+			// form.getPassword());
+			notificationService.addInfoMessage("User updated");
 
-        List<User> users = userService.findAll();
-        model.addAttribute("users", users);
-        Role[] allRoles = Role.values();
-        model.addAttribute("allRoles", allRoles);
+		} catch (Exception e) {
+			notificationService.addErrorMessage("Error: " + e.getMessage());
+			return "users/edituser";
+		}
 
-        return "users/userlist";
-    }
+		return "users/edituser";
+	}
+
+	@RequestMapping(value = "/users/newuser", method = RequestMethod.POST)
+	public String handleUserCreateForm(Model model, @Valid @ModelAttribute("userCreateForm") UserCreateForm form,
+			BindingResult bindingResult) {
+		// contents as before
+		notificationService.removeAllMessages();
+		Role[] allRoles = Role.values();
+		model.addAttribute("allRoles", allRoles);
+
+		if (bindingResult.hasErrors()) {
+
+			return "users/newuser";
+		}
+
+		try {
+			userService.create(form);
+			// customUserDetailsService.authenticate(form.getEmail(),
+			// form.getPassword());
+			notificationService.addInfoMessage("User created");
+
+		} catch (Exception e) {
+			notificationService.addErrorMessage("Error: " + e.getMessage());
+			return "users/newuser";
+		}
+
+		return "users/newuser";
+	}
+
+	@RequestMapping(value = "/users/userlist")
+	public String userslist(Model model) {
+		// contents as before
+
+		List<User> users = userService.findAll();
+		model.addAttribute("users", users);
+		Role[] allRoles = Role.values();
+		model.addAttribute("allRoles", allRoles);
+
+		return "users/userlist";
+	}
 
 }

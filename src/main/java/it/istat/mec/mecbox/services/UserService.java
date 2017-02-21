@@ -16,74 +16,104 @@ import it.istat.mec.mecbox.forms.UserCreateForm;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserDao userDao;
-    @Autowired
-    private UserRolesDao userRolesDao;
+	@Autowired
+	private UserDao userDao;
+	@Autowired
+	private UserRolesDao userRolesDao;
 
-    // @Autowired
-//	 private BCryptPasswordEncoder bCryptPasswordEncoder;
-    public List<User> findAll() {
-        // TODO Auto-generated method stub
-        return (List<User>) this.userDao.findAll();
-    }
+	// @Autowired
+	// private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public User findOne(Long id) {
-        // TODO Auto-generated method stub
-        return this.userDao.findOne(id);
-    }
+	public List<User> findAll() {
+		// TODO Auto-generated method stub
+		return (List<User>) this.userDao.findAll();
+	}
 
-    @Transactional
-    public User create(UserCreateForm uf) {
-        // TODO Auto-generated method stub a
-        User user = new User();
-        user.setEmail(uf.getEmail());
+	public User findOne(Long id) {
+		// TODO Auto-generated method stub
+		return this.userDao.findOne(id);
+	}
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        user.setPassword(passwordEncoder.encode(uf.getPassword()));
+	public User findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return this.userDao.findByEmail(email);
+	}
 
-        user.setNome(uf.getNome());
-        user.setCognome(uf.getCognome());
-        UserRole ur = new UserRole();
+	@Transactional
+	public User create(UserCreateForm uf) {
+		// TODO Auto-generated method stub a
+		User user = new User();
+		user.setEmail(uf.getEmail());
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		user.setPassword(passwordEncoder.encode(uf.getPassword()));
 
-        ur.setRole(uf.getRole());
-        user.setRole(ur);
-        userDao.save(user);
-        ur.setUser(user);
-        userRolesDao.save(ur);
+		user.setNome(uf.getNome());
+		user.setCognome(uf.getCognome());
+		UserRole ur = new UserRole();
 
-        return user;
+		ur.setRole(uf.getRole());
+		user.setRole(ur);
+		userDao.save(user);
+		ur.setUser(user);
+		userRolesDao.save(ur);
 
-    }
+		return user;
 
-    @Transactional
-    public User update(UserCreateForm uf) throws Exception {
-        // TODO Auto-generated method stub a
-        User user = userDao.findOne(uf.getUserid());
-        if (user == null) {
-            throw new Exception("User not found");
-        }
-        user.setEmail(uf.getEmail());
-        //BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        //user.setPassword(passwordEncoder.encode(uf.getPassword()));
-        //		user.setPassword(uf.getPassword());
-        user.setNome(uf.getNome());
-        user.setCognome(uf.getCognome());
-        UserRole ur = user.getRole();
-        ur.setRole(uf.getRole());
-        user.setRole(ur);
-        userDao.save(user);
-        ur.setUser(user);
-        userRolesDao.save(ur);
-        return user;
+	}
 
-    }
+	@Transactional
+	public User update(UserCreateForm uf) throws Exception {
+		// TODO Auto-generated method stub a
+		User user = userDao.findOne(uf.getUserid());
+		if (user == null)
+			throw new Exception("User not found");
+		user.setEmail(uf.getEmail());
+		// BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		// user.setPassword(passwordEncoder.encode(uf.getPassword()));
+		// user.setPassword(uf.getPassword());
+		user.setNome(uf.getNome());
+		user.setCognome(uf.getCognome());
+		//user.setPassword(null);
+		UserRole ur = user.getRole();
+		ur.setRole(uf.getRole());
+		//user.setRole(ur);
+		userDao.save(user);
+		//ur.setUser(user);
+		userRolesDao.save(ur);
+		return user;
 
-    @Transactional
-    public void delete(Long id) {
-        // TODO Auto-generated method stub a
-        userDao.delete(id);
+	}
+	
+	 
+	public User updatePasswordByEmail(String email,String password) throws Exception {
+		// TODO Auto-generated method stub a
+		User user = userDao.findByEmail(email); 
+		if (user == null)
+			throw new Exception("User not found");
+		
+		 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		 user.setPassword(passwordEncoder.encode(password));
+	    userDao.save(user);
+	 	return user;
+ 	}
+	public User updatePasswordById(Long id,String password) throws Exception {
+		// TODO Auto-generated method stub a
+		User user = userDao.findOne(id); 
+		if (user == null)
+			throw new Exception("User not found");
+		
+		 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		 user.setPassword(passwordEncoder.encode(password));
+	    userDao.save(user);
+	 	return user;
+ 	}
 
-    }
+	@Transactional
+	public void delete(Long id) {
+		// TODO Auto-generated method stub a
+		userDao.delete(id);
+
+	}
 
 }

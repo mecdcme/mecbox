@@ -34,80 +34,91 @@ $(document).ready(function () {
                     individuals = parseInt(arrLabelData[i][1]);
                     arrLabelData[i][2] = 100 * individuals / individualsTotal;
                 }
-
+                
                 $('.loading').hide();
                 
                 $('.religion-fluid').animate(
                         {queue: false, duration: 500}
                 ).fadeIn('clip', '', 500, callBackShow);
 
-                var table = $("#religionlist").DataTable({
-                    //dom: 'Bfrtip',
-                    dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
-                            "<'row'<'col-sm-12'tr>>" +
-                            "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-                    responsive: true,
-                    pageLength: 10,
-                    bPaginate: true,
-                    buttons: [{
-                            extend: 'csvHtml5',
-                            filename: 'religonList',
-                            title: 'religionList',
-                            exportOptions: {columns: [0, 1, 2]}
-                        }, {
-                            extend: 'excelHtml5',
-                            filename: 'religionList',
-                            title: 'religionList',
-                            exportOptions: {columns: [0, 1, 2]}
-                        }, {
-                            extend: 'pdfHtml5',
-                            filename: 'religionList',
-                            title: 'religionList',
-                            exportOptions: {columns: [0, 1, 2]}
-                        }],
-                    data: arrLabelData,
-                    "columns": [
-                        {'title': 'Religion'},
-                        {'title': 'Individuals', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'},
-                        //{'title': 'Percentage (%)',render: $.fn.dataTable.render.number(',', '.', 1, '%'),'className': 'numeric'}
-                        {'title': 'Percentage (%)', render: $.fn.dataTable.render.number(',', '.', 3), 'className': 'numeric'}
-                    ]
-
-                });
-                //table.buttons().container().appendTo('#religionlist_wrapper .col-sm-6:eq(0)');
-                var configDoughnut = {
-                    type: 'doughnut',
-                    data: {
-                        datasets: [{
-                                data: arrData,
-                                backgroundColor: arrColor, //gradient,/
-                                //label: 'RELIGION/INDIVIDUALS'
-                            }],
-                        labels: arrLabel
-                    },
-                    options: {
-                        responsive: true,
-                        legend: {
-                            position: 'right'
-                        },
-                        /*
-                         title: {
-                         display: false,
-                         text: "RELIGION/INDIVIDUALS"
-                         },
-                         */
-                        animation: {
-                            animateScale: true,
-                            animateRotate: true
-                        }
-                    }
-                };
-                var myChartDoughnut = document.getElementById("doughnut-chart-area").getContext("2d");
-                var myDoughnut = new Chart(myChartDoughnut, configDoughnut);
+                renderTable();
+                renderDoughnut();
 
             });
 
 });
+
+function renderTable() {
+    var table = $("#religionlist").DataTable({
+        //dom: 'Bfrtip',
+        dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+        responsive: true,
+        pageLength: 10,
+        bPaginate: true,
+        buttons: [{
+                extend: 'csvHtml5',
+                filename: 'religonList',
+                title: 'religionList',
+                exportOptions: {columns: [0, 1, 2]}
+            }, {
+                extend: 'excelHtml5',
+                filename: 'religionList',
+                title: 'religionList',
+                exportOptions: {columns: [0, 1, 2]}
+            }, {
+                extend: 'pdfHtml5',
+                filename: 'religionList',
+                title: 'religionList',
+                exportOptions: {columns: [0, 1, 2]}
+            }],
+        data: arrLabelData,
+        "columns": [
+            {'title': 'Religion'},
+            {'title': 'Individuals', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'},
+            //{'title': 'Percentage (%)',render: $.fn.dataTable.render.number(',', '.', 1, '%'),'className': 'numeric'}
+            {'title': 'Percentage (%)', render: $.fn.dataTable.render.number(',', '.', 3), 'className': 'numeric'}
+        ]
+
+    });
+    //table.buttons().container().appendTo('#religionlist_wrapper .col-sm-6:eq(0)');
+}
+
+function renderDoughnut() {
+
+    var configDoughnut = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                    data: arrData,
+                    backgroundColor: arrColor, //gradient,/
+                    //label: 'RELIGION/INDIVIDUALS'
+                }],
+            labels: arrLabel
+        },
+        options: {
+            responsive: true,
+            legend: {
+                position: 'right'
+            },
+            /*
+             title: {
+             display: false,
+             text: "RELIGION/INDIVIDUALS"
+             },
+             */
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        }
+    };
+    var myChartDoughnut = document.getElementById("doughnut-chart-area").getContext("2d");
+    var myDoughnut = new Chart(myChartDoughnut, configDoughnut);
+}
+;
+
 function callBackHide() {
     setTimeout(function () {
         $("#center").fadeOut();
@@ -120,3 +131,4 @@ function callBackShow() {
     }, 1000);
 }
 ;
+

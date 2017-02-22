@@ -28,10 +28,7 @@ public class SexDistributionController {
     
     @RequestMapping(value = "/sexdistribution/sexdistributionlist")
     public String sexdistributioList(Model model) {
-        // contents as before
-
-        List<SexDistribution> sexdistributionList = sexdistributionService.findAll();
-        model.addAttribute("sexdistributionList", sexdistributionList);
+        // contents as before  
 
         return "/sexdistribution/sexdistributionlist";
     }

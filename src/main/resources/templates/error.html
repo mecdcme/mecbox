@@ -76,68 +76,7 @@
 									class="fa fa-home"></i> <span>Home</span>
 							</a></li>
 
-							<li class="nav-body"><a href="#process"
-								title="Monitor Report" data-toggle="collapse" class="collapsed"
-								aria-expanded="false"> <i class="fa fa-cogs"></i> <span>Monitor
-										Report</span>
-							</a>
-								<ul id="process" class="nav sidebar-subnav collapse"
-									aria-expanded="false">
-									<li id="report-questionnaire"><a href="#"
-										title="by Questionnaire"> <span>by Questionnaire</span>
-									</a></li>
-									<li id="report-territory"><a href="#" title="by Territory">
-											<span>by Territory</span>
-									</a></li>
 
-								</ul></li>
-
-							<li class="nav-body"><a href="#process-2"
-								title="Report List" data-toggle="collapse" class="collapsed"
-								aria-expanded="false"> <i class="fa fa-cogs"></i> <span>Report
-										List</span>
-							</a>
-								<ul id="process-2" class="nav sidebar-subnav collapse"
-									aria-expanded="false">
-
-									<li id="household-list"><a title="Household List"
-										href="household/householdList.html"
-										th:href="@{/household/householdlist}"> <span>Household
-												List</span>
-									</a></li>
-									<li id="religion-list"><a title="Religion List"
-										href="religion/religionList.html"
-										th:href="@{/religion/religionlist}"> <span>Religion
-												List</span>
-									</a></li>
-									<li id="sexdistribution-list"><a
-										title="Sex Distribution List"
-										href="sexdistribution/sexdistributionList.html"
-										th:href="@{/sexdistribution/sexdistributionlist}"> <span>Sex
-												Distribution List</span>
-									</a></li>
-
-
-								</ul></li>
-
-							<li class="nav-body" sec:authorize="hasAuthority('ADMIN')">
-								<a href="#admin" title="Administration" data-toggle="collapse"
-								class="collapsed" aria-expanded="false"> <i
-									class="fa fa-briefcase"></i> <span>Administration</span>
-							</a>
-								<ul id="admin" class="nav sidebar-subnav collapse"
-									aria-expanded="false">
-									<li id="users-list" sec:authorize="hasAuthority('ADMIN')">
-										<a title="Users List" href="users/userlist.html"
-										th:href="@{/users/userlist}"> <span>Users List</span>
-									</a>
-									</li>
-									<li id="edituser"><a title="Edit User"
-										href="users/edituser.html" th:href="@{/users/edituser}"> <span>Edit
-												User</span>
-									</a></li>
-								</ul>
-							</li>
 						</ul>
 					</nav>
 				</div>
@@ -146,29 +85,32 @@
 		<!-- END LEFT SIDE BAR -->
 
 		<!-- START MAIN CONTAINER -->
-		  <section>
-             <div class="content-wrapper">
-                <div class="content-heading">
-                   Mec Box - Error Page 
-                    <small>Errors</small>
-                </div>
+		<section>
+			<div class="content-wrapper">
+				<div class="content-heading">
+					Mec Box - Error Page <small>Errors</small>
+				</div>
 
-                <!-- START PANEL-->
-                <div class="panel panel-default">
-                     <div class="panel-body">
-                       <div class="row">
-    <h1 class="indigo-text center" th:text="${error}">Not found</h1>
+				<!-- START PANEL-->
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="row">
+							<h1 class="indigo-text center" th:text="${error}">Not found</h1>
 
-    <p class="col s12 center" th:text="${message}">
-        This page is not available
-    </p>
-</div>
-                    </div>
-                </div>
-                <!-- END PANEL-->
+							<p class="col s12 center" th:text="${message}">This page is
+								not available</p>
+							<p>
+								Go to <a href="index.html" title="Home" th:href="@{/}"
+									class="active"> <i class="fa fa-home"></i> <span>Home</span>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- END PANEL-->
 
-            </div>
-        </section>
+			</div>
+		</section>
 		<!-- END MAIN CONTAINER -->
 
 		<!-- START FOOTER -->

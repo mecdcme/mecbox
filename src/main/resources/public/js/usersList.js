@@ -51,10 +51,10 @@ $(document)
                                                 'data': 'userid'
                                             },
                                             {
-                                                'data': 'nome'
+                                                'data': 'name'
                                             },
                                             {
-                                                'data': 'cognome'
+                                                'data': 'surname'
                                             },
                                             {
                                                 'data': 'email'
@@ -154,7 +154,7 @@ function add_user() {
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('#password_group').show(); // show password block
+    $('.password_group').show(); // show password block
     $('#form_password').val(''); // show password block
     $('.modal-title').text('Add User'); // Set Title to Bootstrap modal title
     $('#msgs').empty();
@@ -168,7 +168,7 @@ function edit_user(id) {
     $('.help-block').empty(); // clear error string
 
     $('#form_password').val('password'); // show password block
-    $('#password_group').hide(); // show password block
+    $('.password_group').hide(); // show password block
     $('#msgs').empty();
     tabled_changed = false;
     // Ajax Load data from ajax
@@ -179,8 +179,8 @@ function edit_user(id) {
         success: function (data) {
 
             $('[name="userid"]').val(data.userid);
-            $('[name="nome"]').val(data.nome);
-            $('[name="cognome"]').val(data.cognome);
+            $('[name="name"]').val(data.name);
+            $('[name="surname"]').val(data.surname);
             $('[name="email"]').val(data.email);
             $('[name="email"]').prop("readonly", true);
             $('[name="role"] option[value=' + data.role.role + ']').prop(
@@ -251,6 +251,8 @@ function save() {
             // }
 
             if (data) {
+            	
+            	 
                 $.each(data,
                         function (index, msg) {
                             var classs = 'alert alert-info';
@@ -266,14 +268,15 @@ function save() {
                         });
             }
 
-            $('#btnSave').text('Salva'); // change button text
-            $('#btnSave').attr('disabled', false); // set button enable
+            $('#btnSave').text('Save'); // change button text
             tabled_changed = true;
+            if(save_method !='add')   $('#btnSave').attr('disabled', false); // set button enable
+               
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert('Error adding / update data');
-            $('#btnSave').text('Salva'); // change button text
+            $('#btnSave').text('Save'); // change button text
             $('#btnSave').attr('disabled', false); // set button enable
 
         }

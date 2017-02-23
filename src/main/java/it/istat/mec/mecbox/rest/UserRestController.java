@@ -1,6 +1,7 @@
 
 package it.istat.mec.mecbox.rest;
 
+
 import java.security.Principal;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -104,19 +106,28 @@ public class UserRestController {
 	}
 
 	@RequestMapping(value = "/users/restDeleteUser", method = RequestMethod.POST)
-	public List<NotificationMessage> deleteUSer(@RequestParam("id") Long id) {
+	public List<NotificationMessage> deleteUser(@RequestParam("id") Long id) {
 		// contents as before
 		notificationService.removeAllMessages();
-
+		//get logged in user
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	
+	 if(id.compareTo(user.getUserid()) ==0)  
+	 {
+		 notificationService.addErrorMessage("Error: User can not be deleted !");
+	 }
+	 else       {     
 		try {
+		
+			
 			userService.delete(id);
 			// customUserDetailsService.authenticate(form.getEmail(),
 			// form.getPassword());
 			notificationService.addInfoMessage("User deleted");
 
 		} catch (Exception e) {
-			notificationService.addErrorMessage("Error" + e.getMessage());
-
+			notificationService.addErrorMessage("Error: " + e.getMessage());
+		}
 		}
 
 		return notificationService.getNotificationMessages();

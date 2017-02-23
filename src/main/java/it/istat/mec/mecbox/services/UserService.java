@@ -48,8 +48,8 @@ public class UserService {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		user.setPassword(passwordEncoder.encode(uf.getPassword()));
 
-		user.setNome(uf.getNome());
-		user.setCognome(uf.getCognome());
+		user.setName(uf.getName());
+		user.setSurname(uf.getSurname());
 		UserRole ur = new UserRole();
 
 		ur.setRole(uf.getRole());
@@ -72,8 +72,8 @@ public class UserService {
 		// BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		// user.setPassword(passwordEncoder.encode(uf.getPassword()));
 		// user.setPassword(uf.getPassword());
-		user.setNome(uf.getNome());
-		user.setCognome(uf.getCognome());
+		user.setName(uf.getName());
+		user.setSurname(uf.getSurname());
 		//user.setPassword(null);
 		UserRole ur = user.getRole();
 		ur.setRole(uf.getRole());

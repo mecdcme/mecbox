@@ -20,18 +20,18 @@ public class UserCreateForm {
 
     @NotNull
     @Size(min = 2, max = 30)
-    private String nome;
+    private String name;
 
     @NotNull
     @Size(min = 2, max = 30)
-    private String cognome;
+    private String surname;
 
-    public String getCognome() {
-        return cognome;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     @NotNull
@@ -41,7 +41,7 @@ public class UserCreateForm {
     ;
 
 	public String toString() {
-        return "Person(Email: " + this.email + ", Nome: " + this.nome + ", Cognome: " + this.cognome + ")";
+        return "Person(Email: " + this.email + ", Nome: " + this.name + ", Surname: " + this.surname + ")";
     }
 
     public String getEmail() {
@@ -60,12 +60,12 @@ public class UserCreateForm {
         this.password = password;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String Nome) {
-        this.nome = Nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getRole() {

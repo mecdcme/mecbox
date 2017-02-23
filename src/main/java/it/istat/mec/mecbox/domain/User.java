@@ -31,30 +31,30 @@ public class User implements Serializable {
 	@Column(name = "email", unique = true, nullable = false)
 	private String email;
 
-	@Column(name = "nome", length = 100)
-	private String nome;
+	@Column(name = "name", length = 100)
+	private String name;
 
-	@Column(name = "cognome", length = 100)
-	private String cognome;
+	@Column(name = "surname", length = 100)
+	private String surname;
 
 	@OneToOne(mappedBy = "user", orphanRemoval = true)
 	@JsonManagedReference
 	private UserRole role;
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCognome() {
-		return cognome;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	public User() {
@@ -63,7 +63,8 @@ public class User implements Serializable {
 
 	public User(User user) {
 		this.userid = user.userid;
-
+		this.name = user.name;
+		this.surname = user.surname;
 		this.email = user.email;
 		this.password = user.password;
 

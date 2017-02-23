@@ -38,8 +38,8 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Nome</th>
-									<th>Cognome</th>
+									<th>Name</th>
+									<th>Surname</th>
 									<th>Email</th>
 									<th>Role</th>
 									<th>&nbsp;</th>
@@ -86,39 +86,47 @@
 
 
 							<div class="form-group">
-								<label class="control-label col-md-3">Email</label>
+								<label class="control-label col-md-3">Email*</label>
 								<div class="col-md-9">
 									<input name="email" placeholder="Email" class="form-control"
 										title="Email" type="text" /> <span class="help-block"></span>
 								</div>
 							</div>
-							<div class="form-group" id="password_group">
-								<label class="control-label col-md-3">Password</label>
+							<div class="form-group password_group" id="password_group">
+								<label class="control-label col-md-3">Password*</label>
 								<div class="col-md-9">
 									<input name="password" placeholder="Password"
 										data-toggle="tooltip" title="Password" id="form_password"
-										class="form-control" type="text" /> <span class="help-block"></span>
+										class="form-control" type="password" /> <span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group password_group" id="password_group1">
+								<label class="control-label col-md-3">Repeat Password*</label>
+								<div class="col-md-9">
+									<input name="password1" placeholder="Password"
+										data-toggle="tooltip" title="Password" id="form_password1"
+										class="form-control" type="password" /> <span class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-3">Nome</label>
+								<label class="control-label col-md-3">Name*</label>
 								<div class="col-md-9">
-									<input name="nome" placeholder="Nome" class="form-control"
-										data-toggle="tooltip" title="Nome" type="text" /> <span
+									<input name="name" placeholder="Name" class="form-control"
+										data-toggle="tooltip" title="Name" type="text" /> <span
 										class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-3">Cognome</label>
+								<label class="control-label col-md-3">Surname*</label>
 								<div class="col-md-9">
-									<input name="cognome" placeholder="Cognome" title="Cognome"
+									<input name="surname" placeholder="Surname" title="Surname"
 										class="form-control" type="text" /> <span class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-md-3">Ruolo</label>
 								<div class="col-md-9">
-									<select name="role">
+									<select name="role"  class="form-control">
 										<option th:each="rolei : ${allRoles}" th:value="${rolei}"
 											th:text="${rolei}">Ruolo</option>
 									</select> <span class="help-block"></span>
@@ -130,9 +138,9 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" id="btnSave" onclick="save()"
-						class="btn btn-primary">Salva</button>
+						class="btn btn-primary">Save</button>
 					<button type="button" id="btnClose" class="btn btn-danger"
-						data-dismiss="modal" onclick="close()">Chiudi</button>
+						data-dismiss="modal" onclick="close()">Close</button>
 				</div>
 
 

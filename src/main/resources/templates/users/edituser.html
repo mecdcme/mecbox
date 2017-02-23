@@ -69,7 +69,7 @@
 
 
 									<div class="form-group">
-										<label class="control-label col-md-3">Email</label>
+										<label class="control-label col-md-3">Email*</label>
 										<div class="col-md-9">
 											<span class="error text-danger"
 												th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
@@ -80,21 +80,21 @@
 									</div>
 
 									<div class="form-group">
-										<label class="control-label col-md-3">Nome</label>
+										<label class="control-label col-md-3">Name*</label>
 										<div class="col-md-9">
 											<span class="error text-danger"
-												th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
-											<input name="nome" placeholder="Nome" class="form-control" title="Nome" data-toggle="tooltip"
-												th:field="*{nome}" type="text" /> <span class="help-block"></span>
+												th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+											<input name="name" placeholder="Name" class="form-control" title="Name" data-toggle="tooltip"
+												th:field="*{name}" type="text" /> <span class="help-block"></span>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label col-md-3">Cognome</label>
+										<label class="control-label col-md-3">Surname*</label>
 										<div class="col-md-9">
 											<span class="error text-danger"
-												th:if="${#fields.hasErrors('cognome')}"
-												th:errors="*{cognome}"></span> <input name="cognome"  title="Cognome"
-												placeholder="Cognome" th:field="*{cognome}"
+												th:if="${#fields.hasErrors('surname')}"
+												th:errors="*{surname}"></span> <input name="surname"  title="Surname"
+												placeholder="Surname" th:field="*{surname}"
 												class="form-control" type="text" /> <span
 												class="help-block"> </span>
 										</div>

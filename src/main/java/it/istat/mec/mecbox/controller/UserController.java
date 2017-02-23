@@ -57,9 +57,9 @@ public class UserController {
 		User user = userService.findByEmail(name);
 
 		UserCreateForm userf = new UserCreateForm();
-		userf.setCognome(user.getCognome());
+		userf.setSurname(user.getSurname());
 		userf.setEmail(user.getEmail());
-		userf.setNome(user.getNome());
+		userf.setName(user.getName());
 
 		userf.setRole(user.getRole().getRole());
 		userf.setUserid(user.getUserid());

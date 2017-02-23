@@ -29,7 +29,7 @@ CREATE TABLE `mb_users` (
 -- user admin@mecbox.it password  mecbox
 -- user guest@mecbox.it password  mec
 LOCK TABLES `mb_users` WRITE;
-INSERT INTO `mb_users` VALUES (1,'admin@mecbox.it','Admin','Mecbox','$2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW'),(2,'guest@mecbox.it','Guest','Mecbox','$2a$10$QZWKAPfnG2F0MIpANjKVvOzfu8VTvEgoPKEoASh93nO/ysRmnJaVC');
+INSERT INTO `mb_users` VALUES (1,'admin@mecbox.it','Admin','Mecbox','$2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW'),(2,'guest@mecbox.it','Guest','Mecbox','$2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW');
 UNLOCK TABLES;
 
 --

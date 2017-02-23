@@ -12,11 +12,11 @@ import javax.persistence.Table;
 
 /**
  *
- * @author papizzo
+ * @author framato
  */
 
 @Entity
-@Table(name = "mr_sex_by_age_group")
+@Table(name = "mb_sex_distribution")
 
 public class SexDistribution implements Serializable{
 

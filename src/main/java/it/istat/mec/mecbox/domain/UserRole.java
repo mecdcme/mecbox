@@ -5,11 +5,18 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 
+/**
+*
+* @author framato
+*/
+
 @Entity
-@Table(name = "c_user_roles")
+@Table(name = "mb_user_roles")
 public class UserRole implements Serializable {
 
-    @Id
+  private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_role_id")
     private Long userroleid;

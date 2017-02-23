@@ -13,10 +13,10 @@ import javax.persistence.Table;
 
 /**
  *
- * @author papizzo
+ * @author framato
  */
 @Entity
-@Table(name = "r_household_by_ea")
+@Table(name = "mb_household")
 
 public class Household implements Serializable {
 

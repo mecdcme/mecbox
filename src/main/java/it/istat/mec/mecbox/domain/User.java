@@ -7,8 +7,13 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Email;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+/**
+*
+* @author framato
+*/
+
 @Entity
-@Table(name = "c_users")
+@Table(name = "mb_users")
 @DynamicUpdate
 public class User implements Serializable {
 

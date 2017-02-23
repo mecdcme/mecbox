@@ -29,7 +29,7 @@ CREATE TABLE `mb_users` (
 -- user admin@mecbox.it password  mecbox
 -- user guest@mecbox.it password  mec
 LOCK TABLES `mb_users` WRITE;
-INSERT INTO `mb_users` VALUES (1,'admin@mecbox.it','Admin','Mecbox','$2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW'),(2,'guest@mecbox.it','Guest','Mecbox','$2a$10$QZWKAPfnG2F0MIpANjKVvOzfu8VTvEgoPKEoASh93nO/ysRmnJaVC');
+INSERT INTO `mb_users` VALUES (1,'admin@mecbox.it','Admin','Mecbox','$2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW'),(2,'guest@mecbox.it','Guest','Mecbox','$2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW');
 UNLOCK TABLES;
 
 --
@@ -43,9 +43,7 @@ CREATE TABLE `mb_user_roles` (
   `role` varchar(255) DEFAULT NULL,
   `userid` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`user_role_id`),
-  KEY `FKqf4esriqbiqy7rmcxd2u67aml` (`userid`),
   CONSTRAINT `FK_USER_ROLES` FOREIGN KEY (`userid`) REFERENCES `mb_users` (`userid`),
-  CONSTRAINT `FKqf4esriqbiqy7rmcxd2u67aml` FOREIGN KEY (`userid`) REFERENCES `mb_users` (`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --

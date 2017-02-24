@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.16, for Win64 (x86_64)
 --
--- Host: localhost    Database: mecbox_eth
+-- Host: locadlhost    Database: mecbox_
 -- ------------------------------------------------------
 -- Server version	5.7.16-log
 

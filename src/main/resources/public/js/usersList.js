@@ -129,7 +129,7 @@ $(document)
 
                     })
 
-                    $("input[type=password]")
+                    $("#change_password_group  input[type=password]")
                             .keyup(
                                     function () {
 
@@ -146,6 +146,24 @@ $(document)
                                             }
                                         }
                                     });
+                    $(".password_group  input[type=password]")
+                    .keyup(
+                            function () {
+
+                               
+                                $("#btnSave").prop(
+                                        "disabled", true);
+                                $(".password_group ").addClass('has-error');
+                                if (($("#form_password").val().trim().length >= 3)) {
+                                    if ($("#form_password").val() == $(
+                                            "#form_password1").val()) {
+
+                                        $("#btnSave").prop(
+                                                "disabled", false);
+                                        $(".password_group ").removeClass('has-error');
+                                    }
+                                }
+                            });    
 
                 });// fine ready
 
@@ -246,14 +264,9 @@ function save() {
         data: $('#form').serialize(),
         dataType: "JSON",
         success: function (data) {
+        	var nerror=0;
             $("#msgs").empty();
-            // if(data>0) //if success close modal and reload ajax table
-            // {
-            // $('#modal_form').modal('hide');
-            // reload_table();
-            // }
-
-            if (data) {
+               if (data) {
             	
             	 
                 $.each(data,
@@ -261,8 +274,10 @@ function save() {
                             var classs = 'alert alert-info';
                             if (msg.type == 'INFO')
                                 classs = 'alert alert-success';
-                            else if (msg.type == 'ERROR')
+                            else if (msg.type == 'ERROR'){
                                 classs = 'alert alert-danger';
+                                nerror++;
+                            }
                             var div = $('<div class="' + classs + '"><strong>'
                                     + msg.type + '</strong>: ' + msg.text
                                     + ' </div>"');
@@ -273,7 +288,7 @@ function save() {
 
             $('#btnSave').text('Save'); // change button text
             tabled_changed = true;
-            if(save_method !='add')   $('#btnSave').attr('disabled', false); // set button enable
+            if(save_method !='add' || nerror>0)   $('#btnSave').attr('disabled', false); // set button enable
                
 
         },

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<head th:include="layout :: site-head" th:remove="tag"/> 
-<script src="../public/js/table/datatables.js"
+
+<head th:include="layout :: site-head" th:remove="tag" /><script src="../public/js/table/datatables.js"
 	th:src="@{/js/table/datatables.js}"></script>
 <link rel="stylesheet" href="../public/css/table/datatables.css"
 	th:href="@{/css/table/datatables.css}" />
@@ -10,13 +10,16 @@
 
 
 </head>
+
+
+
 <BODY>
 	<!-- Body -->
 	<div class="wrapper">
 		<header th:replace="layout :: site-header" />
 		<aside th:replace="layout :: site-aside" />
 
-                <!-- START MAIN CONTAINER -->
+		<!-- START MAIN CONTAINER -->
 		<section>
 			<div class="content-wrapper">
 				<div class="content-heading">
@@ -27,13 +30,14 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Users</div>
 					<div class="panel-body">
-					
+
 						<button class="btn btn-primary" id="btnAddUser"
 							onclick="add_user()" style="margin-bottom: 10px">
 							<i class="fa fa-user-plus"></i> Add User
 						</button>
-						<input   type="hidden"  th:value="${#authentication.principal.userid}" id="myId" />
-                 
+						<input type="hidden"
+							th:value="${#authentication.principal.userid}" id="myId" />
+
 						<table id="userslist" class="table table-striped" cellspacing="0"
 							width="100%">
 							<thead>
@@ -90,7 +94,8 @@
 								<label class="control-label col-md-3" for="email">Email*</label>
 								<div class="col-md-9">
 									<input name="email" placeholder="Email" class="form-control"
-										title="Email" type="email" id="email"/> <span class="help-block"></span>
+										title="Email" type="email" id="email" /> <span
+										class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group password_group" id="password_group">
@@ -98,7 +103,8 @@
 								<div class="col-md-9">
 									<input name="password" placeholder="Password"
 										data-toggle="tooltip" title="Password" id="form_password"
-										class="form-control" type="password" /> <span class="help-block"></span>
+										class="form-control" type="password" /> <span
+										class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group password_group" id="password_group1">
@@ -106,7 +112,8 @@
 								<div class="col-md-9">
 									<input name="password1" placeholder="Repeat Password"
 										data-toggle="tooltip" title="Password" id="form_password1"
-										class="form-control" type="password" /> <span class="help-block"></span>
+										class="form-control" type="password" /> <span
+										class="help-block"></span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -127,7 +134,7 @@
 							<div class="form-group">
 								<label class="control-label col-md-3">Role</label>
 								<div class="col-md-9">
-									<select name="role"  class="form-control">
+									<select name="role" class="form-control">
 										<option th:each="rolei : ${allRoles}" th:value="${rolei}"
 											th:text="${rolei}">Role</option>
 									</select> <span class="help-block"></span>
@@ -158,7 +165,7 @@
 
 	<!-- Bootstrap modal -->
 	<div class="modal fade" id="modalDelete_form" role="dialog">
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
@@ -168,11 +175,11 @@
 					<h3 class="modal-title">Delete User</h3>
 				</div>
 
-				<div id="msgsDel"></div>
-				<div class="modal-body form">
-					<div>
-						Delete user <strong><span id="delEmail"></span></strong>. <input
-							type="hidden" id="delId" value="" /> Are you sure?
+				<div class="modal-body  ">
+					<div id="msgsDel"></div>
+					<div id="question_delete" class="">
+						Delete user <strong><span id="delEmail"></span></strong> <input
+							type="hidden" id="delId" value="" />
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -211,19 +218,19 @@
 						<input type="hidden" id="cpId" value="" />
 					</div>
 					<div id="change_password_group">
-				 			<div>
-								<input id="passwordcp" placeholder="Password"
-									class="form-control" type="password" title="Password" /> <span
-									class="help-block"></span>
-							</div>
-					 			<div>
+						<div>
+							<input id="passwordcp" placeholder="Password"
+								class="form-control" type="password" title="Password" /> <span
+								class="help-block"></span>
+						</div>
+						<div>
 
-								<input id="passwordcp1" placeholder="Repeat Password"
-									title="Repeat Password" class="form-control" type="password" />
-								<span class="help-block"></span>
+							<input id="passwordcp1" placeholder="Repeat Password"
+								title="Repeat Password" class="form-control" type="password" />
+							<span class="help-block"></span>
 
-							</div>
-             		</div>
+						</div>
+					</div>
 
 				</div>
 				<div class="modal-footer">

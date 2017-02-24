@@ -1,10 +1,3 @@
--- MySQL dump 10.13  Distrib 5.7.16, for Win64 (x86_64)
---
--- Host: localhost    Database: mecbox_eth
--- ------------------------------------------------------
--- Server version	5.7.16-log
-
-
 
 --
 -- Table structure for table `mb_users`
@@ -15,8 +8,8 @@ DROP TABLE IF EXISTS `mb_users`;
 CREATE TABLE `mb_users` (
   `userid` bigint(20) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
-  `nome` varchar(100) DEFAULT NULL,
-  `cognome` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `surname` varchar(100) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`userid`),
   UNIQUE KEY `	EMAIL_UNIQUE` (`email`)
@@ -29,7 +22,7 @@ CREATE TABLE `mb_users` (
 -- user admin@mecbox.it password  mecbox
 -- user guest@mecbox.it password  mec
 LOCK TABLES `mb_users` WRITE;
-INSERT INTO `mb_users` VALUES (1,'admin@mecbox.it','Admin','Mecbox','$2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW'),(2,'guest@mecbox.it','Guest','Mecbox','$2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW');
+INSERT INTO `mb_users` VALUES (1,'admin@mecbox.it','Admin','Mecbox','$2a$10$9rKQEP7mbFoCN82iNx16wuoVQ56WqQBGxbwU2HmDWI0G1BSucJqGW'),(2,'guest@mecbox.it','Guest','Mecbox','$2a$10$QZWKAPfnG2F0MIpANjKVvOzfu8VTvEgoPKEoASh93nO/ysRmnJaVC');
 UNLOCK TABLES;
 
 --
@@ -43,8 +36,8 @@ CREATE TABLE `mb_user_roles` (
   `role` varchar(255) DEFAULT NULL,
   `userid` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`user_role_id`),
-  CONSTRAINT `FK_USER_ROLES` FOREIGN KEY (`userid`) REFERENCES `mb_users` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  CONSTRAINT `FK_USER_ROLES` FOREIGN KEY (`userid`) REFERENCES `mb_users` (`userid`),
+  ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `mb_user_roles`

@@ -1,10 +1,8 @@
-
 --
 -- Table structure for table `mb_users`
 --
 
 DROP TABLE IF EXISTS `mb_users`;
-
 CREATE TABLE `mb_users` (
   `userid` bigint(20) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
@@ -12,7 +10,7 @@ CREATE TABLE `mb_users` (
   `surname` varchar(100) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`userid`),
-  UNIQUE KEY `	EMAIL_UNIQUE` (`email`)
+  UNIQUE KEY `EMAIL_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 
@@ -36,7 +34,7 @@ CREATE TABLE `mb_user_roles` (
   `role` varchar(255) DEFAULT NULL,
   `userid` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`user_role_id`),
-  CONSTRAINT `FK_USER_ROLES` FOREIGN KEY (`userid`) REFERENCES `mb_users` (`userid`),
+  CONSTRAINT `FK_USER_ROLES` FOREIGN KEY (`userid`) REFERENCES `mb_users` (`userid`)
   ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --

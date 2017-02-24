@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="layout :: site-head" />
 <head>
+<head th:include="layout :: site-head" th:remove="tag"/> 
 <script src="../public/js/user.js" th:src="@{/js/user.js}"></script>
 
 <script>

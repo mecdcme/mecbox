@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout :: site-head" />
 <head>
-
+<head th:include="layout :: site-head" th:remove="tag"/> 
 <script src="../public/js/table/datatables.js"
 	th:src="@{/js/table/datatables.js}"></script>
 <link rel="stylesheet" href="../public/css/table/datatables.css"

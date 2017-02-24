@@ -1,16 +1,17 @@
 package it.istat.mec.mecbox.forms;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Email;
+ 
 
 public class UserCreateForm {
 
     private Long userid;
 
     @NotNull
-    @Email
+    @Pattern(regexp = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")
     @Size(min = 2, max = 100)
     private String email;
 

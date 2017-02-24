@@ -50,29 +50,16 @@
 				</div>
 				<div class="panel-body">
 
-					<p th:if="${loginError}" class="text-danger">Wrong user or
-						password</p>
-
 
 					<form method="post" th:object="${loginForm}" role="form"
 						class="mb-lg">
 
-						<div th:if="${param.error}" class="text-danger">Invalid
+						<div th:if="${param.error}" class="form-group text-danger">&nbsp;Invalid
 							username or password.</div>
 						<div th:if="${param.logout}">You have been logged out.</div>
-						<div>
-							<ul id="messages"
-								th:with="notifyMessages=${session[T(it.istat.mec.mecbox.services
-                                    .NotificationService).NOTIFY_MSG_SESSION_KEY]}">
-								<li th:each="msg : ${notifyMessages}" th:text="${msg.text}"
-									th:class="${#strings.toLowerCase(msg.type)}"></li>
-								<span th:if="${notifyMessages}" th:remove="all"
-									th:text="${session.remove(
-                                          T(it.istat.mec.mecbox.services.NotificationService).NOTIFY_MSG_SESSION_KEY)}"></span>
-							</ul>
-						</div>
+				
 						<div class="form-group has-feedback">
-							<input id="username" type="text" name="username"
+							<input id="username" type="email" name="username"
 								placeholder="Enter email" autocomplete="off" required=""
 								class="form-control" th:value="*{username}" /> <span
 								th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Invalid

@@ -65,19 +65,22 @@ $(document)
                                             {
                                                 "render": function (data,
                                                         type, row) {
-                                                    return '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="javascript:edit_user('
+                                                	var txt=  '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="javascript:edit_user('
                                                             + row.userid
                                                             + ');"><i class="fa fa-pencil"></i></a>'
                                                             + '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Change Password" onclick="javascript:open_changepassword('
                                                             + row.userid
                                                             + ',\''
                                                             + row.email
-                                                            + '\');"><i class="fa fa-key"></i></a>'
-                                                            + '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Delete" onclick="javascript:open_delete('
+                                                            + '\');"><i class="fa fa-key"></i></a>';
+                                                	if(row.userid!=$('#myId').val())
+                                                		txt+='&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Delete" onclick="javascript:open_delete('
                                                             + row.userid
                                                             + ',\''
                                                             + row.email
                                                             + '\');"><i class="fa fa-trash-o"></i></a>';
+                                                	
+                                                	return txt;
                                                 },
                                                 "orderable": false
                                             }

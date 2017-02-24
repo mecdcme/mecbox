@@ -6,7 +6,6 @@
 package it.istat.mec.mecbox.controller;
 
 import it.istat.mec.mecbox.domain.Religion;
-import it.istat.mec.mecbox.services.NotificationService;
 import it.istat.mec.mecbox.services.ReligionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ReligionController {
 
-    @Autowired
-    private NotificationService notificationService;
-
-    @Autowired
+       @Autowired
     private ReligionService religionService;
 
     @RequestMapping(value = "/religion/religionlist")

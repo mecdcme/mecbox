@@ -21,9 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HouseholdController {
 
-    @Autowired
-    private NotificationService notificationService;
-
+  
     @Autowired
     private HouseholdService householdService;
 

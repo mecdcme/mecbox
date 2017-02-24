@@ -5,11 +5,7 @@
  */
 package it.istat.mec.mecbox.controller;
 
-import it.istat.mec.mecbox.domain.SexDistribution;
-import it.istat.mec.mecbox.services.NotificationService;
-import it.istat.mec.mecbox.services.SexDistributionService;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class SexDistributionController {
-    @Autowired
-    private NotificationService notificationService;  
-    
-     @Autowired
-    private SexDistributionService sexdistributionService;
+
     
     @RequestMapping(value = "/sexdistribution/sexdistributionlist")
     public String sexdistributioList(Model model) {

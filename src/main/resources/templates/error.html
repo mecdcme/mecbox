@@ -91,6 +91,7 @@
                         Mec Box - Error Page <small>Errors</small>
                     </div>
 
+<<<<<<< Upstream, based on origin/develop
                     <!-- START PANEL-->
                     <div class="panel panel-default">
                         <div class="panel-body">
@@ -108,6 +109,25 @@
                         </div>
                     </div>
                     <!-- END PANEL-->
+=======
+				<!-- START PANEL-->
+				<div class="panel panel-default">
+					<div class="panel-body">
+					<div class="container-fluid">
+						<div class="row">
+							<h1 class="indigo-text center" th:text="${error}">Page Not found</h1>
+							<p class="col s12 center" th:text="${message}">Error 404</p>
+							<p>
+								Go to <a href="index.html" title="Home" th:href="@{/}"
+									class="active"> <i class="fa fa-home"></i> <span>Home</span>
+								</a>
+							</p>
+						</div>
+						</div>
+					</div>
+				</div>
+				<!-- END PANEL-->
+>>>>>>> ab9c7a5 error page
 
                 </div>
             </section>

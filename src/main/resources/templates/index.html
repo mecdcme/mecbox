@@ -17,21 +17,138 @@
                     </div>
 
                     <!-- START PANEL-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Welcome to the MecBox system <strong sec:authentication="name">User</strong> <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span></div>
-                        <div class="panel-body">
-                            Choose a report!  
-                            <div sec:authorize="hasAuthority('ADMIN')">
-                                [Spring security - debug] This will only be displayed if authenticated user hasAuthority ADMIN
-                            </div>
 
-                            <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
-                                [Spring security - debug] This will only be displayed if authenticated user hasRole  ADMIN
-                            </div>
+
+                    <div class="container-fluid ">
+                        <div class="row mb-lg">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading"> <strong sec:authentication="name">User</strong>
+                                    <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+                                </div>
+
+                                <div class="panel-body">                                 
+
+
+                                    <div class="intro-text">
+                                        <div class="row">
+
+                                            <div class="col-lg-12 text-center">
+                                                <span class="brand"><strong>Greetings, Web Java MecBox System</strong></span>                                               
+                                            </div>
+                                        </div>
+
+                                        <div class="row"> 
+                                            <div class="col-lg-2"></div>
+                                            <div class="col-lg-8">
+
+                                                <p><h2>
+                                                    OUT-OF-THE-BOX: autenticazione, autorizzazione, template HTML, funzionalità di rappresentazione dati in formato tabellare e grafico e tanto altro ancora.
+                                                </h2></p>
+
+                                            </div>
+                                            <div class="col-lg-2"></div>
+                                        </div>
+
+                                        <div class="row">    
+                                            <div class="col-lg-1"></div>
+                                            <div class="col-lg-5 text-center">
+                                                <h2 class="heading"><i class="fa fa-server" aria-hidden="true"></i> Server side</h2>
+                                                <ul class="stacks">
+                                                    <li class="clip">
+                                                        <img src="images/icons/spring-boot.png"/>
+                                                        <a href="https://projects.spring.io/spring-boot/"><span class="title_sub_tech">Spring Boot</span></a>
+                                                    </li>
+                                                    <li class="clip">
+                                                     <img src="images/icons/spring.png"/>
+                                                        <a href="https://projects.spring.io/spring-security/"><span class="title_sub_tech">Spring Security</span></a>
+                                                    </li>
+                                                    <li class="clip ">
+                                                        <img src="images/icons/spring.png"/>
+                                                        <a href="http://projects.spring.io/spring-data-jpa/"><span class="title_sub_tech">Spring Data JPA</span></a>
+                                                    </li>
+                                                    
+                                                    <li class="clip ">
+                                                        <img src="images/icons/hibernate.png"/>
+                                                        <a href="http://hibernate.org/"><span class="title_sub_tech">Hibernate</span></a>
+                                                    </li>
+                                                    
+                                                    
+                                                    
+                                                    <li class="clip">
+                                                        <img src="images/icons/maven.png" class="width"/>
+                                                        <a href="https://maven.apache.org/"><span class="title_sub_tech">Maven</span></a>
+                                                    </li>
+
+                                                    <li class="clip">
+                                                        <img src="images/svg/mysql.svg"/>
+                                                        <a href="https://www.mysql.it/"><span class="title_sub_tech">MySQL</span></a>
+                                                    </li>
+                                                    <li class="clip">
+                                                        <img src="images/icons/thymeleaf.png"/>
+                                                        <a href="http://www.thymeleaf.org/"><span class="title_sub_tech">Thymeleaf</span></a>
+                                                    </li>
+                                                    <li class="clear"></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-5 text-center">
+                                                <h2 class="heading"> <i class="fa fa-desktop" aria-hidden="true"></i> Client side</h2>
+                                                <ul class="stacks">
+                                                    <li class="clip">
+                                                        <img src="images/svg/html-5.svg"/>
+                                                        <a href="https://www.w3.org/TR/html5/"><span class="title_sub_tech">HTML 5</span></a>
+                                                    </li>
+                                                    <li class="clip">
+                                                        <img src="images/svg/css-3.svg"/>
+                                                        <a href="https://www.w3.org/Style/CSS/"><span class="title_sub_tech">CSS3</span></a>
+                                                    </li>
+                                                    <li class="clip">
+                                                        <img src="images/svg/bootstrap.svg"/>
+                                                        <a href="http://getbootstrap.com/"><span class="title_sub_tech">Bootstrap</span></a>
+                                                    </li>
+                                                    <li class="clip">
+                                                        <img src="images/svg/jquery.svg" class="width"/>
+                                                        <a href="https://jquery.com/"><span class="title_sub_tech">JQuery</span></a>
+                                                    </li>
+                                                    <li class="clip">
+                                                        <img src="images/icons/datatables.png"/>
+                                                        <a href="https://datatables.net/"><span class="title_sub_tech">Datatables </span></a>
+                                                    </li>
+                                                    <li class="clip">
+                                                        <img src="images/svg/chartjs.svg"/>
+                                                        <a href="http://www.chartjs.org/"><span class="title_sub_tech">CHART JS</span></a>
+                                                    </li>
+                                                    
+                                                    <li class="clip">
+                                                        <img src="images/icons/fontawesome.png"/>
+                                                        
+                                                        <a href="http://fontawesome.io/"><span class="title_sub_tech">Font Awesome</span></a>
+                                                    </li>
+
+                                                    
+                                                    <li class="clear"></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-1"></div>
+                                        </div>
+                                    </div>    
+                                </div>
+
+                                <div class="info-bottom" sec:authorize="hasAuthority('ADMIN')"> 
+                                    [Spring security - debug] This will only be displayed if authenticated user hasAuthority ADMIN
+                                </div>
+
+                                <div class="info-bottom" th:if="${#authorization.expression('hasRole(''ADMIN'')')}"> 
+                                    [Spring security - debug] This will only be displayed if authenticated user hasRole  ADMIN
+                                </div>
+
+                            </div>    
+                            <!-- END PANEL-->
+
+
+
                         </div>
                     </div>
-                    <!-- END PANEL-->
-
                 </div>
             </section>
             <!-- END MAIN CONTAINER -->

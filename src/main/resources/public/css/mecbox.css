@@ -286,10 +286,12 @@ td {
 
 .page-header-data{ 
     margin-top:  10px!important;
+    border:0 !important;
 }
-.page-header-doughnut{ 
+.page-header-chart{ 
     margin-top:  10px!important;
-    /*margin-bottom:  120px!important;*/
+    //margin-bottom:  120px!important;
+    border:0 !important;
 }
 .spacer{
     display: block;
@@ -300,9 +302,11 @@ td {
     width: 100%; 
     height: 45px;
 }
-.religion-fluid,sexdistribution-fluid{    
+.religion,sexdistribution{    
     display: none;
 }
+
+   
 .loading{
     padding-top: 15%;
 }
@@ -377,4 +381,75 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
 table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before {
     content: '-';
     background-color: #d33333!important ;
+}
+
+
+/* home page */
+
+.brand {
+    font-size: 5em;
+    text-transform: capitalize;
+}
+
+.brand {
+    font-family: 'Arial', cursive;
+}
+
+.div{
+    
+    display: table;
+    content: " ";
+}
+
+.div li {
+    display: list-item;
+}
+.stacks {
+    margin: 0 auto;
+    list-style: none;
+    
+    
+}
+
+.stacks .clip {
+    margin: 5px;
+    width: 85px;
+    height: 85px;
+    background-color: white;
+    color: #09486b;
+    float: left;
+    text-align: center;
+    border: 1px dotted #34788c;
+    padding: .8%;
+}
+.stacks .clip img {
+    
+    padding: 5px;
+    height: 45px;
+    display: block;
+    margin: 0 auto;
+    
+}
+.stacks .clip img.width {
+    padding: 5px;
+    padding-top: 14px;
+    height: auto;
+    width: 65px;
+    display: block;
+    margin: 10px auto;
+}
+
+.stacks .clip .title_sub_tech {
+    margin-top: 4px;
+    font-size: 10px;
+    color: #09486b;
+    display: block;
+    text-align: center;
+}
+
+.info-bottom{
+    padding-top:35px;
+    padding-left:15px;
+    padding-bottom:15px;
+    
 }

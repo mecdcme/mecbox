@@ -33,12 +33,10 @@ $(document).ready(function () {
                     var individuals = 0;
                     individuals = parseInt(arrLabelData[i][1]);
                     arrLabelData[i][2] = 100 * individuals / individualsTotal;
-                }
-                
-                $('.loading').hide();
-                
-                $('.religion-fluid').animate(
-                        {queue: false, duration: 500}
+                }                
+                $('.loading').hide();                
+                $('.religion').animate(
+                    {queue: false, duration: 500}
                 ).fadeIn('clip', '', 500, callBackShow);
 
                 renderTable();
@@ -59,18 +57,18 @@ function renderTable() {
         bPaginate: true,
         buttons: [{
                 extend: 'csvHtml5',
-                filename: 'religonList',
-                title: 'religionList',
+                filename: 'religon',
+                title: 'religion',
                 exportOptions: {columns: [0, 1, 2]}
             }, {
                 extend: 'excelHtml5',
-                filename: 'religionList',
-                title: 'religionList',
+                filename: 'religion',
+                title: 'religion',
                 exportOptions: {columns: [0, 1, 2]}
             }, {
                 extend: 'pdfHtml5',
-                filename: 'religionList',
-                title: 'religionList',
+                filename: 'religion',
+                title: 'religion',
                 exportOptions: {columns: [0, 1, 2]}
             }],
         data: arrLabelData,

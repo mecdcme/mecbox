@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout :: site-head"/>
+    <!--head th:replace="layout :: site-head"/>
+    <head-->
     <head>
+    <head th:include="layout :: site-head" th:remove="tag"/>
         <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
         <script src="../public/js/table/datatables.js" 
         th:src="@{/js/table/datatables.js}"></script>
+        <!--script src="../public/js/table/dataTables.buttons.min.js" 
+        th:src="@{/js/table/dataTables.buttons.min.js}"></script>
+        <script src="../public/js/table/buttons.flash.min.js" 
+        th:src="@{/js/table/buttons.flash.min.js}"></script-->
         <link rel="stylesheet" href="../public/css/table/datatables.css"
               th:href="@{/css/table/datatables.css}" />
         <script src="../public/js/chart/chart.bundle.min.js" 
@@ -29,33 +35,33 @@
                         <small>Chart</small>
                     </div>
                     <!-- start loader -->
-                    <div class="container-fluid loading">                            
-                        <div class="row mb-lg">                                
-                            <div class="col-sm-4"></div> 
-                            <div class="col-sm-4">  
-                                <div class="panel panel-default shadow-effect">
-                                    <div class="panel-body"> 
-                                        <div class="loader">
-                                            <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i><span><strong>Loading data...</strong></span>
+
+
+
+                    <!-- end loader -->
+                    <div class="container-fluid">
+                        <div class="row mb-lg">
+                            <div class="loading">                            
+                                <div class="col-sm-4"></div> 
+                                <div class="col-sm-4">  
+                                    <div class="panel panel-default shadow-effect">
+                                        <div class="panel-body"> 
+                                            <div class="loader">
+                                                <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i><span><strong>Loading data...</strong></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div> 
+                                </div>     
                                 <div class="col-sm-4"></div> 
-                            </div> 
-                        </div>                         
-                    </div>
-                    <!-- end loader -->
-                    <div class="container-fluid religion-fluid">
-                        <div class="row mb-lg">
-                            <div class="panel panel-default ">
+                            </div>
+                            <div class="panel panel-default religion">
                                 <div class="panel-body">                                
                                     <div class="col-lg-6">
-                                        <h3 class="page-header page-header-data">Data</h3>
-
+                                        <h3 class="page-header page-header-data"><i class="fa  fa-table"></i> Data </h3>
                                         <table id="religionlist"   class="table table-striped " cellspacing="0" width="100%"></table>
                                     </div>
                                     <div class="col-lg-6" >
-                                        <h3 class="page-header page-header-doughnut">Doughnut chart</h3>
+                                        <h3 class="page-header page-header-chart"><i class="fa  fa-pie-chart"></i> Doughnut chart </h3>
                                         <div class="row spacer"></div>
                                         <canvas id="doughnut-chart-area" />
                                         <div class="spacer"></div>

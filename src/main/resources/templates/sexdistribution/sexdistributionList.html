@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout :: site-head"/>
+    <!--head th:replace="layout :: site-head"/>
+    <head-->
     <head>
+    <head th:include="layout :: site-head" th:remove="tag"/>
         <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
         <script src="../public/js/table/datatables.js" 
         th:src="@{/js/table/datatables.js}"></script>
@@ -28,30 +30,32 @@
                         Sex Distribution
                         <small>Chart</small>
                     </div>
-                    <div class="container-fluid loading">                            
+                    <div class="container-fluid ">
                         <div class="row mb-lg">                                
-                            <div class="col-sm-4"></div> 
-                            <div class="col-sm-4">
-                                <div class="panel panel-default shadow-effect">
-                                    <div class="panel-body"> 
-                                        <div class="loader">
-                                            <i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><span><strong>Loading data...</strong></span>
+                            <div class="loading">                            
+                                <div class="col-sm-4"></div> 
+                                <div class="col-sm-4">
+                                    <div class="panel panel-default shadow-effect">
+                                        <div class="panel-body"> 
+                                            <div class="loader">
+                                                <i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><span><strong>Loading data...</strong></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div> 
                                 <div class="col-sm-4"></div> 
-                            </div> 
-                        </div>                         
-                    </div>
-                    <div class="container-fluid sexdistribution-fluid">
-                        <div class="row mb-lg">
-                            <div class="col-lg-8" >
-                                <div class="panel panel-default">
-                                    <div class="panel-heading"><i class="fa  fa-bar-chart"></i> Male and female sex distribution chart</div>
-                                    <div class="panel-body">
-                                        <canvas id="bar-chart-area" />
+                            </div>                            
+                            <div class="sexdistribution">
+                                <!--Div class="col-lg-2" ></div-->
+                                <div class="col-lg-8" >
+                                    <div class="panel panel-default">                                
+                                        <div class="panel-heading"><h3><i class="fa  fa-bar-chart"></i> Male and female sex distribution chart</h3></div>
+                                        <div class="panel-body">
+                                            <canvas id="bar-chart-area" />
+                                        </div>
                                     </div>
-                                </div>
+                                </div> 
+                                <!--div class="col-lg-2" ></div-->
                             </div>    
                         </div>
                     </div>

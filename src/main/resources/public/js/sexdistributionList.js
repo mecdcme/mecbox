@@ -32,7 +32,7 @@ $(document).ready(function () {
 
                 $('.loading').hide();
 
-                $('.sexdistribution-fluid').animate(
+                $('.sexdistribution').animate(
                         {queue: false, duration: 500}
                 ).fadeIn('clip', '', 500, callBackShow);
                 //var colors = Chart.helpers.color;

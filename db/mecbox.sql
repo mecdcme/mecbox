@@ -53,7 +53,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `mb_household`;
 
 CREATE TABLE `mb_household` (
-  `region` char(17) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `region` char(17) DEFAULT NULL,
   `zone` int(2) DEFAULT NULL,
   `woreda` int(2) DEFAULT NULL,
   `city` int(1) DEFAULT NULL,
@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `mb_religion`;
 
 CREATE TABLE `mb_religion` (
   `ID` bigint(21) NOT NULL,
-  `RELIGION` char(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `RELIGION` char(14) DEFAULT NULL,
   `INDIVIDUALS` bigint(21) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -104,7 +104,7 @@ DROP TABLE IF EXISTS `mb_sex_distribution`;
 
 CREATE TABLE `mb_sex_distribution` (
   `ID` bigint(21) NOT NULL,
-  `range` varchar(8) CHARACTER SET cp850 NOT NULL DEFAULT '',
+  `range` varchar(8) NOT NULL DEFAULT '',
   `male` bigint(21) NOT NULL DEFAULT '0',
   `female` bigint(21) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)

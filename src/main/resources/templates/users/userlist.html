@@ -1,252 +1,231 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+    <head>
 
-<head th:include="layout :: site-head" th:remove="tag" /><script src="../public/js/table/datatables.js"
-	th:src="@{/js/table/datatables.js}"></script>
-<link rel="stylesheet" href="../public/css/table/datatables.css"
-	th:href="@{/css/table/datatables.css}" />
-<script src="../public/js/usersList.js" th:src="@{/js/usersList.js}"></script>
-
-
+    <head th:include="layout :: site-head" th:remove="tag" />
+    <script th:src="@{/js/table/datatables.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/table/datatables.css}" />
+    <script th:src="@{/js/usersList.js}"></script>
 </head>
 
 
 
 <BODY>
-	<!-- Body -->
-	<div class="wrapper">
-		<header th:replace="layout :: site-header" />
-		<aside th:replace="layout :: site-aside" />
+    <!-- Body -->
+    <div class="wrapper">
+        <header th:replace="layout :: site-header" />
+        <aside th:replace="layout :: site-aside" />
 
-		<!-- START MAIN CONTAINER -->
-		<section>
-			<div class="content-wrapper">
-				<div class="content-heading">
-					MecBox <small>users List</small>
-				</div>
+        <!-- START MAIN CONTAINER -->
+        <section>
+            <div class="content-wrapper">
+                <div class="content-heading">
+                    User List<small>List</small>
+                </div>
 
-				<!-- START PANEL-->
-				<div class="panel panel-default">
-					<div class="panel-heading">Users</div>
-					<div class="panel-body">
+                <!-- START PANEL-->
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3><i class="fa  fa-users"></i> Users</h3></div>
+                    <div class="panel-body">
+                        <button class="btn btn-primary" id="btnAddUser"
+                                onclick="add_user()" style="margin-bottom: 10px">
+                            <i class="fa fa-user-plus"></i> Add User
+                        </button>
+                        <input type="hidden"
+                               th:value="${#authentication.principal.userid}" id="myId" />
 
-						<button class="btn btn-primary" id="btnAddUser"
-							onclick="add_user()" style="margin-bottom: 10px">
-							<i class="fa fa-user-plus"></i> Add User
-						</button>
-						<input type="hidden"
-							th:value="${#authentication.principal.userid}" id="myId" />
+                        <table id="userslist" class="table table-striped" cellspacing="0"
+                               width="100%">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Surname</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <!-- END PANEL-->
 
-						<table id="userslist" class="table table-striped" cellspacing="0"
-							width="100%">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Name</th>
-									<th>Surname</th>
-									<th>Email</th>
-									<th>Role</th>
-									<th>&nbsp;</th>
-
-								</tr>
-							</thead>
-
-						</table>
-
-
-
-
-					</div>
-				</div>
-				<!-- END PANEL-->
-
-			</div>
-		</section>
-		<!-- END MAIN CONTAINER -->
+            </div>
+        </section>
+        <!-- END MAIN CONTAINER -->
 
 
 
-		<footer th:replace="layout :: site-footer" />
-	</div>
-	<!-- wrapper -->
-	<!-- Bootstrap modal -->
-	<div class="modal fade" id="modal_form" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">User Form</h3>
-				</div>
-				<div class="modal-body form">
-					<form action="#" id="form" class="form-horizontal">
-						<input type="hidden" value="" name="userid" />
+        <footer th:replace="layout :: site-footer" />
+    </div>
+    <!-- wrapper -->
+    <!-- Bootstrap modal -->
+    <div class="modal fade" id="modal_user" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title">User Form</h3>
+                </div>
+                <div class="modal-body form">
+                    <form action="#" id="form" class="form-horizontal">
+                        <input type="hidden" value="" name="userid" />
+                        <div class="form-body">
+                            <div id="msgs"></div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3" for="email">Email*</label>
+                                <div class="col-md-9">
+                                    <input name="email" placeholder="Email" class="form-control"
+                                           title="Email" type="email" id="email" /> <span
+                                           class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group password_group" id="password_group">
+                                <label class="control-label col-md-3">Password*</label>
+                                <div class="col-md-9">
+                                    <input name="password" placeholder="Password"
+                                           data-toggle="tooltip" title="Password" id="form_password"
+                                           class="form-control" type="password" /> <span
+                                           class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group password_group" id="password_group1">
+                                <label class="control-label col-md-3">Repeat Password*</label>
+                                <div class="col-md-9">
+                                    <input name="password1" placeholder="Repeat Password"
+                                           data-toggle="tooltip" title="Password" id="form_password1"
+                                           class="form-control" type="password" /> <span
+                                           class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Name*</label>
+                                <div class="col-md-9">
+                                    <input name="name" placeholder="Name" class="form-control"
+                                           data-toggle="tooltip" title="Name" type="text" /> <span
+                                           class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Surname*</label>
+                                <div class="col-md-9">
+                                    <input name="surname" placeholder="Surname" title="Surname"
+                                           class="form-control" type="text" /> <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Role</label>
+                                <div class="col-md-9">
+                                    <select name="role" class="form-control">
+                                        <option th:each="rolei : ${allRoles}" 
+                                                th:value="${rolei}"
+                                                th:text="${rolei}">Role</option>
+                                    </select> <span class="help-block"></span>
+                                </div>
+                            </div>
 
-						<div class="form-body">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnSave" onclick="save()"
+                            class="btn btn-primary">Save</button>
+                    <button type="button" id="btnClose" class="btn btn-danger"
+                            data-dismiss="modal" onclick="close()">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
 
-							<div id="msgs"></div>
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- End Bootstrap modal -->
 
+    <!-- Bootstrap modal -->
+    <div class="modal fade" id="modalDelete_form" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title">Delete User</h3>
+                </div>
 
-							<div class="form-group">
-								<label class="control-label col-md-3" for="email">Email*</label>
-								<div class="col-md-9">
-									<input name="email" placeholder="Email" class="form-control"
-										title="Email" type="email" id="email" /> <span
-										class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group password_group" id="password_group">
-								<label class="control-label col-md-3">Password*</label>
-								<div class="col-md-9">
-									<input name="password" placeholder="Password"
-										data-toggle="tooltip" title="Password" id="form_password"
-										class="form-control" type="password" /> <span
-										class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group password_group" id="password_group1">
-								<label class="control-label col-md-3">Repeat Password*</label>
-								<div class="col-md-9">
-									<input name="password1" placeholder="Repeat Password"
-										data-toggle="tooltip" title="Password" id="form_password1"
-										class="form-control" type="password" /> <span
-										class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Name*</label>
-								<div class="col-md-9">
-									<input name="name" placeholder="Name" class="form-control"
-										data-toggle="tooltip" title="Name" type="text" /> <span
-										class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Surname*</label>
-								<div class="col-md-9">
-									<input name="surname" placeholder="Surname" title="Surname"
-										class="form-control" type="text" /> <span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Role</label>
-								<div class="col-md-9">
-									<select name="role" class="form-control">
-										<option th:each="rolei : ${allRoles}" th:value="${rolei}"
-											th:text="${rolei}">Role</option>
-									</select> <span class="help-block"></span>
-								</div>
-							</div>
+                <div class="modal-body  ">
+                    <div id="msgsDel"></div>
+                    <div id="question_delete" class="">
+                        Delete user <strong><span id="delEmail"></span></strong> <input
+                            type="hidden" id="delId" value="" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnDelete" onclick="delete_user()"
+                            class="btn btn-primary">Delete</button>
+                    <button type="button" id="btnDeleteClose" class="btn btn-danger"
+                            data-dismiss="modal" onclick="close()">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- End Bootstrap modal -->
+    <!-- Bootstrap modal change Password -->
+    <div class="modal fade" id="modalCp_form" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title">Change Password User</h3>
+                </div>
+                <div class="modal-body">
 
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="btnSave" onclick="save()"
-						class="btn btn-primary">Save</button>
-					<button type="button" id="btnClose" class="btn btn-danger"
-						data-dismiss="modal" onclick="close()">Close</button>
-				</div>
+                    <div id="msgsCp" class="form-group"></div>
+                    <div class="form-group">
+                        Change Password for user <strong><span id="cpEmail"></span></strong>
+                        <input type="hidden" id="cpId" value="" />
+                    </div>
+                    <div id="change_password_group">
+                        <div>
+                            <input id="passwordcp" placeholder="Password"
+                                   class="form-control" type="password" title="Password" /> <span
+                                   class="help-block"></span>
+                        </div>
+                        <div>
 
+                            <input id="passwordcp1" placeholder="Repeat Password"
+                                   title="Repeat Password" class="form-control" type="password" />
+                            <span class="help-block"></span>
 
+                        </div>
+                    </div>
 
-
-			</div>
-			<!-- /.modal-content -->
-
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
-	<!-- End Bootstrap modal -->
-
-	<!-- Bootstrap modal -->
-	<div class="modal fade" id="modalDelete_form" role="dialog">
-		<div class="modal-dialog modal-sm" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">Delete User</h3>
-				</div>
-
-				<div class="modal-body  ">
-					<div id="msgsDel"></div>
-					<div id="question_delete" class="">
-						Delete user <strong><span id="delEmail"></span></strong> <input
-							type="hidden" id="delId" value="" />
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="btnDelete" onclick="delete_user()"
-						class="btn btn-primary">Delete</button>
-					<button type="button" id="btnDeleteClose" class="btn btn-danger"
-						data-dismiss="modal" onclick="close()">Close</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
-	<!-- End Bootstrap modal -->
-
-
-	<!-- Bootstrap modal change Password -->
-	<div class="modal fade" id="modalCp_form" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">Change Password User</h3>
-				</div>
-
-
-				<div class="modal-body">
-
-					<div id="msgsCp" class="form-group"></div>
-					<div class="form-group">
-						Change Password for user <strong><span id="cpEmail"></span></strong>
-						<input type="hidden" id="cpId" value="" />
-					</div>
-					<div id="change_password_group">
-						<div>
-							<input id="passwordcp" placeholder="Password"
-								class="form-control" type="password" title="Password" /> <span
-								class="help-block"></span>
-						</div>
-						<div>
-
-							<input id="passwordcp1" placeholder="Repeat Password"
-								title="Repeat Password" class="form-control" type="password" />
-							<span class="help-block"></span>
-
-						</div>
-					</div>
-
-				</div>
-				<div class="modal-footer">
-					<button type="submit" id="btnChangePassword"
-						class="btn  btn-primary" disabled="disabled"
-						onclick="update_password()">Change</button>
-					<button type="button" id="btnCpClose" class="btn btn-danger"
-						data-dismiss="modal">Close</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
-	<!-- End Bootstrap modal -->
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="btnChangePassword"
+                            class="btn  btn-primary" disabled="disabled"
+                            onclick="update_password()">Change</button>
+                    <button type="button" id="btnCpClose" class="btn btn-danger"
+                            data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- End Bootstrap modal -->
 
 </BODY>
 </html>

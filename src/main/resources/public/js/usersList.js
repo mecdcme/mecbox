@@ -65,7 +65,7 @@ $(document)
                                             {
                                                 "render": function (data,
                                                         type, row) {
-                                                	var txt=  '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="javascript:edit_user('
+                                                    var txt = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="javascript:edit_user('
                                                             + row.userid
                                                             + ');"><i class="fa fa-pencil"></i></a>'
                                                             + '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Change Password" onclick="javascript:open_changepassword('
@@ -73,14 +73,14 @@ $(document)
                                                             + ',\''
                                                             + row.email
                                                             + '\');"><i class="fa fa-key"></i></a>';
-                                                	if(row.userid!=$('#myId').val())
-                                                		txt+='&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Delete" onclick="javascript:open_delete('
-                                                            + row.userid
-                                                            + ',\''
-                                                            + row.email
-                                                            + '\');"><i class="fa fa-trash-o"></i></a>';
-                                                	
-                                                	return txt;
+                                                    if (row.userid != $('#myId').val())
+                                                        txt += '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Delete" onclick="javascript:open_delete('
+                                                                + row.userid
+                                                                + ',\''
+                                                                + row.email
+                                                                + '\');"><i class="fa fa-trash-o"></i></a>';
+
+                                                    return txt;
                                                 },
                                                 "orderable": false
                                             }
@@ -118,7 +118,7 @@ $(document)
                     table.buttons().container().appendTo(
                             '#userslist_wrapper .col-sm-6:eq(0)');
 
-                    $('#modal_form').on('hide.bs.modal', function () {
+                    $('#modal_user').on('hide.bs.modal', function () {
                         if (tabled_changed)
                             close();
                     })
@@ -147,23 +147,23 @@ $(document)
                                         }
                                     });
                     $(".password_group  input[type=password]")
-                    .keyup(
-                            function () {
+                            .keyup(
+                                    function () {
 
-                               
-                                $("#btnSave").prop(
-                                        "disabled", true);
-                                $(".password_group ").addClass('has-error');
-                                if (($("#form_password").val().trim().length >= 3)) {
-                                    if ($("#form_password").val() == $(
-                                            "#form_password1").val()) {
 
                                         $("#btnSave").prop(
-                                                "disabled", false);
-                                        $(".password_group ").removeClass('has-error');
-                                    }
-                                }
-                            });    
+                                                "disabled", true);
+                                        $(".password_group ").addClass('has-error');
+                                        if (($("#form_password").val().trim().length >= 3)) {
+                                            if ($("#form_password").val() == $(
+                                                    "#form_password1").val()) {
+
+                                                $("#btnSave").prop(
+                                                        "disabled", false);
+                                                $(".password_group ").removeClass('has-error');
+                                            }
+                                        }
+                                    });
 
                 });// fine ready
 
@@ -174,10 +174,11 @@ function add_user() {
 
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
-    $('#modal_form').modal('show'); // show bootstrap modal
+    $('#modal_user').modal('show'); // show bootstrap modal
     $('.password_group').show(); // show password block
     $('#form_password').val(''); // show password block
-    $('.modal-title').text('Add User'); // Set Title to Bootstrap modal title
+    
+    $('#modal_user .modal-title').text('Add User'); // Set Title to Bootstrap modal title
     $('#msgs').empty();
     tabled_changed = false;
 }
@@ -209,9 +210,9 @@ function edit_user(id) {
             // $('[name="gender"]').val(data.gender);
             // $('[name="address"]').val(data.address);
             // $('[name="dob"]').datepicker('update',data.dob);
-            $('#modal_form').modal('show'); // show bootstrap modal when
+            $('#modal_user').modal('show'); // show bootstrap modal when
             // complete loaded
-            $('.modal-title').text('Edit User'); // Set title to Bootstrap
+            $('#modal_user .modal-title').text('Edit User'); // Set title to Bootstrap
             // modal title
 
         },
@@ -264,17 +265,17 @@ function save() {
         data: $('#form').serialize(),
         dataType: "JSON",
         success: function (data) {
-        	var nerror=0;
+            var nerror = 0;
             $("#msgs").empty();
-               if (data) {
-            	
-            	 
+            if (data) {
+
+
                 $.each(data,
                         function (index, msg) {
                             var classs = 'alert alert-info';
                             if (msg.type == 'INFO')
                                 classs = 'alert alert-success';
-                            else if (msg.type == 'ERROR'){
+                            else if (msg.type == 'ERROR') {
                                 classs = 'alert alert-danger';
                                 nerror++;
                             }
@@ -288,8 +289,9 @@ function save() {
 
             $('#btnSave').text('Save'); // change button text
             tabled_changed = true;
-            if(save_method !='add' || nerror>0)   $('#btnSave').attr('disabled', false); // set button enable
-               
+            if (save_method != 'add' || nerror > 0)
+                $('#btnSave').attr('disabled', false); // set button enable
+
 
         },
         error: function (jqXHR, textStatus, errorThrown) {

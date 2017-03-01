@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
     <head th:fragment="site-head">
         <meta charset="utf-8" />
         <meta name="viewport"
@@ -8,47 +7,31 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="IE=10.000" http-equiv="X-UA-Compatible" />
         <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
-
         <TITLE>MEC</TITLE>
-
         <!-- Javascript -->
-        <script src="../public/js/jquery-3.1.1.min.js"
-        th:src="@{/js/jquery-3.1.1.min.js}" type="text/javascript"></script>
-        <script src="../public/js/bootstrap.min.js"
-        th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
-        <script src="../public/js/metisMenu.min.js"
-        th:src="@{/js/metisMenu.min.js}" type="text/javascript"></script>
-        <script src="../public/js/mecbox.js" th:src="@{/js/mecbox.js}"
-        type="text/javascript"></script>
-
+        <script th:src="@{/js/jquery-3.1.1.min.js}" type="text/javascript"></script>
+        <script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+        <script th:src="@{/js/metisMenu.min.js}" type="text/javascript"></script>
+        <script th:src="@{/js/mecbox.js}" type="text/javascript"></script>
         <!-- CSS -->
-        <link href="../public/css/bootstrap.min.css"
-              th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
-        <link href="../public/css/metisMenu.min.css"
-              th:href="@{/css/metisMenu.min.css}" rel="stylesheet" />
-        <link href="../public/css/mecbox.css" th:href="@{/css/mecbox.css}"
-              rel="stylesheet" />
-
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+        <link th:href="@{/css/metisMenu.min.css}" rel="stylesheet" />
+        <link th:href="@{/css/mecbox.css}" rel="stylesheet" />
         <!-- Fontawesome -->
-        <link href="../public/css/font-awesome.min.css"
-              th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
-
+        <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
     </head>
     <body>
         <!-- Body -->
         <div class="wrapper">
             <!-- START HEADER -->
             <header th:fragment="site-header" th:remove="tag">
-
                 <div class="topnavbar-wrapper">
-
                     <nav role="navigation" class="navbar topnavbar">
                         <div class="nav pull-left">
                             <i class="fa fa-dropbox fa-2x"></i> Mec <span
                                 class="small-screen-hide">Box</span>
                         </div>
                         <div class="nav pull-right small-screen signout">
-
                             <a sec:authorize="isAuthenticated()" href="#"
                                th:href="@{/users/logout}"> <i
                                     class="fa fa-sign-out fa-fw"></i> <span
@@ -79,7 +62,7 @@
                                 </li>
                                 <li class="nav-body">
                                     <a href="#process-2"
-                                       title="Data" data-toggle="collapse" class="collapsed"
+                                       title="Data" data-toggle="collapse" class="collapsed" 
                                        aria-expanded="false">
                                         <i class="fa  fa-file-text-o"></i>
                                         <span>Data</span>
@@ -87,21 +70,19 @@
                                     <ul id="process-2" class="nav sidebar-subnav collapse"
                                         aria-expanded="false">
                                         <li id="household-list">
-                                            <a title="Household"
-                                               href="household/householdList.html"
-                                               th:href="@{/household/householdlist}"><i class="fa  fa-table"></i>
+                                            <a title="Household" th:href="@{/household/householdlist}">
+                                                <i class="fa  fa-table"></i>
                                                 <span>Household</span>
                                             </a>
                                         </li>
                                         <li id="religion-list">
-                                            <a title="Religion"
-                                               href="religion/religionList.html"
-                                               th:href="@{/religion/religionlist}"><i class="fa  fa-pie-chart"></i>
+                                            <a title="Religion" th:href="@{/religion/religionlist}">
+                                                <i class="fa  fa-pie-chart"></i>
                                                 <span>Religion</span>
-                                            </a></li>
+                                            </a>
+                                        </li>
                                         <li id="sexdistribution-list">
                                             <a title="Sex Distributiont"
-                                               href="sexdistribution/sexdistributionList.html"
                                                th:href="@{/sexdistribution/sexdistributionlist}">
                                                 <i class="fa  fa-bar-chart"></i>
                                                 <span>Sex Distribution</span>
@@ -118,13 +99,15 @@
                                     <ul id="admin" class="nav sidebar-subnav collapse"
                                         aria-expanded="false">
                                         <li id="users-list" sec:authorize="hasAuthority('ADMIN')">
-                                            <a title="Users List" href="users/userlist.html"
-                                               th:href="@{/users/userlist}"> <i class="fa  fa-users"></i> <span>Users list</span>
+                                            <a title="Users List" 
+                                               th:href="@{/users/userlist}">
+                                                <i class="fa  fa-users"></i>
+                                                <span>Users list</span>
                                             </a>
                                         </li>
                                         <li id="edituser">
-                                            <a title="Edit User"
-                                               href="users/edituser.html" th:href="@{/users/edituser}">
+                                            <a title="Edit User" 
+                                               th:href="@{/users/edituser}">
                                                 <i class="fa  fa-pencil-square-o"></i>
                                                 <span>Edit User</span>
                                             </a>
@@ -138,7 +121,7 @@
             </aside>
             <!-- END LEFT SIDE BAR -->
             <!-- START MAIN CONTAINER -->
-            
+
             <section>
                 <div class="content-wrapper">
                     <div class="content-heading">

@@ -22,14 +22,14 @@ You’ll build a template web application that will provide out of the box :
   * Search filters;
   
 ## How to build
-Download and unzip the source code your workspace `MECBOX_PATH`.
+Download and unzip the source code in your workspace `MECBOX_PATH`.
 Before building the application you must create a MySQL database. From the command line go to MySQL installation directory `MYSQL_PATH`:
 ```
 cd MYSQL_PATH\bin;
-mysql -u root -p
+mysql -u db_username -p
 mysql> create database mecbox;
 ```
-Then create the USER/ROLES tables, using the script `create_user_roles.sql` stored in the `MECBOX_PATH/sql` folder:
+Then create the tables needed to run the application, using the script `mecbox.sql` stored in the `MECBOX_PATH/sql` folder:
 ```
 mysql> use mecbox;
 mysql> source mecbox.sql
@@ -47,19 +47,20 @@ Role: GUEST
 ```
 
 From your IDE select and open the unzipped maven project.
-As a first step check the content of the application.properties file, located in the path Other Sources > src/main/resources:
+As a first step check the content of the application.properties file, located in the path `Other Sources > src/main/resources`:
 
 ```
 spring.datasource.url = jdbc:mysql://localhost:3306/mecbox?useSSL=false
-spring.datasource.username = root
-spring.datasource.password = root
+spring.datasource.username = db_username
+spring.datasource.password = db_password
 ```
-Now you are ready to perform your first build of the application.
-If the build process ended successfully, you are ready to run the application. 
+Now you can perform your first build of the application.
+If the build process ends successfully, you are ready to run the application. 
 The application is built using the open source framework Spring Boot, which generates an 
-executable jar (that can be run from the command line). Indeed Spring Boot creates a stand-alone Spring 
+executable jar (that can be run from the command line). Spring Boot creates a stand-alone Spring 
 based Applications, with an embedded Tomcat, that you can "just run".
-
-
+```
+java –jar  mecbox-1.0.jar
+```
 ## License
 Mecbox is EUPL-licensed

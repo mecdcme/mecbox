@@ -14,6 +14,7 @@ import it.istat.mec.mecbox.domain.UserRole;
 import it.istat.mec.mecbox.forms.UserCreateForm;
 
 @Service
+@Transactional
 public class UserService {
 
 	@Autowired
@@ -39,7 +40,7 @@ public class UserService {
 		return this.userDao.findByEmail(email);
 	}
 
-	@Transactional
+	
 	public User create(UserCreateForm uf) {
 		// TODO Auto-generated method stub a
 		User user = new User();
@@ -62,7 +63,7 @@ public class UserService {
 
 	}
 
-	@Transactional
+
 	public User update(UserCreateForm uf) throws Exception {
 		// TODO Auto-generated method stub a
 		User user = userDao.findOne(uf.getUserid());
@@ -109,7 +110,7 @@ public class UserService {
 	 	return user;
  	}
 
-	@Transactional
+
 	public void delete(Long id) {
 		// TODO Auto-generated method stub a
 		userDao.delete(id);

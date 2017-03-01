@@ -1,4 +1,4 @@
-package it.istat.mec.mecbox.rest;
+package it.istat.mec.mecbox.rest.report;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import it.istat.mec.mecbox.domain.Religion;
-import it.istat.mec.mecbox.services.ReligionService;
+import it.istat.mec.mecbox.services.report.ReligionService;
 
 @RestController
 public class ReligionRestController {

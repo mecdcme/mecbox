@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.istat.mec.mecbox.services;
+package it.istat.mec.mecbox.services.report;
 
 import it.istat.mec.mecbox.dao.ReligionDao;
 import it.istat.mec.mecbox.domain.Religion;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.istat.mec.mecbox.controller;
+package it.istat.mec.mecbox.controller.report;
 
 
 import org.springframework.stereotype.Controller;

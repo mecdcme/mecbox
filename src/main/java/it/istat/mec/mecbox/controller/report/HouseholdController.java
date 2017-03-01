@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.istat.mec.mecbox.controller;
+package it.istat.mec.mecbox.controller.report;
 
 import it.istat.mec.mecbox.domain.Household;
 import it.istat.mec.mecbox.services.NotificationService;
-import it.istat.mec.mecbox.services.HouseholdService;
+import it.istat.mec.mecbox.services.report.HouseholdService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.istat.mec.mecbox.controller;
+package it.istat.mec.mecbox.controller.report;
 
 import it.istat.mec.mecbox.domain.Religion;
-import it.istat.mec.mecbox.services.ReligionService;
+import it.istat.mec.mecbox.services.report.ReligionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

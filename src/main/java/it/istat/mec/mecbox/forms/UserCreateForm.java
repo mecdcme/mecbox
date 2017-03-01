@@ -11,7 +11,7 @@ public class UserCreateForm {
     private Long userid;
 
     @NotNull
-    @Pattern(regexp = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")
+    @Pattern(regexp = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$", message="Email not valid!")
     @Size(min = 2, max = 100)
     private String email;
 

@@ -178,7 +178,8 @@ function add_user() {
     $('.password_group').show(); // show password block
     $('#form_password').val(''); // show password block
 
-    $('#modal_user .modal-title').text('Add User'); // Set Title to Bootstrap modal title
+    $('#modal_user .modal-title').html('<i class="fa fa-user-plus"></i> Add User');
+    //$('#modal_user .modal-title').text('Add User'); // Set Title to Bootstrap modal title
     $('#msgs').empty();
     tabled_changed = false;
 }
@@ -199,7 +200,6 @@ function edit_user(id) {
         type: "GET",
         dataType: "JSON",
         success: function (data) {
-
             $('[name="userid"]').val(data.userid);
             $('[name="name"]').val(data.name);
             $('[name="surname"]').val(data.surname);
@@ -211,10 +211,10 @@ function edit_user(id) {
             // $('[name="address"]').val(data.address);
             // $('[name="dob"]').datepicker('update',data.dob);
             $('#modal_user').modal('show'); // show bootstrap modal when
-            // complete loaded
-            $('#modal_user .modal-title').text('Edit User'); // Set title to Bootstrap
+            // complete loaded            
+            $('#modal_user .modal-title').html('<i class="fa  fa-edit "></i> Edit User');
+            //$('#modal_user .modal-title').text('Edit User'); // Set title to Bootstrap            
             // modal title
-
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert('Error get data from ajax');
@@ -338,6 +338,7 @@ function delete_user() {
 }
 
 function open_changepassword(id, email) {
+    $('.password_group').show();
     $('#btnDelete').show(); // set button enable
     $('#cpEmail').text(email); // change button text
     $('#cpId').val(id);

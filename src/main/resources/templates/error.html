@@ -77,21 +77,25 @@
                     </div>
 
                     <!-- START PANEL-->
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <h1 class="indigo-text center" th:text="${error}">Page not found</h1>
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row well-lg">                                
+                                    <h1 class="indigo-text center" th:text="${error}"> Page not found </h1>
 
-                                <p class="col s12 center" th:text="${message}">This page is
-                                    not available</p>
-                                <p>
-                                    Go to <a href="index.html" title="Home" th:href="@{/}"
-                                             class="active"> <i class="fa fa-home"></i> <span>Home</span>
-                                    </a>
-                                </p>
+                                    <p class="col s12 center" th:text="${message}"> This page is
+                                        not available</p>
+                                    <p>
+                                        Go to <a href="index.html" title="Home" th:href="@{/}"
+                                                 class="active"> <i class="fa fa-home"></i> <span>Home</span>
+                                        </a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-2"></div>
                     <!-- END PANEL-->
 
                 </div>

@@ -45,69 +45,74 @@
                                 <div class="panel-body">                                    
                                     <form action="#" th:action="@{/users/edituser}" 
                                           th:object="${userCreateForm}" method="post">
-                                        <div class="form-body">
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Email*</label>
-                                                <div class="col-md-9">
-                                                    <span class="error text-danger"
-                                                          th:if="${#fields.hasErrors('email')}" 
-                                                          th:errors="*{email}">
-                                                    </span>
-                                                    <input name="email" placeholder="Email"
-                                                           class="form-control"
-                                                           th:field="*{email}" 
-                                                           type="text" 
-                                                           readonly="readonly" />
-                                                    <span class="help-block"></span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Name*</label>
-                                                <div class="col-md-9">
-                                                    <span class="error text-danger"
-                                                          th:if="${#fields.hasErrors('name')}"
-                                                          th:errors="*{name}"></span>
-                                                    <input name="name" placeholder="Name" 
-                                                           class="form-control" title="Name" data-toggle="tooltip"
-                                                           th:field="*{name}" type="text" />
-                                                    <span class="help-block"></span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Surname*</label>
-                                                <div class="col-md-9">
-                                                    <span class="error text-danger"
-                                                          th:if="${#fields.hasErrors('surname')}"
-                                                          th:errors="*{surname}">                                                              
-                                                    </span>
-                                                    <input name="surname"  title="Surname"
-                                                           placeholder="Surname" th:field="*{surname}"
-                                                           class="form-control" type="text" />
-                                                    <span class="help-block"></span>
-                                                </div>
-                                            </div>
 
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Role</label>
-                                                <div class="col-md-9">
-                                                    <span class="error text-danger"
-                                                          th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></span>
-                                                    <input class="form-control" type="text" th:field="*{role}"
-                                                           readonly="readonly" sec:authorize="!hasAuthority('ADMIN')" />
+                                        
 
-                                                    <select th:field="*{role}" name="role"
-                                                            sec:authorize="hasAuthority('ADMIN')" 
-                                                            class="form-control">
-                                                        <option th:each="rolei : ${allRoles}" 
-                                                                th:value="${rolei}"
-                                                                th:text="${rolei}">Role</option>
-                                                    </select>
-                                                    <span class="help-block"></span>
+                                            <div class="form-body">
+
+                                                <div class="form-group row ">
+                                                    <label class="control-label col-md-3">Email*</label>
+                                                    <div class="col-md-9">
+                                                        <span class="error text-danger"
+                                                              th:if="${#fields.hasErrors('email')}" 
+                                                              th:errors="*{email}">
+                                                        </span>
+                                                        <input name="email" placeholder="Email"
+                                                               class="form-control"
+                                                               th:field="*{email}" 
+                                                               type="text" 
+                                                               readonly="readonly" />
+                                                        <span class="help-block"></span>
+                                                    </div>
                                                 </div>
+                                                <div class="form-group row">
+                                                    <label class="control-label col-md-3">Name*</label>
+                                                    <div class="col-md-9">
+                                                        <span class="error text-danger"
+                                                              th:if="${#fields.hasErrors('name')}"
+                                                              th:errors="*{name}"></span>
+                                                        <input name="name" placeholder="Name" 
+                                                               class="form-control" title="Name" data-toggle="tooltip"
+                                                               th:field="*{name}" type="text" />
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="control-label col-md-3">Surname*</label>
+                                                    <div class="col-md-9">
+                                                        <span class="error text-danger"
+                                                              th:if="${#fields.hasErrors('surname')}"
+                                                              th:errors="*{surname}">                                                              
+                                                        </span>
+                                                        <input name="surname"  title="Surname"
+                                                               placeholder="Surname" th:field="*{surname}"
+                                                               class="form-control" type="text" />
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="control-label col-md-3">Role</label>
+                                                    <div class="col-md-9">
+                                                        <span class="error text-danger"
+                                                              th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></span>
+                                                        <input class="form-control" type="text" th:field="*{role}"
+                                                               readonly="readonly" sec:authorize="!hasAuthority('ADMIN')" />
+
+                                                        <select th:field="*{role}" name="role"
+                                                                sec:authorize="hasAuthority('ADMIN')" 
+                                                                class="form-control">
+                                                            <option th:each="rolei : ${allRoles}" 
+                                                                    th:value="${rolei}"
+                                                                    th:text="${rolei}">Role</option>
+                                                        </select>
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" th:field="*{userid}" /> 
+                                                <input type="hidden" name="password" value="password" />
                                             </div>
-                                            <input type="hidden" th:field="*{userid}" /> 
-                                            <input type="hidden" name="password" value="password" />
-                                        </div>
+                                        
                                         <div class="modal-footer">
                                             <div class="col-lg-9">
                                                 <div class="alert alert-danger panel-danger" 

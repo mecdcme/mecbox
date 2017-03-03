@@ -18,15 +18,17 @@
                 <div class="content-heading">
                     User List<small>List</small>
                 </div>
-
                 <!-- START PANEL-->
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3><i class="fa  fa-users"></i> Users</h3></div>
+                    <div class="panel-heading">
+                         <h3><i class="fa  fa-users"></i> Users</h3>
+                    </div>
                     <div class="panel-body">
-                        <button class="btn btn-primary" id="btnAddUser"
-                                onclick="add_user()" style="margin-bottom: 10px">
-                            <i class="fa fa-user-plus"></i> Add User
-                        </button>
+                        <button class="btn btn-primary" 
+                                id="btnAddUser"
+                                onclick="add_user()" 
+                                style="margin-bottom: 10px">
+                            <i class="fa fa-user-plus"></i> Add User </button>
                         <input type="hidden" th:value="${#authentication.principal.userid}" id="myId" />
 
                         <table id="userslist" class="table table-striped" cellspacing="0"
@@ -51,72 +53,125 @@
         <!-- END MAIN CONTAINER -->
         <footer th:replace="layout :: site-footer" />
     </div>
-    <!-- wrapper -->
-    <!-- Bootstrap modal -->
+
+    <!-- wrapper -->    
+    <!-- Bootstrap modal -->       
+
     <div class="modal fade" id="modal_user" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
+                    <button type="button" 
+                            class="close" 
+                            data-dismiss="modal"
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title">User Form</h3>
-                </div>
+                    <h3 class="modal-title">User</h3>
+                </div>                
                 <div class="modal-body form">
-                    <form action="#" id="form" class="form-horizontal">
+                    <form action="#" 
+                          id="form" 
+                          class="form-horizontal">
                         <input type="hidden" value="" name="userid" />
                         <div class="form-body">
                             <div id="msgs"></div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3" for="email">Email*</label>
-                                <div class="col-md-9">
-                                    <input name="email" placeholder="Email" class="form-control"
-                                           title="Email" type="email" id="email" /> <span
-                                           class="help-block"></span>
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-4">
+                                        <label class="control-label">Email*</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input name="email" 
+                                               placeholder="Email" 
+                                               class="form-control"
+                                               title="Email" 
+                                               type="email" 
+                                               id="email" />
+                                        <span class="help-block"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group password_group" id="password_group">
-                                <label class="control-label col-md-3">Password*</label>
-                                <div class="col-md-9">
-                                    <input name="password" placeholder="Password"
-                                           data-toggle="tooltip" title="Password" id="form_password"
-                                           class="form-control" type="password" /> <span
-                                           class="help-block"></span>
+                            <div class="form-group row password_group" 
+                                 id="password_group">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-4">   
+                                        <label class="control-label">Password*</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input name="password" 
+                                               placeholder="Password"
+                                               data-toggle="tooltip" 
+                                               title="Password" 
+                                               id="form_password"
+                                               class="form-control" 
+                                               type="password" /> <span
+                                               class="help-block"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group password_group" id="password_group1">
-                                <label class="control-label col-md-3">Repeat Password*</label>
-                                <div class="col-md-9">
-                                    <input name="password1" placeholder="Repeat Password"
-                                           data-toggle="tooltip" title="Password" id="form_password1"
-                                           class="form-control" type="password" /> <span
-                                           class="help-block"></span>
+                            <div class="form-group row password_group" 
+                                 id="password_group1">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-4">
+                                        <label class="control-label">Repeat Password*</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input name="password1" 
+                                               placeholder="Repeat Password"
+                                               data-toggle="tooltip" 
+                                               title="Password" 
+                                               id="form_password1"
+                                               class="form-control" 
+                                               type="password" /> 
+                                        <span class="help-block"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Name*</label>
-                                <div class="col-md-9">
-                                    <input name="name" placeholder="Name" class="form-control"
-                                           data-toggle="tooltip" title="Name" type="text" /> <span
-                                           class="help-block"></span>
+                            <div class="form-group row">                                 
+                                <div class="col-lg-12">
+                                    <div class="col-lg-4">                                
+                                        <label class="control-label">Name*</label>
+                                    </div>            
+                                    <div class="col-lg-8">
+                                        <input name="name" 
+                                               placeholder="Name" 
+                                               class="form-control"
+                                               data-toggle="tooltip" 
+                                               title="Name" type="text" />
+                                        <span class="help-block"></span>
+                                    </div>        
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Surname*</label>
-                                <div class="col-md-9">
-                                    <input name="surname" placeholder="Surname" title="Surname"
-                                           class="form-control" type="text" /> <span class="help-block"></span>
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-4">
+                                        <label class="control-label">Surname*</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input name="surname" 
+                                               placeholder="Surname" 
+                                               title="Surname"
+                                               class="form-control" 
+                                               type="text" /> 
+                                        <span class="help-block"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Role</label>
-                                <div class="col-md-9">
-                                    <select name="role" class="form-control">
-                                        <option th:each="rolei : ${allRoles}" 
-                                                th:value="${rolei}"
-                                                th:text="${rolei}">Role</option>
-                                    </select> <span class="help-block"></span>
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-4">
+                                        <label class="control-label">Role</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <select name="role" 
+                                                class="form-control">
+                                            <option th:each="rolei : ${allRoles}" 
+                                                    th:value="${rolei}"
+                                                    th:text="${rolei}">Role</option>
+                                        </select> 
+                                        <span class="help-block"></span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -143,18 +198,21 @@
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
+                    <button type="button" 
+                            class="close" 
+                            data-dismiss="modal"
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title">Delete User</h3>
+                    <h3 class="modal-title"><i class="fa fa-trash-o"></i> Delete User </h3>
                 </div>
 
                 <div class="modal-body  ">
                     <div id="msgsDel"></div>
                     <div id="question_delete" class="">
-                        Delete user <strong><span id="delEmail"></span></strong> <input
-                            type="hidden" id="delId" value="" />
+                        Delete user <strong>
+                            <span id="delEmail"></span></strong>
+                        <input type="hidden" id="delId" value="" />
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -171,44 +229,69 @@
     <!-- /.modal -->
     <!-- End Bootstrap modal -->
     <!-- Bootstrap modal change Password -->
+
+
+
     <div class="modal fade" id="modalCp_form" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
+                    <button type="button" class="close" 
+                            data-dismiss="modal"
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title">Change Password User</h3>
+                    <h3 class="modal-title"><i class="fa  fa-key"></i> Change  Password </h3>
                 </div>
                 <div class="modal-body">
-
                     <div id="msgsCp" class="form-group"></div>
-                    <div class="form-group">
-                        Change Password for user <strong><span id="cpEmail"></span></strong>
+                    <div class="form-group">Change  password for:
+                            <strong>
+                                <span id="cpEmail"></span>
+                            </strong>
                         <input type="hidden" id="cpId" value="" />
                     </div>
                     <div id="change_password_group">
-                        <div>
-                            <input id="passwordcp" placeholder="Password"
-                                   class="form-control" type="password" title="Password" /> <span
-                                   class="help-block"></span>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-4">
+                                    <label class="control-label">Password*</label>
+                                </div>    
+                                <div class="col-lg-8">
+                                    <input id="passwordcp" 
+                                           placeholder="Password"
+                                           class="form-control" 
+                                           type="password" 
+                                           title="Password" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-
-                            <input id="passwordcp1" placeholder="Repeat Password"
-                                   title="Repeat Password" class="form-control" type="password" />
-                            <span class="help-block"></span>
-
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-4">
+                                    <label class="control-label">Repeat Password*</label>
+                                </div>    
+                                <div class="col-lg-8">
+                                    <input id="passwordcp1" 
+                                           placeholder="Repeat Password"
+                                           title="Repeat Password" 
+                                           class="form-control" 
+                                           type="password" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" id="btnChangePassword"
-                            class="btn  btn-primary" disabled="disabled"
+                    <button type="submit" 
+                            id="btnChangePassword"
+                            class="btn  btn-primary" 
+                            disabled="disabled"
                             onclick="update_password()">Change</button>
-                    <button type="button" id="btnCpClose" class="btn btn-danger"
+                    <button type="button" id="btnCpClose"
+                            class="btn btn-danger"
                             data-dismiss="modal">Close</button>
                 </div>
             </div>

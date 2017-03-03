@@ -38,84 +38,42 @@ $(document).ready(function () {
                 $('.religion').animate(
                     {queue: false, duration: 500}
                 ).fadeIn('clip', '', 500, callBackShow);
+        
+        
+        
+                var defBtns = [{
+                    extend: 'csvHtml5',
+                    filename: 'religon',
+                    title: 'religion',
+                    exportOptions: {columns: [0, 1, 2]}
+                }, {
+                    extend: 'excelHtml5',
+                    filename: 'religion',
+                    title: 'religion',
+                    exportOptions: {columns: [0, 1, 2]}
+                }, {
+                    extend: 'pdfHtml5',
+                    filename: 'religion',
+                    title: 'religion',
+                    exportOptions: {columns: [0, 1, 2]}
+                }];
 
-                renderTable();
-                renderDoughnut();
+                var defCols = [
+                    {'title': 'Religion'},
+                    {'title': 'Individuals', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'},
+                    //{'title': 'Percentage (%)',render: $.fn.dataTable.render.number(',', '.', 1, '%'),'className': 'numeric'}
+                    {'title': 'Percentage (%)', render: $.fn.dataTable.render.number(',', '.', 3), 'className': 'numeric'}
+                ];
+
+                renderTable("religionlist", defBtns,defCols,arrLabelData);
+                renderDoughnut(arrData,arrColor,arrLabel)
 
             });
 
 });
 
-function renderTable() {
-    var table = $("#religionlist").DataTable({
-        //dom: 'Bfrtip',
-        dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
-                "<'row'<'col-sm-12'tr>>" +
-                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-        responsive: true,
-        pageLength: 10,
-        bPaginate: true,
-        buttons: [{
-                extend: 'csvHtml5',
-                filename: 'religon',
-                title: 'religion',
-                exportOptions: {columns: [0, 1, 2]}
-            }, {
-                extend: 'excelHtml5',
-                filename: 'religion',
-                title: 'religion',
-                exportOptions: {columns: [0, 1, 2]}
-            }, {
-                extend: 'pdfHtml5',
-                filename: 'religion',
-                title: 'religion',
-                exportOptions: {columns: [0, 1, 2]}
-            }],
-        data: arrLabelData,
-        "columns": [
-            {'title': 'Religion'},
-            {'title': 'Individuals', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'},
-            //{'title': 'Percentage (%)',render: $.fn.dataTable.render.number(',', '.', 1, '%'),'className': 'numeric'}
-            {'title': 'Percentage (%)', render: $.fn.dataTable.render.number(',', '.', 3), 'className': 'numeric'}
-        ]
 
-    });
-    //table.buttons().container().appendTo('#religionlist_wrapper .col-sm-6:eq(0)');
-}
 
-function renderDoughnut() {
-
-    var configDoughnut = {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                    data: arrData,
-                    backgroundColor: arrColor, //gradient,/
-                    //label: 'RELIGION/INDIVIDUALS'
-                }],
-            labels: arrLabel
-        },
-        options: {
-            responsive: true,
-            legend: {
-                position: 'right'
-            },
-            /*
-             title: {
-             display: false,
-             text: "RELIGION/INDIVIDUALS"
-             },
-             */
-            animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-        }
-    };
-    var myChartDoughnut = document.getElementById("doughnut-chart-area").getContext("2d");
-    var myDoughnut = new Chart(myChartDoughnut, configDoughnut);
-}
-;
 
 function callBackHide() {
     setTimeout(function () {

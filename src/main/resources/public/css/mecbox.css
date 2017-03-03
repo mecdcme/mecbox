@@ -386,7 +386,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
 /* home page */
 
 .brand {
-    font-size: 5em;
+    font-size: 4em;
     text-transform: capitalize;
 }
 
@@ -452,3 +452,14 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
     padding-bottom:15px;
     
 }
+
+.sexdistribution.col-lg-9 {
+    
+    padding: 0px !important;    
+}
+
+.modal-footer #msgs{
+    
+    text-align: left;
+    
+} 

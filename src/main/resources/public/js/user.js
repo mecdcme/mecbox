@@ -19,7 +19,11 @@ $(document).ready(function() {
 		$('#password1').val('');
 		$('#msgs').empty();
 
-	})
+	});
+        $('#password').val('');
+	$('#password1').val('');
+	$('#msgs').empty();
+        
 
 });
 

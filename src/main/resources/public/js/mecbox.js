@@ -79,3 +79,98 @@ function writeMsgsError(msg, iddiv_msgs) {
 	$("#" + iddiv_msgs).append(div);
 
 }
+
+//function to render table
+
+function renderTable(id, defBtns,defCols,arrLabelData) {
+    $("#"+id).DataTable({
+        //dom: 'Bfrtip',
+        dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+        responsive: true,
+        pageLength: 10,
+        bPaginate: true,
+        buttons: defBtns,
+        data: arrLabelData,
+        "columns": defCols
+        
+    });
+    //table.buttons().container().appendTo('#religionlist_wrapper .col-sm-6:eq(0)');
+}
+;
+
+//function to render chart: type Doughnut
+function renderDoughnut(arrData,arrColor,arrLabel) {
+
+    var configDoughnut = {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                    data: arrData,
+                    backgroundColor: arrColor
+                }],
+            labels: arrLabel
+        },
+        options: {
+            responsive: true,
+            legend: {
+                position: 'right'
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        }
+    };
+    var myChartDoughnut = document.getElementById("doughnut-chart-area").getContext("2d");
+    var myDoughnut = new Chart(myChartDoughnut, configDoughnut);
+}
+;
+
+
+//function to render chart: type Bar
+function renderBar(objDataset, textTitle) {
+    var configBar = {
+        type: 'bar',
+        data: {
+            labels: arrLabel,
+            datasets: objDataset
+        },
+        options: {
+            responsive: true,
+            legend: {
+                position: 'top'
+            },
+            title: {
+                display: false,
+                text: textTitle
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        }
+    };
+
+    var myChartBar = document.getElementById("bar-chart-area").getContext("2d");
+    var myBar = new Chart(myChartBar, configBar);
+
+}
+;
+
+
+function callBackHide() {
+    setTimeout(function () {
+        $("#center").fadeOut();
+    }, 1000);
+}
+;
+function callBackShow() {
+    setTimeout(function () {
+        $("#center").fadeIn();
+    }, 1000);
+}
+;
+
+   

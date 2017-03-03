@@ -177,7 +177,7 @@ function add_user() {
     $('#modal_user').modal('show'); // show bootstrap modal
     $('.password_group').show(); // show password block
     $('#form_password').val(''); // show password block
-    
+
     $('#modal_user .modal-title').text('Add User'); // Set Title to Bootstrap modal title
     $('#msgs').empty();
     tabled_changed = false;
@@ -268,8 +268,6 @@ function save() {
             var nerror = 0;
             $("#msgs").empty();
             if (data) {
-
-
                 $.each(data,
                         function (index, msg) {
                             var classs = 'alert alert-info';
@@ -286,19 +284,16 @@ function save() {
 
                         });
             }
-
             $('#btnSave').text('Save'); // change button text
             tabled_changed = true;
             if (save_method != 'add' || nerror > 0)
                 $('#btnSave').attr('disabled', false); // set button enable
-
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert('Error adding / update data');
             $('#btnSave').text('Save'); // change button text
             $('#btnSave').attr('disabled', false); // set button enable
-
         }
     });
 }
@@ -309,8 +304,8 @@ function open_delete(id, email) {
     $('#delId').val(id);
     $('#modalDelete_form').modal('show'); // show bootstrap modal
     $('#msgsDel').empty();
-
 }
+
 function delete_user() {
     var id = $('#delId').val();
     $.ajax({
@@ -318,9 +313,7 @@ function delete_user() {
         type: "POST",
         dataType: "JSON",
         success: function (data) {
-
             $("#msgsDel").empty();
-
             if (data) {
                 $.each(data,
                         function (index, msg) {
@@ -333,19 +326,15 @@ function delete_user() {
                                     + msg.type + '</strong>: ' + msg.text
                                     + ' </div>"');
                             $("#msgsDel").append(div);
-
                         });
             }
-
             $('#btnDelete').hide(); // set button enable
             reload_table();
-
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert('Error deleting data');
         }
     });
-
 }
 
 function open_changepassword(id, email) {
@@ -356,8 +345,8 @@ function open_changepassword(id, email) {
     $('#msgsCp').empty();
     $('#passwordcp').val('');
     $('#passwordcp1').val('');
-
 }
+
 function update_password() {
     var id = $('#cpId').val();
     var password = $('#passwordcp').val();
@@ -368,22 +357,18 @@ function update_password() {
         data: {
             'id': id,
             'passw': password
-                    // 
         },
         success: function (data) {
-
             $("#msgsCp").empty();
-
             if (data) {
                 writeMsgs(data, "msgsCp");
                 $('#passwordcp').val('');
                 $('#passwordcp1').val('');
                 $("#btnChangePassword").prop("disabled", true);
             }
-
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            writeMsgsError("Error deleting data", "msgsCp")
+            writeMsgsError("Error deleting data", "msgsCp");
         }
     });
 }

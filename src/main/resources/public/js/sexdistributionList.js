@@ -36,59 +36,27 @@ $(document).ready(function () {
                         {queue: false, duration: 500}
                 ).fadeIn('clip', '', 500, callBackShow);
                 //var colors = Chart.helpers.color;
-                var configBar = {
-                    type: 'bar',
-                    data: {
-                        labels: arrLabel,
-                        datasets: [
-                            {
-                                data: arrDataMale,
-                                backgroundColor: color[5][2],
-                                //backgroundColor: colors(color[5][2]).alpha(0.7).rgbString(),
-                                //color[8][2], 
-                                label: 'Male'
-                            }, {
-                                data: arrDataFemale,
-                                backgroundColor: color[69][2],
-                                //backgroundColor:colors(color[69][2]).alpha(0.7).rgbString(),
-                                // color[32][2], //gold
-                                label: 'Female'
-                            }],
-                    },
-                    options: {
-                        responsive: true,
-                        legend: {
-                            position: 'top'
-                        },
-                        title: {
-                            display: false,
-                            text: 'SEX/DISTRIBUTION'
-                        },
-                        animation: {
-                            animateScale: true,
-                            animateRotate: true
-                        }
-                    }
-                };
 
-                var myChartBar = document.getElementById("bar-chart-area").getContext("2d");
-                var myBar = new Chart(myChartBar, configBar);
+
+                var objDataset = [
+                    {
+                        data: arrDataMale,
+                        backgroundColor: color[5][2],
+                        //backgroundColor: colors(color[5][2]).alpha(0.7).rgbString(),
+                        //color[8][2], 
+                        label: 'Male'
+                    }, {
+                        data: arrDataFemale,
+                        backgroundColor: color[69][2],
+                        //backgroundColor:colors(color[69][2]).alpha(0.7).rgbString(),
+                        // color[32][2], //gold
+                        label: 'Female'
+                    }];
+
+                var textTitle = 'SEX/DISTRIBUTION';
+
+                renderBar(objDataset, textTitle)
 
             });
-
 });
 
-function callBackHide() {
-    setTimeout(function () {
-        $("#center").fadeOut();
-    }, 1000);
-}
-;
-function callBackShow() {
-    setTimeout(function () {
-        $("#center").fadeIn();
-    }, 1000);
-}
-;
-
-   

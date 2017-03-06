@@ -1,33 +1,23 @@
 package it.istat.mec.mecbox.domain;
 
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 
 /**
-*
-* @author framato
-*/
-
+ *
+ * @author Istat MecBox Team
+ */
 @Entity
 @Table(name = "mb_user_roles")
 public class UserRole implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_role_id")
     private Long userroleid;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     @OneToOne
     @JoinColumn(name = "userid")
@@ -36,6 +26,14 @@ public class UserRole implements Serializable {
 
     @Column(name = "role")
     private String role;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getRole() {
         return role;

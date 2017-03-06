@@ -2,16 +2,16 @@ package it.istat.mec.mecbox.security;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
-
 import it.istat.mec.mecbox.domain.User;
 
-;
-
+/**
+ *
+ * @author Istat MecBox Team
+ */
 public class CustomUserDetails extends User implements UserDetails {
 
     private static final long serialVersionUID = 1L;

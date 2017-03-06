@@ -6,10 +6,9 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 /**
- * 
+ *
  * @author Istat MecBox Team
  */
-
 @SpringBootApplication
 public class MecboxApplication extends SpringBootServletInitializer {
 

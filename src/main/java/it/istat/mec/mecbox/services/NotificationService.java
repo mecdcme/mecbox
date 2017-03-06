@@ -2,12 +2,14 @@ package it.istat.mec.mecbox.services;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ *
+ * @author Istat MecBox Team
+ */
 @Service
 public class NotificationService {
 

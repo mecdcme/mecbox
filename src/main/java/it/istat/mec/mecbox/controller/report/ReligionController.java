@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.istat.mec.mecbox.controller.report;
 
 import it.istat.mec.mecbox.domain.Religion;
@@ -15,17 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author papizzo
+ * @author Istat MecBox Team
  */
 @Controller
 public class ReligionController {
 
-       @Autowired
+    @Autowired
     private ReligionService religionService;
 
     @RequestMapping(value = "/religion/religionlist")
     public String religionList(Model model) {
-        // contents as before
 
         List<Religion> religionList = religionService.findAll();
         model.addAttribute("religionList", religionList);

@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import it.istat.mec.mecbox.domain.SexDistribution;
 import it.istat.mec.mecbox.services.report.SexDistributionService;
 
+/**
+ *
+ * @author Istat MecBox Team
+ */
 @RestController
 public class SexDistributionRestController {
 
@@ -15,11 +19,9 @@ public class SexDistributionRestController {
     private SexDistributionService sexdistributionService;
 
     @RequestMapping(value = "/sexdistribution/restlist")
-    public List<SexDistribution>  sexdistributionlist(Model model) {
-        // contents as before
+    public List<SexDistribution> sexdistributionlist(Model model) {
 
         List<SexDistribution> sexdistribution = sexdistributionService.findAll();
-
         return sexdistribution;
     }
 

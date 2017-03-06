@@ -4,14 +4,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
- 
-
+/**
+ *
+ * @author Istat MecBox Team
+ */
 public class UserCreateForm {
 
     private Long userid;
 
     @NotNull
-    @Pattern(regexp = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$", message="Email not valid!")
+    @Pattern(regexp = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$", message = "Email not valid!")
     @Size(min = 2, max = 100)
     private String email;
 
@@ -27,22 +29,16 @@ public class UserCreateForm {
     @Size(min = 2, max = 30)
     private String surname;
 
+    @NotNull
+    @Size(min = 2, max = 30)
+    private String role;
+
     public String getSurname() {
         return surname;
     }
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    @NotNull
-    @Size(min = 2, max = 30)
-    private String role;
-
-    ;
-
-	public String toString() {
-        return "Person(Email: " + this.email + ", Nome: " + this.name + ", Surname: " + this.surname + ")";
     }
 
     public String getEmail() {
@@ -83,6 +79,10 @@ public class UserCreateForm {
 
     public void setUserid(Long userid) {
         this.userid = userid;
+    }
+    
+    public String toString() {
+        return "Person(Email: " + this.email + ", Nome: " + this.name + ", Surname: " + this.surname + ")";
     }
 
 }

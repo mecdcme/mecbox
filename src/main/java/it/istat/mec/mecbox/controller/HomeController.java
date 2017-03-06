@@ -2,9 +2,12 @@ package it.istat.mec.mecbox.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ *
+ * @author Istat MecBox Team
+ */
 @Controller
 public class HomeController {
 
@@ -13,6 +16,5 @@ public class HomeController {
 
         return "index";
     }
-   
 
 }

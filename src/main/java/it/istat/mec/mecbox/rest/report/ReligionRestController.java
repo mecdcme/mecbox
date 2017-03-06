@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import it.istat.mec.mecbox.domain.Religion;
 import it.istat.mec.mecbox.services.report.ReligionService;
 
+/**
+ *
+ * @author Istat MecBox Team
+ */
 @RestController
 public class ReligionRestController {
 
@@ -16,10 +20,8 @@ public class ReligionRestController {
 
     @RequestMapping(value = "/religion/restlist")
     public List<Religion> religionlist(Model model) {
-        // contents as before
 
         List<Religion> religion = religionService.findAll();
-
         return religion;
     }
 

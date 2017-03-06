@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.istat.mec.mecbox.services.report;
 
 import it.istat.mec.mecbox.domain.Household;
@@ -13,7 +8,7 @@ import it.istat.mec.mecbox.dao.HouseholdDao;
 
 /**
  *
- * @author papizzo
+ * @author Istat MecBox Team
  */
 @Service
 public class HouseholdService {
@@ -22,7 +17,6 @@ public class HouseholdService {
     private HouseholdDao householdDao;
 
     public List<Household> findAll() {
-        // TODO Auto-generated method stub
         return (List<Household>) this.householdDao.findAll();
     }
 

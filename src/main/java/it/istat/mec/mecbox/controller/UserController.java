@@ -17,6 +17,10 @@ import java.security.Principal;
 import java.util.List;
 import javax.validation.Valid;
 
+/**
+ *
+ * @author Istat MecBox Team
+ */
 @Controller
 public class UserController {
 

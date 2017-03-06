@@ -1,4 +1,12 @@
 --
+-- Create database `mecbox`
+--
+DROP DATABASE [IF EXISTS] mecbox;
+
+CREATE DATABASE mecbox;
+
+USE mecbox;
+--
 -- Table structure for table `mb_users`
 --
 

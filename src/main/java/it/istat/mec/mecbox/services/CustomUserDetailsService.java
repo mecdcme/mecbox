@@ -1,7 +1,6 @@
 package it.istat.mec.mecbox.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -11,13 +10,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
-
 import it.istat.mec.mecbox.dao.UserDao;
 import it.istat.mec.mecbox.dao.UserRolesDao;
 import it.istat.mec.mecbox.domain.User;
 import it.istat.mec.mecbox.security.CustomUserDetails;
 
-//@Service("customUserDetailsService")
+/**
+ *
+ * @author Istat MecBox Team
+ */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -41,15 +42,11 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userDao.findByEmail(email);
         CustomUserDetails cud;
         if (null == user) {
-            {
-                notificationService.addErrorMessage("Nessun user presente con  user: " + email);
-                throw new UsernameNotFoundException("No user present with user: " + email);
-            }
+            notificationService.addErrorMessage("Nessun user presente con  user: " + email);
+            throw new UsernameNotFoundException("No user present with user: " + email);
         } else {
             List<String> userRoles = userRolesDao.findRoleByEmail(email);
-            //  notificationService.addInfoMessage("Benvenuto!");
             cud = new CustomUserDetails(user, userRoles);
-
             return cud;
         }
     }

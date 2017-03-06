@@ -1,13 +1,15 @@
 package it.istat.mec.mecbox.dao;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
 import it.istat.mec.mecbox.domain.UserRole;
 
+/**
+ *
+ * @author Istat MecBox Team
+ */
 @Repository
 public interface UserRolesDao extends CrudRepository<UserRole, Long> {
 

@@ -386,13 +386,19 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
 /* home page */
 
 .brand {
-    font-size: 4em;
+    font-size: 2em;
     text-transform: capitalize;
 }
 
 .brand {
     font-family: 'Arial', cursive;
 }
+
+.brand-sub {
+    font-size: 1.2em;
+ 
+}
+
 
 .div{
     

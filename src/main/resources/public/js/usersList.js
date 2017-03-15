@@ -39,8 +39,8 @@ $(document)
                                         "ajax": {
                                             "dataType": 'json',
                                             "contentType": "application/json; charset=utf-8",
-                                            "type": "POST",
-                                            "url": _ctx + "/users/restlist",
+                                            "type": "GET",
+                                            "url": _ctx + "/users",
                                             "dataSrc": function (json) {
 
                                                 return json;
@@ -196,7 +196,7 @@ function edit_user(id) {
     tabled_changed = false;
     // Ajax Load data from ajax
     $.ajax({
-        url: _ctx + "/users/restgetUser?id=" + id,
+        url: _ctx + "/users/" + id,
         type: "GET",
         dataType: "JSON",
         success: function (data) {
@@ -250,18 +250,21 @@ function save() {
     $('#btnSave').text('saving...'); // change button text
     $('#btnSave').attr('disabled', true); // set button disable
     tabled_changed = false;
-    var url;
+    var url = _ctx + "/users";
+    var method;
 
     if (save_method == 'add') {
-        url = _ctx + "/users/restNewUser";
+      //  url = _ctx + "/users/restNewUser";
+    	method="POST";
     } else {
-        url = _ctx + "/users/restUpdateUser";
+        //url = _ctx + "/users/restUpdateUser";
+    	method="PUT";
     }
 
     // ajax adding data to database
     $.ajax({
         url: url,
-        type: "POST",
+        type:  method,
         data: $('#form').serialize(),
         dataType: "JSON",
         success: function (data) {
@@ -309,8 +312,8 @@ function open_delete(id, email) {
 function delete_user() {
     var id = $('#delId').val();
     $.ajax({
-        url: _ctx + "/users/restDeleteUser?id=" + id,
-        type: "POST",
+        url: _ctx + "/users/" + id,
+        type: "DELETE",
         dataType: "JSON",
         success: function (data) {
             $("#msgsDel").empty();
@@ -352,12 +355,11 @@ function update_password() {
     var id = $('#cpId').val();
     var password = $('#passwordcp').val();
     $.ajax({
-        url: _ctx + "/users/updatePassword",
+        url: _ctx + "/users/reset_password/"+id,
         type: "POST",
         dataType: "JSON",
         data: {
-            'id': id,
-            'passw': password
+           'passw': password
         },
         success: function (data) {
             $("#msgsCp").empty();

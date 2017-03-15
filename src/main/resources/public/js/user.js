@@ -30,7 +30,7 @@ $(document).ready(function() {
 function update_mypassword() {
 	var password = $('#password').val();
 	$.ajax({
-		url : _ctx + "/users/updateMyPassword",
+		url : _ctx + "/users/reset_password",
 		type : "POST",
 		dataType : "JSON",
 		data : {

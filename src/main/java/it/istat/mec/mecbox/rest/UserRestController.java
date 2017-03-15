@@ -9,7 +9,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,21 +37,21 @@ public class UserRestController {
     @Autowired
     private NotificationService notificationService;
 
-    @RequestMapping(value = "/users/restlist")
+    @GetMapping("/users")
     public List<User> userslist(Model model) {
 
         List<User> users = userService.findAll();
         return users;
     }
 
-    @RequestMapping(value = "/users/restgetUser")
-    public User getUser(@RequestParam("id") Long id) {
+    @GetMapping("/users/{id}")
+    public User getUser(@PathVariable Long id) {
 
         User user = userService.findOne(id);
         return user;
     }
 
-    @RequestMapping(value = "/users/restNewUser", method = RequestMethod.POST)
+    @PostMapping("/users")
     public List<NotificationMessage> newUser(@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
             BindingResult bindingResult) {
 
@@ -68,7 +73,7 @@ public class UserRestController {
         return notificationService.getNotificationMessages();
     }
 
-    @RequestMapping(value = "/users/restUpdateUser", method = RequestMethod.POST)
+    @PutMapping("/users")
     public List<NotificationMessage> updateUser(@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
             BindingResult bindingResult) {
 
@@ -90,8 +95,8 @@ public class UserRestController {
         return notificationService.getNotificationMessages();
     }
 
-    @RequestMapping(value = "/users/restDeleteUser", method = RequestMethod.POST)
-    public List<NotificationMessage> deleteUser(@RequestParam("id") Long id) {
+    @DeleteMapping("/users/{id}")
+    public List<NotificationMessage> deleteUser(@PathVariable Long id) {
 
         notificationService.removeAllMessages();
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -110,7 +115,7 @@ public class UserRestController {
         return notificationService.getNotificationMessages();
     }
 
-    @RequestMapping(value = "/users/updateMyPassword", method = RequestMethod.POST)
+    @PostMapping(value = "/users/reset_password" )
     public List<NotificationMessage> updateMyPassword(@RequestParam("passw") String password, Principal principal) {
 
         String email = principal.getName(); // get logged in username
@@ -125,8 +130,8 @@ public class UserRestController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(value = "/users/updatePassword", method = RequestMethod.POST)
-    public List<NotificationMessage> updatePassword(@RequestParam("passw") String password, @RequestParam("id") String id) {
+    @PostMapping(value = "/users/reset_password/{id}" )
+    public List<NotificationMessage> updatePassword(@RequestParam("passw") String password, @PathVariable String id) {
 
         notificationService.removeAllMessages();
         try {

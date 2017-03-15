@@ -6,7 +6,7 @@ var arrLabelData = [];
 
 $(document).ready(function () {
     setMenuActive("religion-list");
-    var jqxhr = $.getJSON(_ctx + "/religion/restlist", function (json) {
+    var jqxhr = $.getJSON(_ctx + "/religionrest", function (json) {
         console.log("success");
     })
             .done(function (json) {

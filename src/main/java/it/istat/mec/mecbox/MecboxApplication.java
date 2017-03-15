@@ -20,5 +20,6 @@ public class MecboxApplication extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(MecboxApplication.class);
     }
-
+    
+   
 }

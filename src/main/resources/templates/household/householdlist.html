@@ -21,28 +21,28 @@
         <section>
             <div class="content-wrapper">
                 <div class="content-heading">
-                    Household
-                    <small>Table</small>
+                     <span th:text="#{Householdlist.household}"> Household</span>
+                    <small><span th:text="#{Householdlist.table}"> Table</span></small>
                 </div>
                 <div class="container-fluid ">
                     <div class="row mb-lg"> 
                         <div class="panel panel-default col-lg-12">
-                            <div class="panel-heading"><h3><i class="fa  fa-table"></i> Data</h3></div> 
+                            <div class="panel-heading"><h3><i class="fa  fa-table"></i><span th:text="#{Householdlist.data}"> Data</span></h3></div> 
                             <div class="panel-body">
                                 <table id="householdlist"   class="table table-striped" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>region</th>
-                                            <th>zone</th>
-                                            <th>woreda</th>
-                                            <th>city</th>
-                                            <th>subcity</th>
-                                            <th>psa</th>
-                                            <th>sa</th>
-                                            <th>kebele</th>
-                                            <th>ea</th>
-                                            <th>household</th>
-
+                                        	<th><span th:text="#{Householdlist.region}">region</span></th>
+                                            <th><span th:text="#{Householdlist.zone}">zone</span></th>
+                                            <th><span th:text="#{Householdlist.woreda}">woreda</span></th>
+                                            <th><span th:text="#{Householdlist.city}">city</span></th>
+                                            <th><span th:text="#{Householdlist.subcity}">subcity</span></th>
+                                            <th><span th:text="#{Householdlist.psa}">psa</span></th>
+                                            <th><span th:text="#{Householdlist.sa}">sa</span></th>
+                                            <th><span th:text="#{Householdlist.kebele}">kebele</span></th>
+                                            <th><span th:text="#{Householdlist.ea}">ea</span></th>
+                                            <th><span th:text="#{Householdlist.household}">household</span></th>
+                                       
                                         </tr>
                                     </thead>
                                     <tbody>

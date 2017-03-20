@@ -39,8 +39,8 @@
                             <a sec:authorize="isAuthenticated()" href="#"
                                th:href="@{/users/logout}"> <i
                                     class="fa fa-sign-out fa-fw signout"></i> <span
-                                    class="small-screen-hide">Sign out <strong
-                                        sec:authentication="name">User</strong></span>
+                                    class="small-screen-hide"><span th:text="#{Error.signout}">Sign out</span> <strong
+                                        sec:authentication="name"><span th:text="#{Error.user}">User</span></strong></span>
                             </a>
                         </div>
                     </nav>
@@ -56,7 +56,7 @@
                         </span>
                         <nav data-sidebar-anyclick-close="" class="sidebar">
                             <ul class="nav">
-                                <li class="nav-heading"><span>Report List</span></li>
+                                <li class="nav-heading"><span th:text="#{Error.reportlist}">Report List</span></li>
                                 <li class="nav-body active">
                                     <a href="index.html" title="Home" th:href="@{/}" class="active">
                                         <i class="fa fa-home"></i> <span>Home</span>
@@ -82,12 +82,11 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="row well-lg">                                
-                                    <h1 class="indigo-text center" th:text="${error}"> Page not found </h1>
+                                    <h1 class="indigo-text center" th:text="${error}"> <span th:text="#{Error.notfound}">Not found</span> </h1>
 
-                                    <p class="col s12 center" th:text="${message}"> This page is
-                                        not available</p>
+                                    <p class="col s12 center" th:text="${message}"> <span th:text="#{Error.notavaliable}">This page is not available</span></p>
                                     <p>
-                                        Go to <a href="index.html" title="Home" th:href="@{/}"
+                                        <span th:text="#{Error.goto}">Go to</span> <a href="index.html" title="Home" th:href="@{/}"
                                                  class="active"> <i class="fa fa-home"></i> <span>Home</span>
                                         </a>
                                     </p>

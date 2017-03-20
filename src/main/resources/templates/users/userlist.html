@@ -16,19 +16,19 @@
         <section>
             <div class="content-wrapper">
                 <div class="content-heading">
-                    User List<small>List</small>
+                    <span th:text="#{Userlist.userlist}">User List</span><small><span th:text="#{Userlist.list}">List</span></small>
                 </div>
                 <!-- START PANEL-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                         <h3><i class="fa  fa-users"></i> Users</h3>
+                         <h3><i class="fa  fa-users"></i><span th:text="#{Userlist.users}">Users</span></h3>
                     </div>
                     <div class="panel-body">
                         <button class="btn btn-primary" 
                                 id="btnAddUser"
                                 onclick="add_user()" 
                                 style="margin-bottom: 10px">
-                            <i class="fa fa-user-plus"></i> Add User </button>
+                            <i class="fa fa-user-plus"></i> <span th:text="#{Userlist.adduser}">Add User</span> </button>
                         <input type="hidden" th:value="${#authentication.principal.userid}" id="myId" />
 
                         <table id="userslist" class="table table-striped" cellspacing="0"
@@ -36,10 +36,10 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Surname</th>
+                                    <th><span th:text="#{Userlist.name}">Name</span></th>
+                                    <th><span th:text="#{Userlist.surname}">Surname</span></th>
                                     <th>Email</th>
-                                    <th>Role</th>
+                                    <th><span th:text="#{Userlist.role}">Role</span></th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -114,7 +114,7 @@
                                  id="password_group1">
                                 <div class="col-lg-12">
                                     <div class="col-lg-4">
-                                        <label class="control-label">Repeat Password*</label>
+                                        <label class="control-label"><span th:text="#{Edituser.repeat}">Repeat Password*</span></label>
                                     </div>
                                     <div class="col-lg-8">
                                         <input name="password1" 
@@ -131,7 +131,7 @@
                             <div class="form-group row">                                 
                                 <div class="col-lg-12">
                                     <div class="col-lg-4">                                
-                                        <label class="control-label">Name*</label>
+                                        <label class="control-label"><span th:text="#{Userlist.name*}">Name*</span></label>
                                     </div>            
                                     <div class="col-lg-8">
                                         <input name="name" 
@@ -146,7 +146,7 @@
                             <div class="form-group row">
                                 <div class="col-lg-12">
                                     <div class="col-lg-4">
-                                        <label class="control-label">Surname*</label>
+                                        <label class="control-label"><span th:text="#{Userlist.surname*}">Surname*</span></label>
                                     </div>
                                     <div class="col-lg-8">
                                         <input name="surname" 
@@ -161,7 +161,7 @@
                             <div class="form-group row">
                                 <div class="col-lg-12">
                                     <div class="col-lg-4">
-                                        <label class="control-label">Role</label>
+                                        <label class="control-label"><span th:text="#{Userlist.role}">Role</span></label>
                                     </div>
                                     <div class="col-lg-8">
                                         <select name="role" 
@@ -180,9 +180,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btnSave" onclick="save()"
-                            class="btn btn-primary">Save</button>
+                            class="btn btn-primary"><span th:text="#{Userlist.save}">Save</span></button>
                     <button type="button" id="btnClose" class="btn btn-danger"
-                            data-dismiss="modal" onclick="close()">Close</button>
+                            data-dismiss="modal" onclick="close()"><span th:text="#{Userlist.close}">Close</span></button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -204,7 +204,7 @@
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title"><i class="fa fa-trash-o"></i> Delete User </h3>
+                    <h3 class="modal-title"><i class="fa fa-trash-o"></i> <span th:text="#{Userlist.deleteuser}">Delete User</span> </h3>
                 </div>
 
                 <div class="modal-body  ">
@@ -217,9 +217,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btnDelete" onclick="delete_user()"
-                            class="btn btn-primary">Delete</button>
+                            class="btn btn-primary"><span th:text="#{Userlist.delete}">Delete</span></button>
                     <button type="button" id="btnDeleteClose" class="btn btn-danger"
-                            data-dismiss="modal" onclick="close()">Close</button>
+                            data-dismiss="modal" onclick="close()"><span th:text="#{Userlist.close}">Close</span></button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -241,11 +241,11 @@
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title"><i class="fa  fa-key"></i> Change  Password </h3>
+                    <h3 class="modal-title"><i class="fa  fa-key"></i> <span th:text="#{Userlist.changepass}">Change Password</span> </h3>
                 </div>
                 <div class="modal-body">
                     <div id="msgsCp" class="form-group"></div>
-                    <div class="form-group">Change  password for:
+                    <div class="form-group"><span th:text="#{Userlist.changepass4}">Change  password for:</span>
                             <strong>
                                 <span id="cpEmail"></span>
                             </strong>
@@ -255,7 +255,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="col-lg-4">
-                                    <label class="control-label">Password*</label>
+                                    <label class="control-label"><span th:text="#{Userlist.password}">Password*</span></label>
                                 </div>    
                                 <div class="col-lg-8">
                                     <input id="passwordcp" 
@@ -270,7 +270,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="col-lg-4">
-                                    <label class="control-label">Repeat Password*</label>
+                                    <label class="control-label"><span th:text="#{Userlist.repeat}">Repeat Password*</span></label>
                                 </div>    
                                 <div class="col-lg-8">
                                     <input id="passwordcp1" 
@@ -289,10 +289,10 @@
                             id="btnChangePassword"
                             class="btn  btn-primary" 
                             disabled="disabled"
-                            onclick="update_password()">Change</button>
+                            onclick="update_password()"><span th:text="#{Userlist.change}">Change</span></button>
                     <button type="button" id="btnCpClose"
                             class="btn btn-danger"
-                            data-dismiss="modal">Close</button>
+                            data-dismiss="modal"><span th:text="#{Userlist.close}">Close</span></button>
                 </div>
             </div>
             <!-- /.modal-content -->

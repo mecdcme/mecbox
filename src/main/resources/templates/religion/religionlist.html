@@ -24,8 +24,8 @@
         <section>
             <div class="content-wrapper">
                 <div class="content-heading">
-                    Religion
-                    <small>Chart</small>
+                    <span th:text="#{Religionlist.religion}">Religion</span>
+                    <small><span th:text="#{Religionlist.chart}">Chart</span></small>
                 </div>
                 <div class="container-fluid">
                     <div class="row mb-lg">
@@ -36,7 +36,7 @@
                                 <div class="panel panel-default shadow-effect">
                                     <div class="panel-body"> 
                                         <div class="loader">
-                                            <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i><span><strong>Loading data...</strong></span>
+                                            <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i><span><strong><span th:text="#{Religionlist.loadingdata}">Loading data...</span></strong></span>
                                         </div>
                                     </div>
                                 </div>
@@ -47,11 +47,11 @@
                         <div class="panel panel-default religion">
                             <div class="panel-body">                                
                                 <div class="col-sm-6">
-                                    <h3 class="page-header page-header-data"><i class="fa  fa-table"></i> Data </h3>
+                                    <h3 class="page-header page-header-data"><i class="fa  fa-table"></i><span th:text="#{Religionlist.data}">Data</span> </h3>
                                     <table id="religionlist"   class="table table-striped " cellspacing="0" width="100%"></table>
                                 </div>
                                 <div class="col-sm-6" >
-                                    <h3 class="page-header page-header-chart"><i class="fa fa-pie-chart"></i> Doughnut chart </h3>
+                                    <h3 class="page-header page-header-chart"><i class="fa fa-pie-chart"></i><span th:text="#{Religionlist.doughnut}">Doughnut chart</span></h3>
                                     <!--div class="row spacer"></div-->
                                     <canvas id="doughnut-chart-area" />
                                     <!--div class="spacer"></div-->

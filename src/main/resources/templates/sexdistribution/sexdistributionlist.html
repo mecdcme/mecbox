@@ -19,8 +19,8 @@
             <section>
                 <div class="content-wrapper">
                     <div class="content-heading">
-                        Sex Distribution
-                        <small>Chart</small>
+                        <span th:text="#{Sexdistributionlist.sexdistribution}">Sex Distribution</span>
+                        <small><span th:text="#{Sexdistributionlist.chart}">Chart</span></small>
                     </div>
                     <div class="container-fluid ">
                         <div class="row mb-lg">                                
@@ -32,7 +32,7 @@
                                         <div class="panel-body"> 
                                             <div class="loader">
                                                 <i class="fa fa-spinner fa-spin fa-5x fa-fw"></i>
-                                                <span><strong>Loading data...</strong></span>
+                                                <span><strong><span th:text="#{Sexdistributionlist.loadingdata}">Loading data...</span></strong></span>
                                             </div>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                             <div class="sexdistribution col-lg-9">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h3><i class="fa  fa-bar-chart"></i> Male and female sex distribution chart</h3>
+                                        <h3><i class="fa  fa-bar-chart"></i> <span th:text="#{Sexdistributionlist.maleandfemale}">Male and female sex distribution chart</span></h3>
                                     </div>
                                     <div class="panel-body"> 
                                         <canvas id="bar-chart-area" />

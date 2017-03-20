@@ -35,8 +35,8 @@
                             <a sec:authorize="isAuthenticated()" href="#"
                                th:href="@{/users/logout}"> <i
                                     class="fa fa-sign-out fa-fw"></i> <span
-                                    class="small-screen-hide">Sign out <strong
-                                        sec:authentication="name">User</strong></span>
+                                    class="small-screen-hide"><span th:text="#{Layout.signout}">Sign out</span> <strong
+                                        sec:authentication="name"><span th:text="#{Layout.user}">User</span></strong></span>
                             </a>
                         </div>
                     </nav>
@@ -57,7 +57,7 @@
                                     <a href="index.html"
                                        title="Home" th:href="@{/}" class="active"> 
                                         <i class="fa fa-home"></i>
-                                        <span>Home</span>
+                                        <span th:text="#{Layout.home}">Home</span>
                                     </a>
                                 </li>
                                 <li class="nav-body">
@@ -65,27 +65,27 @@
                                        title="Data" data-toggle="collapse" class="collapsed" 
                                        aria-expanded="false">
                                         <i class="fa  fa-file-text-o"></i>
-                                        <span>Data</span>
+                                        <span th:text="#{Layout.data}"> </span>
                                     </a>
                                     <ul id="process-2" class="nav sidebar-subnav collapse"
                                         aria-expanded="false">
                                         <li id="household-list">
                                             <a title="Household" th:href="@{/household/householdlist}">
                                                 <i class="fa  fa-table"></i>
-                                                <span>Household</span>
+                                                <span th:text="#{Layout.household}">Household</span>
                                             </a>
                                         </li>
                                         <li id="religion-list">
                                             <a title="Religion" th:href="@{/religion/religionlist}">
                                                 <i class="fa  fa-pie-chart"></i>
-                                                <span>Religion</span>
+                                                <span th:text="#{Layout.religion}">Religion</span>
                                             </a>
                                         </li>
                                         <li id="sexdistribution-list">
                                             <a title="Sex Distributiont"
                                                th:href="@{/sexdistribution/sexdistributionlist}">
                                                 <i class="fa  fa-bar-chart"></i>
-                                                <span>Sex Distribution</span>
+                                                <span th:text="#{Layout.sexdistribution}">Sex Distribution</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -94,7 +94,7 @@
                                     <a href="#admin" title="Administration" data-toggle="collapse"
                                        class="collapsed" aria-expanded="false">
                                         <i class="fa fa-briefcase"></i>
-                                        <span>Administration</span>
+                                        <span th:text="#{Layout.administration}">Administration</span>
                                     </a>
                                     <ul id="admin" class="nav sidebar-subnav collapse"
                                         aria-expanded="false">
@@ -102,14 +102,14 @@
                                             <a title="Users List" 
                                                th:href="@{/users/userlist}">
                                                 <i class="fa  fa-users"></i>
-                                                <span>Users list</span>
+                                                <span th:text="#{Layout.userlist}">Users list</span>
                                             </a>
                                         </li>
                                         <li id="edituser">
                                             <a title="Edit User" 
                                                th:href="@{/users/edituser}">
                                                 <i class="fa  fa-pencil-square-o"></i>
-                                                <span>Edit User</span>
+                                                <span th:text="#{Layout.edituser}">Edit User</span>
                                             </a>
                                         </li>
                                     </ul>

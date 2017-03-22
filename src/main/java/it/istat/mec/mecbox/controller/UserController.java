@@ -17,7 +17,7 @@ import it.istat.mec.mecbox.services.NotificationService;
 import it.istat.mec.mecbox.services.UserService;
 import java.security.Principal;
 import java.util.List;
-import java.util.Locale;
+
 
 import javax.validation.Valid;
 

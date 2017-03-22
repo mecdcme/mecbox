@@ -1,6 +1,8 @@
 package it.istat.mec.mecbox.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,8 @@ import it.istat.mec.mecbox.services.NotificationService;
 import it.istat.mec.mecbox.services.UserService;
 import java.security.Principal;
 import java.util.List;
+import java.util.Locale;
+
 import javax.validation.Valid;
 
 /**
@@ -29,6 +33,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private MessageSource messages;
 
     @RequestMapping("/login")
     public String showLoginForm(LoginForm loginForm) {
@@ -37,7 +44,7 @@ public class UserController {
 
     @RequestMapping(value = "/users/logout")
     public String logout() {
-        notificationService.addInfoMessage("Logout Ok !");
+        notificationService.addInfoMessage(messages.getMessage("user.logout", null,LocaleContextHolder.getLocale()));
         return "redirect:/";
     }
 
@@ -85,7 +92,7 @@ public class UserController {
 
         try {
             userService.update(form);
-            notificationService.addInfoMessage("User updated");
+            notificationService.addInfoMessage(messages.getMessage("user.updated", null,LocaleContextHolder.getLocale()));
 
         } catch (Exception e) {
             notificationService.addErrorMessage("Error: " + e.getMessage());
@@ -109,7 +116,7 @@ public class UserController {
 
         try {
             userService.create(form);
-            notificationService.addInfoMessage("User created");
+            notificationService.addInfoMessage(messages.getMessage("user.created", null,LocaleContextHolder.getLocale()));
 
         } catch (Exception e) {
             notificationService.addErrorMessage("Error: " + e.getMessage());

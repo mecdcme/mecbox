@@ -4,6 +4,8 @@ import java.security.Principal;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
@@ -32,8 +34,12 @@ public class UserRestController {
 
     @Autowired
     private UserService userService;
+    
     @Autowired
     private NotificationService notificationService;
+    
+    @Autowired
+    MessageSource messages;
 
     @GetMapping("/users")
     public List<User> userslist(Model model) {
@@ -57,7 +63,7 @@ public class UserRestController {
         if (!bindingResult.hasErrors()) {
             try {
                 userService.create(form);
-                notificationService.addInfoMessage("User created");
+                notificationService.addInfoMessage(messages.getMessage("user.created", null,LocaleContextHolder.getLocale()));
             } catch (Exception e) {
                 notificationService.addErrorMessage("Error: " + e.getMessage());
             }
@@ -80,7 +86,7 @@ public class UserRestController {
 
             try {
                 userService.update(form);
-                notificationService.addInfoMessage("User updated");
+                notificationService.addInfoMessage(messages.getMessage("user.updated", null,LocaleContextHolder.getLocale()));
             } catch (Exception e) {
                 notificationService.addErrorMessage("Error: " + e.getMessage());
             }
@@ -100,11 +106,11 @@ public class UserRestController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if (id.compareTo(user.getUserid()) == 0) {
-            notificationService.addErrorMessage("Error: User can not be deleted !");
+            notificationService.addErrorMessage(messages.getMessage("user.error.delete", null,LocaleContextHolder.getLocale()));
         } else {
             try {
                 userService.delete(id);
-                notificationService.addInfoMessage("User deleted");
+                notificationService.addInfoMessage(messages.getMessage("user.deleted", null,LocaleContextHolder.getLocale()));
 
             } catch (Exception e) {
                 notificationService.addErrorMessage("Error: " + e.getMessage());
@@ -120,7 +126,7 @@ public class UserRestController {
         notificationService.removeAllMessages();
         try {
             userService.updatePasswordByEmail(email, password);
-            notificationService.addInfoMessage("User updated");
+            notificationService.addInfoMessage(messages.getMessage("user.password.updated", null,LocaleContextHolder.getLocale()));
         } catch (Exception e) {
             notificationService.addErrorMessage("Error: " + e.getMessage());
         }
@@ -134,7 +140,7 @@ public class UserRestController {
         notificationService.removeAllMessages();
         try {
             userService.updatePasswordById(Long.parseLong(id), password);
-            notificationService.addInfoMessage("Password updated");
+            notificationService.addInfoMessage(messages.getMessage("user.password.updated", null,LocaleContextHolder.getLocale()));
         } catch (Exception e) {
             notificationService.addErrorMessage("Error: " + e.getMessage());
         }

@@ -1,5 +1,12 @@
 var _ctx = $("meta[name='ctx']").attr("content");
+/* variabili defini nella pagina html thymeleaf
+  var _text_addUser = [[#{user.title.adduser}]];
+  	 var _text_editUser = [[#{user.title.edituser}]];
+  	 var _text_savinguser = [[#{user.button.savinguser}]];
+  	 var _text_saveUser = [[#{user.button.saveuser}]];
+*/
 var table;
+
 var tabled_changed = false;
 $(document)
         .ready(
@@ -178,7 +185,7 @@ function add_user() {
     $('.password_group').show(); // show password block
     $('#form_password').val(''); // show password block
 
-    $('#modal_user .modal-title').html('<i class="fa fa-user-plus"></i> Add User');
+    $('#modal_user .modal-title').html('<i class="fa fa-user-plus"></i> '+_text_addUser);
     //$('#modal_user .modal-title').text('Add User'); // Set Title to Bootstrap modal title
     $('#msgs').empty();
     tabled_changed = false;
@@ -212,7 +219,7 @@ function edit_user(id) {
             // $('[name="dob"]').datepicker('update',data.dob);
             $('#modal_user').modal('show'); // show bootstrap modal when
             // complete loaded            
-            $('#modal_user .modal-title').html('<i class="fa  fa-edit "></i> Edit User');
+            $('#modal_user .modal-title').html('<i class="fa  fa-edit "></i> '+_text_editUser);
             //$('#modal_user .modal-title').text('Edit User'); // Set title to Bootstrap            
             // modal title
         },
@@ -247,7 +254,7 @@ function ricarica_tabella() {
 }
 function save() {
 
-    $('#btnSave').text('saving...'); // change button text
+    $('#btnSave').text(_text_savinguser); // change button text
     $('#btnSave').attr('disabled', true); // set button disable
     tabled_changed = false;
     var url = _ctx + "/users";
@@ -287,7 +294,7 @@ function save() {
 
                         });
             }
-            $('#btnSave').text('Save'); // change button text
+            $('#btnSave').text(_text_saveUser); // change button text
             tabled_changed = true;
             if (save_method != 'add' || nerror > 0)
                 $('#btnSave').attr('disabled', false); // set button enable
@@ -295,7 +302,7 @@ function save() {
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert('Error adding / update data');
-            $('#btnSave').text('Save'); // change button text
+            $('#btnSave').text(_text_saveUser); // change button text
             $('#btnSave').attr('disabled', false); // set button enable
         }
     });

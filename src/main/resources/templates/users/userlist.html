@@ -4,6 +4,13 @@
     <head th:include="layout :: site-head" th:remove="tag" />
     <script th:src="@{/js/table/datatables.js}"></script>
     <link rel="stylesheet" th:href="@{/css/table/datatables.css}" />
+  
+    <script th:inline="javascript">
+  	 var _text_addUser = [[#{user.title.adduser}]];
+  	 var _text_editUser = [[#{user.title.edituser}]];
+  	 var _text_savinguser = [[#{user.button.savinguser}]];
+  	 var _text_saveUser = [[#{user.button.saveuser}]];
+     </script>
     <script th:src="@{/js/usersList.js}"></script>
 </head>
 <BODY>
@@ -14,7 +21,7 @@
 
         <!-- START MAIN CONTAINER -->
         <section>
-            <div class="content-wrapper">
+             <div class="content-wrapper">
                 <div class="content-heading">
                     <span th:text="#{Userlist.userlist}">User List</span><small><span th:text="#{Userlist.list}">List</span></small>
                 </div>
@@ -67,7 +74,7 @@
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title">User</h3>
+                    <h3 class="modal-title"><span th:text="#{user.user}">User</span></h3>
                 </div>                
                 <div class="modal-body form">
                     <form action="#" 
@@ -204,13 +211,13 @@
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title"><i class="fa fa-trash-o"></i> <span th:text="#{Userlist.deleteuser}">Delete User</span> </h3>
+                    <h3 class="modal-title"><i class="fa fa-trash-o"></i> <span th:text="#{Userlist.deleteUser}">Delete User</span> </h3>
                 </div>
 
                 <div class="modal-body  ">
                     <div id="msgsDel"></div>
                     <div id="question_delete" class="">
-                        Delete user <strong>
+                       <span th:text="#{Userlist.deleteuser}">Delete user</span> <strong>
                             <span id="delEmail"></span></strong>
                         <input type="hidden" id="delId" value="" />
                     </div>

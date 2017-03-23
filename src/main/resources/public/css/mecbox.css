@@ -210,47 +210,6 @@ aside.toggle-off .active {
 }
 /* END FOOTER */
 
-/* START WIDGET */
-.widget {
-    margin-bottom: 20px;
-    border: 0;
-}
-.widget.panel, .widget .panel {
-    overflow: hidden;
-}
-.row-table {
-    display: table;
-    table-layout: fixed;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-}
-.row-table>[class*=col-] {
-    display: table-cell;
-    float: none;
-    table-layout: fixed;
-    vertical-align: middle;
-}
-.widget-content {
-    padding-bottom: 15px!important;
-}
-.bg-blue {
-    background-color: #5d9cec;
-    color: #fff!important;
-}
-.bg-blue-dark {
-    background-color: #2f80e7;
-    color: #fff!important;
-}
-.bg-purple {
-    background-color: #7266ba;
-    color: #fff!important;
-}
-.bg-purple-dark {
-    background-color: #564aa3;
-    color: #fff!important;
-}
-/* END WIDGET */
 
 @media screen and (max-width: 560px) {
     .small-screen-hide {
@@ -391,7 +350,6 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
 
 .brand {
     font-size: 2em;
-    text-transform: capitalize;
 }
 
 .brand {
@@ -400,12 +358,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
 
 .brand-sub {
     font-size: 1.2em;
- 
 }
 
-
-.div{
-    
+.div{  
     display: table;
     content: " ";
 }
@@ -416,8 +371,6 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
 .stacks {
     margin: 0 auto;
     list-style: none;
-    
-    
 }
 
 .stacks .clip {
@@ -431,8 +384,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
     border: 1px dotted #34788c;
     padding: .8%;
 }
-.stacks .clip img {
-    
+.stacks .clip img {  
     padding: 5px;
     height: 45px;
     display: block;
@@ -460,7 +412,6 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
     padding-top:35px;
     padding-left:15px;
     padding-bottom:15px;
-    
 }
 
 .sexdistribution.col-lg-9 {
@@ -469,7 +420,5 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
 }
 
 .modal-footer #msgs{
-    
-    text-align: left;
-    
-} 
+    text-align: left;  
+}

@@ -12,7 +12,7 @@
     <script th:src="@{/js/household.js}"></script> 
     <link rel="stylesheet" th:href="@{/css/table/datatables.css}" />
 </head>
-<BODY>
+<body>
     <!-- Body -->    
     <div class="wrapper">    
         <header th:replace="layout :: site-header" />
@@ -21,7 +21,7 @@
         <section>
             <div class="content-wrapper">
                 <div class="content-heading">
-                     <span th:text="#{Householdlist.household}"> Household</span>
+                    <span th:text="#{Householdlist.household}"> Household</span>
                     <small><span th:text="#{Householdlist.table}"> Table</span></small>
                 </div>
                 <div class="container-fluid ">
@@ -32,7 +32,7 @@
                                 <table id="householdlist"   class="table table-striped" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                        	<th><span th:text="#{Householdlist.region}">region</span></th>
+                                            <th><span th:text="#{Householdlist.region}">region</span></th>
                                             <th><span th:text="#{Householdlist.zone}">zone</span></th>
                                             <th><span th:text="#{Householdlist.woreda}">woreda</span></th>
                                             <th><span th:text="#{Householdlist.city}">city</span></th>
@@ -42,7 +42,6 @@
                                             <th><span th:text="#{Householdlist.kebele}">kebele</span></th>
                                             <th><span th:text="#{Householdlist.ea}">ea</span></th>
                                             <th><span th:text="#{Householdlist.household}">household</span></th>
-                                       
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -70,5 +69,5 @@
         <!-- END MAIN CONTAINER -->
         <footer th:replace="layout :: site-footer" />
     </div>   <!-- wrapper -->
-</BODY>
+</body>
 </html>

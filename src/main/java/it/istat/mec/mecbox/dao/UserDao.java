@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.dao;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import it.istat.mec.mecbox.domain.User;

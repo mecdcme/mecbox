@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.controller.report;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import it.istat.mec.mecbox.domain.Household;
 import it.istat.mec.mecbox.services.report.HouseholdService;
 import java.util.List;

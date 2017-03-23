@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.bean;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 public enum Role {
     USER, ADMIN
 }

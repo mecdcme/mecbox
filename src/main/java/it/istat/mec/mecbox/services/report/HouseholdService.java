@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.services.report;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import it.istat.mec.mecbox.domain.Household;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

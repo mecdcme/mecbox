@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.controller;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;

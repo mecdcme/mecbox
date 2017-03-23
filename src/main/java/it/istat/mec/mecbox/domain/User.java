@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.domain;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import java.io.Serializable;
 import javax.persistence.*;
 import org.hibernate.annotations.DynamicUpdate;

@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.domain;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;

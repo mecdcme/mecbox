@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.services.report;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import it.istat.mec.mecbox.dao.ReligionDao;
 import it.istat.mec.mecbox.domain.Religion;
 import java.util.List;

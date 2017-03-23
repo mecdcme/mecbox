@@ -23,7 +23,6 @@ package it.istat.mec.mecbox;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

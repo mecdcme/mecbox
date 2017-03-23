@@ -21,7 +21,6 @@ CREATE TABLE `mb_users` (
   UNIQUE KEY `EMAIL_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-
 --
 -- Dumping data for table `mb_users`
 --

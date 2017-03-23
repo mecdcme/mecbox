@@ -212,7 +212,6 @@ INSERT INTO mb_household VALUES ('Tigray',4,5,8,88,1,1,2,1,91);
 INSERT INTO mb_household VALUES ('Tigray',4,4,1,1,1,1,5,1,158);
 
 
-
 BEGIN
     EXECUTE IMMEDIATE 'DROP TABLE mb_religion';
 EXCEPTION

@@ -23,7 +23,6 @@ package it.istat.mec.mecbox;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

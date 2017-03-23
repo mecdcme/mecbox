@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.forms;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;

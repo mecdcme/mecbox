@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.utils;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 

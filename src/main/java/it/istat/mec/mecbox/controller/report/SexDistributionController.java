@@ -23,11 +23,9 @@ package it.istat.mec.mecbox.controller.report;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 
 @Controller
 public class SexDistributionController {

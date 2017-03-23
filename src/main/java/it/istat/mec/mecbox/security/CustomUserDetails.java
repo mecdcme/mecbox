@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.security;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import java.util.Collection;
 import java.util.List;
 import org.springframework.security.core.GrantedAuthority;

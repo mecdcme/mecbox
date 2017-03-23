@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.services;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.services;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;

@@ -23,7 +23,6 @@ package it.istat.mec.mecbox.services.report;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
-
 import it.istat.mec.mecbox.dao.SexDistributionDao;
 import it.istat.mec.mecbox.domain.SexDistribution;
 import java.util.List;

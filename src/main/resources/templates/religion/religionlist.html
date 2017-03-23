@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
     <head th:include="layout :: site-head" th:remove="tag"/>        
-
     <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
     <script th:src="@{/js/table/datatables.js}"></script>
     <!-- ie <11 -->
@@ -35,7 +34,10 @@
                                     <div class="panel panel-default shadow-effect">
                                         <div class="panel-body"> 
                                             <div class="loader">
-                                                <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i><span><strong><span th:text="#{Religionlist.loadingdata}">Loading data...</span></strong></span>
+                                                <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i>
+                                                <span>
+                                                    <strong><span th:text="#{Religionlist.loadingdata}">Loading data...</span></strong>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -51,17 +53,25 @@
                                 <div class="col-lg-6">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <h3><i class="fa  fa-table"></i><span> </span> <span th:text="#{Religionlist.data}">Data</span></h3>
+                                            <h3>
+                                                <i class="fa fa-table"></i>
+                                                <span> </span>
+                                                <span th:text="#{Religionlist.data}">Data</span>
+                                            </h3>
                                         </div>
                                         <div class="panel-body">                                
-                                            <table id="religionlist"   class="table table-striped " cellspacing="0" width="100%"></table>
+                                            <table id="religionlist" class="table table-striped" cellspacing="0" width="100%"></table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <h3><i class="fa fa-pie-chart"></i><span> </span><span th:text="#{Religionlist.doughnut}">Doughnut chart</span></h3>
+                                            <h3>
+                                                <i class="fa fa-pie-chart"></i>
+                                                <span> </span>
+                                                <span th:text="#{Religionlist.doughnut}">Doughnut chart</span>
+                                            </h3>
                                         </div>    
                                         <div class="panel-body">   
                                             <canvas id="doughnut-chart-area" />

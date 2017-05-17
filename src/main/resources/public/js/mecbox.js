@@ -1,4 +1,5 @@
 var smallWindow = 560;
+var dTable;
 
 $(function () {
     //Start metis menu 
@@ -12,15 +13,7 @@ $(function () {
 
 //Set menu active
 function setMenuActive(id) {
-
-    //Clean up
-    $('ul.nav a').each(function () {
-        var element = $(this).removeClass('active').parent().parent().removeClass('in').parent();
-        if (element.is('li')) {
-            element.removeClass('active');
-        }
-    });
-
+    
     $("#" + id).addClass("active");
     $("#" + id + " a").addClass('active').parent().parent().addClass('in').parent();
 }
@@ -59,49 +52,53 @@ function formatPercentage(a, b) {
 //write REST response user
 function writeMsgs(data, iddiv_msgs) {
 
-	$.each(data, function(index, msg) {
-		var classs = 'alert alert-info';
-		if (msg.type == 'INFO')
-			classs = 'alert alert-success';
-		else if (msg.type == 'ERROR')
-			classs = 'alert alert-danger';
-		var div = $('<div class="' + classs + '"><strong>' + msg.type
-				+ '</strong>: ' + msg.text + ' </div>"');
-		$("#" + iddiv_msgs).append(div);
+    $.each(data, function (index, msg) {
+        var classs = 'alert alert-info';
+        if (msg.type === 'INFO')
+            classs = 'alert alert-success';
+        else if (msg.type === 'ERROR')
+            classs = 'alert alert-danger';
+        var div = $('<div class="' + classs + '"><strong>' + msg.type
+                + '</strong>: ' + msg.text + ' </div>"');
+        $("#" + iddiv_msgs).append(div);
 
-	});
+    });
 }
 //write REST response user
 function writeMsgsError(msg, iddiv_msgs) {
 
-	var classs = 'alert alert-danger';
-	var div = $('<div class="' + classs + '">' + msg + ' </div>"');
-	$("#" + iddiv_msgs).append(div);
+    var classs = 'alert alert-danger';
+    var div = $('<div class="' + classs + '">' + msg + ' </div>"');
+    $("#" + iddiv_msgs).append(div);
 
 }
 
 //function to render table
 
-function renderTable(id, defBtns,defCols,arrLabelData) {
-    $("#"+id).DataTable({
-        //dom: 'Bfrtip',
+function renderTable(id, defBtns, defCols, arrLabelData) {
+
+    dTable="";
+    dTable = $("#" + id).DataTable({
+        //dom: 'Bfrtip',        
         dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-        responsive: true,
+        responsive: true,        
         pageLength: 10,
+        bDestroy:true,
         bPaginate: true,
         buttons: defBtns,
-        data: arrLabelData,
-        "columns": defCols
-        
+        columns: defCols,        
+        data: arrLabelData
     });
+  
     //table.buttons().container().appendTo('#religionlist_wrapper .col-sm-6:eq(0)');
 }
 ;
 
+
 //function to render chart: type Doughnut
-function renderDoughnut(arrData,arrColor,arrLabel) {
+function renderDoughnut(arrData, arrColor, arrLabel) {
 
     var configDoughnut = {
         type: 'doughnut',
@@ -173,4 +170,3 @@ function callBackShow() {
 }
 ;
 
-   

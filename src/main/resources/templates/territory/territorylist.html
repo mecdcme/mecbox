@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <head th:include="layout :: site-head" th:remove="tag"/>        
+    <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
+    <script th:src="@{/js/table/datatables.js}"></script>
+    <!-- ie <11 -->
+    <!--script th:src="@{/js/table/dataTables.buttons.min.js}"></script>
+    <script th:src="@{/js/table/buttons.flash.min.js}"></script-->
+    <link rel="stylesheet" th:href="@{/css/table/datatables.css}" />
+    <script th:src="@{/js/territoryList.js}"></script>
+
+
+</head>
+<body>
+    <!-- Body -->    
+    <div class="wrapper">    
+        <header th:replace="layout :: site-header" />
+        <aside th:replace="layout :: site-aside" />
+        <!-- START MAIN CONTAINER -->
+        <section>
+            <div class="content-wrapper">
+                <div class="content-heading">
+                    <span th:text="#{Territorylist.territory}">Territory</span>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="mb-lg">
+                            <!-- start loader -->
+                            <div class="row loading">                            
+                                <div class="col-sm-3"></div> 
+                                <div class="col-sm-6">  
+                                    <div class="panel panel-default shadow-effect">
+                                        <div class="panel-body"> 
+                                            <div class="loader">
+                                                <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i>
+                                                <span>
+                                                    <strong><span th:text="#{Territorylist.loadingdata}">Loading data...</span></strong>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>     
+                                <div class="col-sm-3"></div> 
+                            </div>
+                            <!-- end loader -->
+
+                            <div class="row territory">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3>
+                                                <i class="fa fa-table"></i>
+                                                <span> </span>
+                                                <span th:text="#{Territorylist.data}">Data</span>
+                                            </h3>
+                                        </div>
+                                        <div class="territory-panel-body panel-body"> 
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <form>
+                                                        <fieldset class="well">
+                                                            <legend class="well-legend" >
+                                                                <i class="fa fa-search" aria-hidden="true"></i> <span th:text="#{Territorylist.legend}">Filter by territory</span></legend>
+                                                            <!--div class="row"-->
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group group-regione">
+                                                                    <label for="select-regione" th:text="#{Territorylist.regione}">Select list (select one regione):</label>
+                                                                    <select class="form-control" id="select-regione"></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group group-provincia">
+                                                                    <label for="select-provincia" th:text="#{Territorylist.provincia}">Select list (select one provincia):</label>
+                                                                    <select class="form-control" id="select-provincia"></select>
+                                                                </div>
+                                                            </div>
+                                                            <!--/div-->
+                                                        </fieldset> 
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!--div class="row"-->
+                                            <!--div id="territorylistcontainer"-->
+                                            <table id="territorylist" class="table table-striped" cellspacing="0" width="100%"></table>    
+                                            <!--/div-->
+                                            <!--/div-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </section>
+        <!-- END MAIN CONTAINER -->
+        <footer th:replace="layout :: site-footer" />
+    </div>   <!-- wrapper -->
+</body>
+</html>
+
+

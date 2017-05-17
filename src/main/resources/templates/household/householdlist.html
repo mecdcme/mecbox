@@ -23,46 +23,72 @@
                     <small><span th:text="#{Householdlist.table}"> Table</span></small>
                 </div>
                 <div class="container-fluid ">
-                    <div class="row mb-lg"> 
-                        <div class="panel panel-default col-lg-12">
-                            <div class="panel-heading">
-                                <h3>
-                                    <i class="fa  fa-table"></i>
-                                    <span th:text="#{Householdlist.data}"> Data</span>
-                                </h3>
-                            </div> 
-                            <div class="panel-body">
-                                <table id="householdlist" class="table table-striped" cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th><span th:text="#{Householdlist.region}">region</span></th>
-                                            <th><span th:text="#{Householdlist.zone}">zone</span></th>
-                                            <th><span th:text="#{Householdlist.woreda}">woreda</span></th>
-                                            <th><span th:text="#{Householdlist.city}">city</span></th>
-                                            <th><span th:text="#{Householdlist.subcity}">subcity</span></th>
-                                            <th><span th:text="#{Householdlist.psa}">psa</span></th>
-                                            <th><span th:text="#{Householdlist.sa}">sa</span></th>
-                                            <th><span th:text="#{Householdlist.kebele}">kebele</span></th>
-                                            <th><span th:text="#{Householdlist.ea}">ea</span></th>
-                                            <th><span th:text="#{Householdlist.household}">household</span></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="hh : ${householdList}"
-                                            th:unless="${(householdList == null) or (householdList.size() == 0) }">
-                                            <td th:text="${hh.region}"></td>
-                                            <td th:text="${hh.zone}"></td>
-                                            <td th:text="${hh.woreda}"></td>
-                                            <td th:text="${hh.city}"></td>
-                                            <td th:text="${hh.subcity}"></td>
-                                            <td th:text="${hh.psa}"></td>
-                                            <td th:text="${hh.sa}"></td>
-                                            <td th:text="${hh.kebele}"></td>
-                                            <td th:text="${hh.ea}"></td>
-                                            <td th:text="${hh.household}"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    <div class="row">
+                        <div class="mb-lg">                            
+                            <!-- start loader -->
+                            <div class="row loading">                            
+                                <div class="col-sm-3"></div> 
+                                <div class="col-sm-6">  
+                                    <div class="panel panel-default shadow-effect">
+                                        <div class="panel-body"> 
+                                            <div class="loader">
+                                                <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i>
+                                                <span>
+                                                    <strong><span th:text="#{Householdlist.loadingdata}">Loading data...</span></strong>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>     
+                                <div class="col-sm-3"></div> 
+                            </div>
+
+                            <!-- end loader -->
+
+                            <div class="row household" > 
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3>
+                                                <i class="fa  fa-table"></i>
+                                                <span th:text="#{Householdlist.data}"> Data</span>
+                                            </h3>
+                                        </div> 
+                                        <div class="panel-body">
+                                            <table id="householdlist" class="table table-striped" cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th><span th:text="#{Householdlist.region}">region</span></th>
+                                                        <th><span th:text="#{Householdlist.zone}">zone</span></th>
+                                                        <th><span th:text="#{Householdlist.woreda}">woreda</span></th>
+                                                        <th><span th:text="#{Householdlist.city}">city</span></th>
+                                                        <th><span th:text="#{Householdlist.subcity}">subcity</span></th>
+                                                        <th><span th:text="#{Householdlist.psa}">psa</span></th>
+                                                        <th><span th:text="#{Householdlist.sa}">sa</span></th>
+                                                        <th><span th:text="#{Householdlist.kebele}">kebele</span></th>
+                                                        <th><span th:text="#{Householdlist.ea}">ea</span></th>
+                                                        <th><span th:text="#{Householdlist.household}">household</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="hh : ${householdList}"
+                                                        th:unless="${(householdList == null) or (householdList.size() == 0) }">
+                                                        <td th:text="${hh.region}"></td>
+                                                        <td th:text="${hh.zone}"></td>
+                                                        <td th:text="${hh.woreda}"></td>
+                                                        <td th:text="${hh.city}"></td>
+                                                        <td th:text="${hh.subcity}"></td>
+                                                        <td th:text="${hh.psa}"></td>
+                                                        <td th:text="${hh.sa}"></td>
+                                                        <td th:text="${hh.kebele}"></td>
+                                                        <td th:text="${hh.ea}"></td>
+                                                        <td th:text="${hh.household}"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

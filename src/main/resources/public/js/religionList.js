@@ -66,7 +66,7 @@ $(document).ready(function () {
                 ];
 
                 renderTable("religionlist", defBtns,defCols,arrLabelData);
-                renderDoughnut(arrData,arrColor,arrLabel)
+                renderDoughnut(arrData,arrColor,arrLabel);
 
             });
 

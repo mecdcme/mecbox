@@ -423,3 +423,47 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before
 .modal-footer #msgs{
     text-align: left;
 } 
+
+.well {
+    background-color: #fff !important;
+}
+.well-legend {
+
+    font-size: 15px;
+    font-weight: bold;
+    width: auto;
+    padding: 2px 5px 2px 5px;
+    background: #fff;
+}
+legend {
+    border-bottom: none !important; 
+}
+fieldset {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.territory-panel-body.panel-body{
+    padding-top: 0px;        
+}
+
+.panel-heading {    
+    padding:5px 15px !important;    
+}
+
+.sexdistribution, .household, .sexdistribution,.territory{display: none;}
+
+
+.blink_me {  
+  
+    text-decoration-line: blink;
+}
+
+.blink_me_2 {
+  animation: blinker 1s linear infinite;
+  
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}

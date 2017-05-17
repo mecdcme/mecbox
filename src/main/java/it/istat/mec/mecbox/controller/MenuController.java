@@ -29,12 +29,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-public class HomeController {
+public class MenuController {
 
-    @RequestMapping("/")
-    public String home(Model model) {
+    @RequestMapping("territory/territorylist")
+    public String menu(Model model) {
 
-        return "index";
+        return "territory/territorylist";
     }
 
 }

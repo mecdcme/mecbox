@@ -62,12 +62,14 @@
                         <nav data-sidebar-anyclick-close="" class="sidebar">
                             <ul class="nav">
                                 <li class="nav-heading"><span>Menu</span></li>
-                                <li class="nav-body active">
-                                    <a href="index.html" title="Home" th:href="@{/}" class="active"> 
+                                <li id="home" class="nav-body">
+                                    <a href="index.html" title="Home" th:href="@{/}" > 
                                         <i class="fa fa-home"></i> 
                                         <span th:text="#{Layout.home}">Home</span>
                                     </a>
                                 </li>
+
+                                
                                 <li class="nav-body">
                                     <a href="#process-2" title="Data" data-toggle="collapse" class="collapsed" aria-expanded="false">
                                         <i class="fa  fa-file-text-o"></i> 
@@ -94,6 +96,21 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li class="nav-body">
+                                    <!--a href="#territory" title="Territory" data-toggle="collapse" class="collapsed" aria-expanded="false">
+                                        <i class="fa  fa-file-text-o"></i> 
+                                        <span th:text="#{Layout.territory}"> </span>
+                                    </a-->                               
+                                    <!--ul id="territory" class="nav sidebar-subnav collapse" aria-expanded="false">
+                                        <li id="territory-list"-->
+                                            <a title="Territory List" th:href="@{/territory/territorylist}"> 
+                                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                                <span th:text="#{Layout.territory}">Territory</span>
+                                            </a>
+                                        <!--/li>
+                                    </ul-->
+                                </li>
+                                
                                 <li class="nav-body">
                                     <a href="#admin" title="Administration" data-toggle="collapse" class="collapsed" aria-expanded="false">
                                         <i class="fa fa-briefcase"></i> 

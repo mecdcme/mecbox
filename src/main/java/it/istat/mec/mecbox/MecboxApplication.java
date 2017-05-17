@@ -23,6 +23,7 @@ package it.istat.mec.mecbox;
  * @author Paolo Pizzo <papizzo @ istat.it>
  * @version 1.0
  */
+import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -33,6 +34,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 public class MecboxApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
+        Logger.getLogger(MecboxApplication.class.getName()).info("RUN");
         SpringApplication.run(MecboxApplication.class, args);
     }
     

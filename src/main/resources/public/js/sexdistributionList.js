@@ -29,15 +29,11 @@ $(document).ready(function () {
                     arrDataMale.push(obj.male);
                     arrDataFemale.push(obj.female);
                 });
-
                 $('.loading').hide();
-
                 $('.sexdistribution').animate(
                         {queue: false, duration: 500}
                 ).fadeIn('clip', '', 500, callBackShow);
                 //var colors = Chart.helpers.color;
-
-
                 var objDataset = [
                     {
                         data: arrDataMale,

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="layout :: site-head"/>
+    <script th:inline="javascript">
+        $(function() {
+            setMenuActive("home");
+        });
+    </script>
     <body>
         <!-- Body -->    
         <div class="wrapper">
@@ -41,85 +46,92 @@
                                         <div class="row">    
                                             <!--div class="col-lg-1"></div-->
                                             <div class="col-lg-6 text-center">
-                                                <h2 class="heading"> <i class="fa fa-desktop" aria-hidden="true"></i> <span th:text="#{Index.clientside}">Client side</span></h2>
-                                                <ul class="stacks">
-                                                    <li class="clip">
-                                                        <img src="images/svg/html-5.svg"/>
-                                                        <a href="https://www.w3.org/TR/html5/"><span class="title_sub_tech">HTML 5</span></a>
-                                                    </li>
-                                                    <li class="clip">
-                                                        <img src="images/svg/css-3.svg"/>
-                                                        <a href="https://www.w3.org/Style/CSS/"><span class="title_sub_tech">CSS3</span></a>
-                                                    </li>
-                                                    <li class="clip">
-                                                        <img src="images/svg/bootstrap.svg"/>
-                                                        <a href="http://getbootstrap.com/"><span class="title_sub_tech">Bootstrap</span></a>
-                                                    </li>
-                                                    <li class="clip">
-                                                        <img src="images/svg/jquery.svg" class="width"/>
-                                                        <a href="https://jquery.com/"><span class="title_sub_tech">JQuery</span></a>
-                                                    </li>
-                                                    <li class="clip">
-                                                        <img src="images/icons/datatables.png"/>
-                                                        <a href="https://datatables.net/"><span class="title_sub_tech">Datatables </span></a>
-                                                    </li>
-                                                    <li class="clip">
-                                                        <img src="images/svg/chartjs.svg"/>
-                                                        <a href="http://www.chartjs.org/"><span class="title_sub_tech">CHART JS</span></a>
-                                                    </li>
-                                                    <li class="clip">
-                                                        <img src="images/icons/fontawesome.png"/>
+                                                <div class="row">    
+                                                    <h2 class="heading"> <i class="fa fa-desktop" aria-hidden="true"></i> <span th:text="#{Index.clientside}">Client side</span></h2>
+                                                </div>    
+                                                <div class="row">     
+                                                    <ul class="stacks">
+                                                        <li class="clip">
+                                                            <img src="images/svg/html-5.svg"/>
+                                                            <a href="https://www.w3.org/TR/html5/"><span class="title_sub_tech">HTML 5</span></a>
+                                                        </li>
+                                                        <li class="clip">
+                                                            <img src="images/svg/css-3.svg"/>
+                                                            <a href="https://www.w3.org/Style/CSS/"><span class="title_sub_tech">CSS3</span></a>
+                                                        </li>
+                                                        <li class="clip">
+                                                            <img src="images/svg/bootstrap.svg"/>
+                                                            <a href="http://getbootstrap.com/"><span class="title_sub_tech">Bootstrap</span></a>
+                                                        </li>
+                                                        <li class="clip">
+                                                            <img src="images/svg/jquery.svg" class="width"/>
+                                                            <a href="https://jquery.com/"><span class="title_sub_tech">JQuery</span></a>
+                                                        </li>
+                                                        <li class="clip">
+                                                            <img src="images/icons/datatables.png"/>
+                                                            <a href="https://datatables.net/"><span class="title_sub_tech">Datatables </span></a>
+                                                        </li>
+                                                        <li class="clip">
+                                                            <img src="images/svg/chartjs.svg"/>
+                                                            <a href="http://www.chartjs.org/"><span class="title_sub_tech">CHART JS</span></a>
+                                                        </li>
+                                                        <li class="clip">
+                                                            <img src="images/icons/fontawesome.png"/>
 
-                                                        <a href="http://fontawesome.io/"><span class="title_sub_tech">Font Awesome</span></a>
-                                                    </li>
-                                                    <li class="clear"></li>
-                                                </ul>
+                                                            <a href="http://fontawesome.io/"><span class="title_sub_tech">Font Awesome</span></a>
+                                                        </li>
+                                                        <li class="clear"></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div class="col-lg-6 text-center">
-                                                <h2 class="heading"><i class="fa fa-server" aria-hidden="true"></i><span th:text="#{Index.serverside}">Server side</span></h2>
-                                                <ul class="stacks">
-                                                    <li class="clip">
-                                                        <img src="images/icons/spring-boot.png"/>
-                                                        <a href="https://projects.spring.io/spring-boot/"><span class="title_sub_tech">Spring Boot</span></a>
-                                                    </li>
-                                                    <li class="clip">
-                                                        <img src="images/icons/spring.png"/>
-                                                        <a href="https://projects.spring.io/spring-security/"><span class="title_sub_tech">Spring MVC</span></a>
-                                                    </li>
-                                                    <li class="clip">
-                                                        <img src="images/icons/thymeleaf.png"/>
-                                                        <a href="http://www.thymeleaf.org/"><span class="title_sub_tech">Thymeleaf</span></a>
-                                                    </li>
-                                                    <li class="clip">
-                                                        <img src="images/icons/spring.png"/>
-                                                        <a href="https://projects.spring.io/spring-security/"><span class="title_sub_tech">Spring Security</span></a>
-                                                    </li>
-                                                    <li class="clip ">
-                                                        <img src="images/icons/spring.png"/>
-                                                        <a href="http://projects.spring.io/spring-data-jpa/"><span class="title_sub_tech">Spring Data JPA</span></a>
-                                                    </li>
+                                                <div class="row">    
+                                                    <h2 class="heading"><i class="fa fa-server" aria-hidden="true"></i><span th:text="#{Index.serverside}">Server side</span></h2>
+                                                </div>    
+                                                <div class="row">    
+                                                    <ul class="stacks">
+                                                        <li class="clip">
+                                                            <img src="images/icons/spring-boot.png"/>
+                                                            <a href="https://projects.spring.io/spring-boot/"><span class="title_sub_tech">Spring Boot</span></a>
+                                                        </li>
+                                                        <li class="clip">
+                                                            <img src="images/icons/spring.png"/>
+                                                            <a href="https://projects.spring.io/spring-security/"><span class="title_sub_tech">Spring MVC</span></a>
+                                                        </li>
+                                                        <li class="clip">
+                                                            <img src="images/icons/thymeleaf.png"/>
+                                                            <a href="http://www.thymeleaf.org/"><span class="title_sub_tech">Thymeleaf</span></a>
+                                                        </li>
+                                                        <li class="clip">
+                                                            <img src="images/icons/spring.png"/>
+                                                            <a href="https://projects.spring.io/spring-security/"><span class="title_sub_tech">Spring Security</span></a>
+                                                        </li>
+                                                        <li class="clip ">
+                                                            <img src="images/icons/spring.png"/>
+                                                            <a href="http://projects.spring.io/spring-data-jpa/"><span class="title_sub_tech">Spring Data JPA</span></a>
+                                                        </li>
 
 
-                                                    <li class="clip ">
-                                                        <img src="images/svg/hibernate.svg"/>
-                                                        <a href="http://hibernate.org/"><span class="title_sub_tech">Hibernate</span></a>
-                                                    </li>
+                                                        <li class="clip ">
+                                                            <img src="images/svg/hibernate.svg"/>
+                                                            <a href="http://hibernate.org/"><span class="title_sub_tech">Hibernate</span></a>
+                                                        </li>
 
-                                                    <li class="clip">
-                                                        <img src="images/icons/maven.png" class="width"/>
-                                                        <a href="https://maven.apache.org/"><span class="title_sub_tech">Maven</span></a>
-                                                    </li>
+                                                        <li class="clip">
+                                                            <img src="images/icons/maven.png" class="width"/>
+                                                            <a href="https://maven.apache.org/"><span class="title_sub_tech">Maven</span></a>
+                                                        </li>
 
-                                                    <li class="clip">
-                                                        <img src="images/svg/mysql.svg"/>
-                                                        <a href="https://www.mysql.it/"><span class="title_sub_tech">MySQL</span></a>
-                                                    </li>
+                                                        <li class="clip">
+                                                            <img src="images/svg/mysql.svg"/>
+                                                            <a href="https://www.mysql.it/"><span class="title_sub_tech">MySQL</span></a>
+                                                        </li>
 
-                                                    <li class="clear"></li>
-                                                </ul>
+                                                        <li class="clear"></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <!--div class="col-lg-1"></div-->
-
                                         </div>
                                     </div>    
                                 </div>

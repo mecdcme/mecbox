@@ -62,5 +62,7 @@ based Applications, with an embedded Tomcat, that you can "just run".
 ```
 java –jar  mecbox-1.0.jar
 ```
+In the docs folder you will find a complete userguide with useful information that will help you to understand mecbox project.
+
 ## License
 Mecbox is EUPL-licensed
